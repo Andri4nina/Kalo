@@ -18,7 +18,8 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
   pagination.
 - Lecture audio : lecture et pause, morceau précédent et suivant, déplacement
   dans la piste, volume, balance stéréo, mode muet, lecture aléatoire et répétition.
-- File d'attente consultable, réordonnable par retrait et ajout.
+- File d'attente consultable, réordonnable par retrait et ajout, restaurée au
+  lancement de l'application.
 - Playlists persistantes : création, renommage, suppression, ajout et retrait de
   morceaux, réordonnancement.
 - Favoris et historique d'écoute récents.
@@ -110,6 +111,18 @@ Détails : [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
   les tests Rust sous Linux, Windows et macOS.
 - État des versions : [CHANGELOG.md](CHANGELOG.md).
 - Travaux prévus et critères de sortie : [docs/ROADMAP.md](docs/ROADMAP.md).
+
+### Vérifié localement
+
+Au 19 octobre 2026, sous Windows avec Visual Studio Build Tools :
+
+- `npm run check` passe (règles, TypeScript, build, format, clippy strict, tests) ;
+- le binaire de bureau est construit sans paquet d'installation ;
+- l'exécutable démarre, crée sa base SQLite en mode WAL et se ferme
+  correctement, y compris au redémarrage avec des fichiers `-wal` existants.
+
+Les autres plateformes sont couvertes par la CI mais n'ont pas encore été
+vérifiées manuellement.
 
 ## Règles de contribution
 

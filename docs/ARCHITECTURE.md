@@ -82,7 +82,10 @@ charge les requêtes par plage d'octets, nécessaires au déplacement dans la pi
 Le graphe est créé une seule fois et réutilisé. Si le navigateur refuse Web Audio,
 le volume retombe sur celui de l'élément média ; la balance n'est alors pas
 appliquée. Le mode muet, les préférences et la file d'attente sont gérés par
-Zustand. Les erreurs de lecture sont affichées sans interrompre l'application.
+Zustand. Le volume, la balance, l'aléatoire et la répétition sont conservés dans
+le stockage local ; la file d'attente et l'index courant sont restaurés au
+lancement, sans reprise exacte de la position de lecture. Les erreurs de lecture
+sont affichées sans interrompre l'application.
 
 Les touches média sont prises en charge via l'API Web Media Session lorsqu'elle
 est exposée par le WebView : métadonnées, lecture, pause, précédent, suivant et

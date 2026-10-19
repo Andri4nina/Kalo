@@ -7,6 +7,7 @@ import { PlayerBar } from "@/features/player/PlayerBar";
 import { QueuePanel } from "@/features/player/QueuePanel";
 import { useAudioEngine } from "@/features/player/useAudioEngine";
 import { bindMediaSession } from "@/features/player/media.session";
+import { watchPlayerSession } from "@/features/player/player.session";
 import { Sidebar } from "./Sidebar";
 
 export function AppShell() {
@@ -15,6 +16,7 @@ export function AppShell() {
   useAudioEngine();
   useKeyboardShortcuts();
   useEffect(bindMediaSession, []);
+  useEffect(watchPlayerSession, []);
 
   return (
     <div className={page}>

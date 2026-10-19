@@ -4,11 +4,14 @@ import { createMixerActions } from "./player.actions.mixer";
 import { createQueueActions } from "./player.actions.queue";
 import { createTransportActions } from "./player.actions.transport";
 import { loadPlayerPrefs } from "./player.prefs";
+import { loadPlayerSession } from "./player.session.storage";
 import type { PlayerState } from "./player.types";
 
+const session = loadPlayerSession();
+
 export const usePlayer = create<PlayerState>((set, get) => ({
-  queue: [],
-  index: -1,
+  queue: session?.queue ?? [],
+  index: session?.index ?? -1,
   playing: false,
   buffering: false,
   positionMs: 0,

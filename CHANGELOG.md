@@ -12,6 +12,7 @@ le versionnage sémantique à partir de la première version publiée.
 - Analyse récursive de dossiers musicaux avec métadonnées et pochettes.
 - Bibliothèque avec recherche, tri, pagination et favoris.
 - Lecture audio avec volume, balance, aléatoire, répétition et file d'attente.
+- File d'attente restaurée au lancement et touches média via l'API Media Session.
 - Playlists persistantes avec réordonnancement.
 - Historique d'écoute récent.
 - Thèmes clair et sombre, raccourcis clavier.
