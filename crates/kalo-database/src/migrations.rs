@@ -1,0 +1,25 @@
+use rusqlite::Connection;
+
+use crate::DbResult;
+
+const MIGRATIONS: &[(i64, &str)] = &[
+    (1, include_str!("../migrations/001_roots.sql")),
+    (2, include_str!("../migrations/002_catalog.sql")),
+    (3, include_str!("../migrations/003_playlists.sql")),
+    (4, include_str!("../migrations/004_listening.sql")),
+    (5, include_str!("../migrations/005_indexes.sql")),
+];
+
+pub fn run(conn: &mut Connection) -> DbResult<()> {
+    let current: i64 = conn.pragma_query_value(None, "user_version", |row| row.get(0))?;
+    for (version, sql) in MIGRATIONS {
+        if *version <= current {
+            continue;
+        }
+        let tx = conn.transaction()?;
+        tx.execute_batch(sql)?;
+        tx.pragma_update(None, "user_version", version)?;
+        tx.commit()?;
+    }
+    Ok(())
+}

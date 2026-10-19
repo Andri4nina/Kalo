@@ -1,0 +1,15 @@
+[package]
+name = "kalo-library"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+kalo-core = { path = "../kalo-core" }
+kalo-database = { path = "../kalo-database" }
+lofty.workspace = true
+walkdir.workspace = true
+blake3.workspace = true
+dunce.workspace = true
+thiserror.workspace = true

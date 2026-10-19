@@ -1,0 +1,18 @@
+{
+  "name": "kalo",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "apps/desktop"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w @kalo/desktop",
+    "build": "npm run build -w @kalo/desktop",
+    "typecheck": "npm run typecheck -w @kalo/desktop",
+    "tauri": "npm run tauri -w @kalo/desktop",
+    "check:rules": "node scripts/check-rules.mjs",
+    "check:rust": "cargo fmt --all -- --check && cargo clippy --workspace --all-targets -- -D warnings && cargo test --workspace",
+    "check": "npm run check:rules && npm run typecheck && npm run build && npm run check:rust"
+  }
+}
