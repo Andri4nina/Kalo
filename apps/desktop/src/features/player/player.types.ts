@@ -5,6 +5,7 @@ export type RepeatMode = "off" | "all" | "one";
 export interface PlayerState {
   queue: Track[];
   index: number;
+  resumePositionMs: number;
   playing: boolean;
   buffering: boolean;
   positionMs: number;
@@ -33,6 +34,8 @@ export interface PlayerState {
   toggleShuffle: () => void;
   cycleRepeat: () => void;
   enqueue: (track: Track) => void;
+  playNext: (track: Track) => void;
+  moveInQueue: (from: number, to: number) => void;
   removeFromQueue: (index: number) => void;
   patchTrack: (trackId: number, patch: Partial<Track>) => void;
   clearQueue: () => void;

@@ -17,12 +17,12 @@ export function createTransportActions(set: PlayerSet, get: PlayerGet): Transpor
     playQueue: (tracks, startIndex = 0) => {
       if (tracks.length === 0) return;
       const index = Math.min(Math.max(startIndex, 0), tracks.length - 1);
-      set({ queue: tracks, index, playing: true, positionMs: 0, error: null });
+      set({ queue: tracks, index, playing: true, positionMs: 0, resumePositionMs: 0, error: null });
     },
     playTrack: (track, source) => {
       const queue = source?.length ? source : [track];
       const found = queue.findIndex((item) => item.id === track.id);
-      set({ queue, index: found < 0 ? 0 : found, playing: true, positionMs: 0, error: null });
+      set({ queue, index: found < 0 ? 0 : found, playing: true, positionMs: 0, resumePositionMs: 0, error: null });
     },
     toggle: () => {
       if (get().queue.length > 0) set((state) => ({ playing: !state.playing }));

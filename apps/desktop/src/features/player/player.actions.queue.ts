@@ -19,7 +19,21 @@ export function createQueueActions(set: PlayerSet): QueueActions {
         queue: state.queue.map((track) => (track.id === trackId ? { ...track, ...patch } : track)),
       })),
     clearQueue: () =>
-      set({ queue: [], index: -1, playing: false, positionMs: 0, durationMs: 0 }),
+      set({ queue: [], index: -1, playing: false, positionMs: 0, resumePositionMs: 0, durationMs: 0 }),
+    playNext: (track) =>
+      set((state) => ({
+        queue: [...state.queue.slice(0, state.index + 1), track, ...state.queue.slice(state.index + 1)],
+        index: state.index < 0 ? 0 : state.index,
+      })),
+    moveInQueue: (from, to) =>
+      set((state) => {
+        if (from === to || from < 0 || from >= state.queue.length || to < 0 || to >= state.queue.length) return state;
+        const queue = [...state.queue];
+        const [moved] = queue.splice(from, 1);
+        queue.splice(to, 0, moved);
+        const index = state.index === from ? to : state.index > from && state.index <= to ? state.index - 1 : state.index < from && state.index >= to ? state.index + 1 : state.index;
+        return { queue, index };
+      }),
     setQueueOpen: (queueOpen) => set({ queueOpen }),
   };
 }

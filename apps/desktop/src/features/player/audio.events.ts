@@ -1,11 +1,14 @@
 import { usePlayer } from "./player.store";
+import { persistPlayerPosition } from "./player.session";
 
 export const READ_ERROR =
   "Lecture impossible. Vérifiez que le fichier existe et que son format est pris en charge.";
 
 export function bindAudioEvents(audio: HTMLAudioElement): void {
   audio.addEventListener("timeupdate", () => {
-    usePlayer.getState().setPosition(audio.currentTime * 1000);
+    const positionMs = audio.currentTime * 1000;
+    usePlayer.getState().setPosition(positionMs);
+    persistPlayerPosition(positionMs);
   });
   audio.addEventListener("loadedmetadata", () => {
     usePlayer.getState().setDuration(Number.isFinite(audio.duration) ? audio.duration * 1000 : 0);

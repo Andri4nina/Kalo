@@ -1,6 +1,7 @@
 import { ListMusic, Trash2, X } from "lucide-react";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { ConfirmModal } from "@/components/ConfirmModal";
 import { EmptyState } from "@/components/EmptyState";
 import { IconButton } from "@/components/IconButton";
 import { useDialogFocus } from "@/components/useDialogFocus";
@@ -12,6 +13,7 @@ export function QueuePanel() {
   const queue = usePlayer((state) => state.queue);
   const index = usePlayer((state) => state.index);
   const { setQueueOpen, clearQueue } = usePlayer.getState();
+  const [confirmClear, setConfirmClear] = useState(false);
   const panel = useRef<HTMLElement>(null);
   useDialogFocus(open, panel, () => setQueueOpen(false));
   if (!open) return null;
@@ -29,7 +31,7 @@ export function QueuePanel() {
             <span className="text-xs text-kalo-muted dark:text-kalo-dark-muted">{queue.length}</span>
           </div>
           <div className="flex items-center gap-1">
-            <IconButton icon={Trash2} label="Vider la file" onClick={clearQueue} disabled={queue.length === 0} />
+            <IconButton icon={Trash2} label="Vider la file" onClick={() => setConfirmClear(true)} disabled={queue.length === 0} />
             <IconButton icon={X} label="Fermer" onClick={() => setQueueOpen(false)} />
           </div>
         </header>
@@ -38,11 +40,19 @@ export function QueuePanel() {
             <EmptyState icon={ListMusic} title="File vide" description="Ajoutez des morceaux depuis la bibliothèque pour construire votre file d'attente." />
           ) : (
             queue.map((track, position) => (
-              <QueueItem key={`${track.id}-${position}`} track={track} index={position} current={position === index} />
+              <QueueItem key={`${track.id}-${position}`} track={track} index={position} current={position === index} total={queue.length} />
             ))
           )}
         </div>
       </aside>
+      <ConfirmModal
+        open={confirmClear}
+        title="Vider la file d'attente ?"
+        description="Tous les morceaux en attente seront retirés. La lecture en cours s'arrêtera."
+        confirmLabel="Vider"
+        onConfirm={() => { clearQueue(); setConfirmClear(false); }}
+        onClose={() => setConfirmClear(false)}
+      />
     </div>,
     document.body,
   );

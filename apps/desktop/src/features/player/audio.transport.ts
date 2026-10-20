@@ -41,6 +41,18 @@ class AudioTransport {
     audioElement.currentTime = Math.min(Math.max(positionMs / 1000, 0), duration);
   }
 
+  resume(positionMs: number): void {
+    if (positionMs <= 0) return;
+    const apply = () => {
+      const duration = audioElement.duration;
+      if (Number.isFinite(duration) && duration > positionMs / 1000) {
+        audioElement.currentTime = positionMs / 1000;
+      }
+    };
+    if (audioElement.readyState >= 1) apply();
+    else audioElement.addEventListener("loadedmetadata", apply, { once: true });
+  }
+
   setLoop(loop: boolean): void {
     audioElement.loop = loop;
   }

@@ -12,6 +12,7 @@ const session = loadPlayerSession();
 export const usePlayer = create<PlayerState>((set, get) => ({
   queue: session?.queue ?? [],
   index: session?.index ?? -1,
+  resumePositionMs: session?.positionMs ?? 0,
   playing: false,
   buffering: false,
   positionMs: 0,

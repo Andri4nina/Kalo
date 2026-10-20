@@ -6,5 +6,5 @@ export type PlayerGet = StoreApi<PlayerState>["getState"];
 
 export type QueueActions = Pick<
   PlayerState,
-  "enqueue" | "removeFromQueue" | "patchTrack" | "clearQueue" | "setQueueOpen"
+  "enqueue" | "playNext" | "moveInQueue" | "removeFromQueue" | "patchTrack" | "clearQueue" | "setQueueOpen"
 >;

@@ -1,6 +1,8 @@
-import { Music2 } from "lucide-react";
+import { Captions, Music2, SlidersHorizontal } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Cover } from "@/components/Cover";
-import { muted } from "@/design/tokens";
+import { IconButton } from "@/components/IconButton";
+import { focus, muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 import { useCurrentTrack } from "./player.store";
 import { FavoriteButton } from "./FavoriteButton";
@@ -28,6 +30,12 @@ export function PlayerTrackInfo() {
         <p className={cn("truncate text-xs", muted)}>{track.artist ?? "Artiste inconnu"}</p>
       </div>
       <FavoriteButton track={track} />
+      <Link to="/karaoke" aria-label="Ouvrir le karaoké" title="Karaoké" className={cn("rounded-full", focus)}>
+        <IconButton icon={Captions} label="Karaoké" />
+      </Link>
+      <Link to="/studio" aria-label="Ouvrir le studio audio" title="Studio audio" className={cn("rounded-full", focus)}>
+        <IconButton icon={SlidersHorizontal} label="Studio audio" />
+      </Link>
     </div>
   );
 }

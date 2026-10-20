@@ -1,4 +1,4 @@
-import { AudioLines, Trash2 } from "lucide-react";
+import { ArrowDown, ArrowUp, AudioLines, Trash2 } from "lucide-react";
 import { Cover } from "@/components/Cover";
 import { IconButton } from "@/components/IconButton";
 import { focus, muted } from "@/design/tokens";
@@ -10,10 +10,12 @@ interface QueueItemProps {
   track: Track;
   index: number;
   current: boolean;
+  total: number;
 }
 
-export function QueueItem({ track, index, current }: QueueItemProps) {
+export function QueueItem({ track, index, current, total }: QueueItemProps) {
   const removeFromQueue = usePlayer((state) => state.removeFromQueue);
+  const moveInQueue = usePlayer((state) => state.moveInQueue);
   return (
     <div
       className={cn(
@@ -33,6 +35,8 @@ export function QueueItem({ track, index, current }: QueueItemProps) {
         </span>
         {current ? <AudioLines size={15} className="shrink-0 text-kalo-accent dark:text-kalo-dark-accent" /> : null}
       </button>
+      <IconButton icon={ArrowUp} label="Monter dans la file" size="sm" onClick={() => moveInQueue(index, index - 1)} disabled={index === 0} />
+      <IconButton icon={ArrowDown} label="Descendre dans la file" size="sm" onClick={() => moveInQueue(index, index + 1)} disabled={index === total - 1} />
       <IconButton icon={Trash2} label="Retirer de la file" size="sm" onClick={() => removeFromQueue(index)} />
     </div>
   );
