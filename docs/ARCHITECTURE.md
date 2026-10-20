@@ -119,6 +119,13 @@ Une racine disparue est ignorée au démarrage. Aucun chemin arbitraire fourni p
 le front n'est ouvert. Les commandes valident les identifiants et les chemins
 côté Rust.
 
+## Tests
+
+Les crates Rust couvrent le scanner, les migrations, les playlists, les favoris,
+les vues Artistes/Albums et les sauvegardes. Côté front, Vitest sous jsdom couvre
+la file d'attente, la session locale, les préférences et le formatage. `npm run
+check` exécute les deux suites. Les tests d'interface visuelle restent à ajouter.
+
 ## Mobile et évolution
 
 Le crate métier est indépendant de Tauri. La lecture en arrière-plan, les

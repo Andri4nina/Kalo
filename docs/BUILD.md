@@ -54,6 +54,9 @@ npm run check:rules
 # TypeScript strict
 npm run typecheck
 
+# Tests du front (Vitest)
+npm test
+
 # Build de production du front
 npm run build
 

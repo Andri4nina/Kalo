@@ -53,6 +53,7 @@ Prérequis détaillés : [docs/BUILD.md](docs/BUILD.md).
 ```bash
 npm install
 npm run typecheck
+npm test
 npm run build
 npm run check:rules
 

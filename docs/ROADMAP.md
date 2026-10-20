@@ -13,7 +13,7 @@ vérification sur les plateformes concernées.
 - Sauvegarde et restauration vérifiées de l'index et des playlists.
 - Lecteur avec file d'attente, volume, balance, aléatoire et répétition.
 - Paramètres de bibliothèque, thème clair/sombre et raccourcis clavier.
-- Tests Rust, contrôles de règles et documentation de base.
+- Tests Rust et front, contrôles de règles et documentation de base.
 
 ## Prochaine étape : consolidation
 

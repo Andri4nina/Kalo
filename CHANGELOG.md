@@ -26,6 +26,8 @@ le versionnage sémantique à partir de la première version publiée.
 - Documentation d'architecture, de build, de sécurité et de contribution.
 - Tests Rust du scanner, de la base, des playlists, des favoris, de l'historique,
   des vues Artistes et Albums, et des sauvegardes.
+- Tests front Vitest de la file d'attente, de la session, des préférences et du
+  formatage, avec validation des préférences locales corrompues.
 
 ### Modifié
 

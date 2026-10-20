@@ -23,6 +23,8 @@ revérifiées avant chaque publication avec les outils de l'écosystème.
 | `autoprefixer` | 10.6.1 | MIT |
 | `@types/react` | 19.3.0 | MIT |
 | `@types/react-dom` | 19.2.3 | MIT |
+| `vitest` | 5.0.5 | MIT |
+| `jsdom` | 30.1.3 | MIT |
 
 ## Crates Rust
 
@@ -55,6 +57,11 @@ npm ls --all
 
 `cargo audit` et `npm audit` ne sont pas exécutés automatiquement par
 `npm run check` ; ils doivent être lancés avant une publication.
+
+Des avis `npm audit` subsistent dans l'arbre de développement de Tailwind 3.4.19
+(`braces`, `postcss-selector-parser`). Ces paquets servent à la compilation et ne
+sont pas embarqués dans l'application. La correction automatique impose Tailwind 4,
+migration qui n'est pas planifiée dans ce lot.
 
 ## Futurs modèles
 
