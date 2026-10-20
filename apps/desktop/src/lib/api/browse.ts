@@ -1,9 +1,11 @@
 import { invoke } from "@tauri-apps/api/core";
 import type { AlbumSummary, ArtistSummary, TrackPage } from "@/types";
 
-export const listArtists = () => invoke<ArtistSummary[]>("library_artists");
+export const listArtists = (search: string | null = null) =>
+  invoke<ArtistSummary[]>("library_artists", { search });
 
-export const listAlbums = () => invoke<AlbumSummary[]>("library_albums");
+export const listAlbums = (search: string | null = null) =>
+  invoke<AlbumSummary[]>("library_albums", { search });
 
 export const getArtist = (artistId: number) => invoke<ArtistSummary | null>("artist_get", { artistId });
 

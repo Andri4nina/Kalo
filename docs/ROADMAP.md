@@ -9,7 +9,7 @@ vérification sur les plateformes concernées.
 - Workspace Tauri 2, React, TypeScript strict, Tailwind et SQLite migré.
 - Scanner local en lecture seule, métadonnées et pochettes en cache.
 - Bibliothèque, favoris, historique, playlists persistantes.
-- Pages Artistes et Albums agrégées, avec détail et morceaux associés.
+- Pages Artistes et Albums agrégées, avec recherche, détail et morceaux associés.
 - Sauvegarde et restauration vérifiées de l'index et des playlists.
 - Lecteur avec file d'attente, volume, balance, aléatoire et répétition.
 - Paramètres de bibliothèque, thème clair/sombre et raccourcis clavier.

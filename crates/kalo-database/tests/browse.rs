@@ -10,7 +10,7 @@ fn artists_are_aggregated_with_counts() {
     support::insert_with(&db, root, "alpha-2.mp3", "Alpha", "Premier");
     support::insert_with(&db, root, "beta-1.mp3", "Beta", "Second");
     let list = db
-        .with(|conn| artists::list(conn))
+        .with(|conn| artists::list(conn, None))
         .unwrap_or_else(|error| panic!("artistes : {error}"));
     assert_eq!(list.len(), 2);
     assert_eq!(list[0].name, "Alpha");
@@ -32,7 +32,7 @@ fn albums_are_listed_with_counts_and_tracks() {
     support::insert_with(&db, root, "premier-2.mp3", "Alpha", "Premier");
     support::insert_with(&db, root, "second-1.mp3", "Beta", "Second");
     let list = db
-        .with(|conn| albums::list(conn))
+        .with(|conn| albums::list(conn, None))
         .unwrap_or_else(|error| panic!("albums : {error}"));
     assert_eq!(list.len(), 2);
     let Some(premier) = list.iter().find(|album| album.title == "Premier") else {

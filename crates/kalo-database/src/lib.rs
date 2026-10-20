@@ -1,6 +1,7 @@
 mod database;
 mod error;
 mod migrations;
+mod search;
 
 pub mod albums;
 pub mod artists;

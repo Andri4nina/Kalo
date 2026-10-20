@@ -16,6 +16,7 @@ le versionnage sémantique à partir de la première version publiée.
 - Playlists persistantes avec réordonnancement.
 - Sections Artistes et Albums : listes agrégées, détail par artiste ou album et
   morceaux associés.
+- Recherche par nom dans les vues Artistes et Albums, filtre appliqué en SQL.
 - Sauvegarde et restauration de l'index, des playlists et des favoris dans un
   fichier SQLite vérifié.
 - Historique d'écoute récent.

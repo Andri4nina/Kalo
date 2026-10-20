@@ -9,7 +9,7 @@ fn browse_details_return_counts_and_none_for_unknown_ids() {
     support::insert_with(&db, root, "detail-1.mp3", "Alpha", "Premier");
     support::insert_with(&db, root, "detail-2.mp3", "Alpha", "Second");
     let artist = db
-        .with(|conn| artists::list(conn))
+        .with(|conn| artists::list(conn, None))
         .unwrap_or_else(|error| panic!("artistes : {error}"))
         .remove(0);
     let detail = db
@@ -19,7 +19,7 @@ fn browse_details_return_counts_and_none_for_unknown_ids() {
     assert_eq!(detail.track_count, 2);
     assert_eq!(detail.album_count, 2);
     let album = db
-        .with(|conn| albums::list(conn))
+        .with(|conn| albums::list(conn, None))
         .unwrap_or_else(|error| panic!("albums : {error}"))
         .remove(0);
     let album_detail = db

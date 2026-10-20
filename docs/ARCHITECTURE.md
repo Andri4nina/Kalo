@@ -67,9 +67,10 @@ via cascade, mais jamais les fichiers.
 
 Les vues Artistes et Albums sont calculées par SQL : compteurs de morceaux et
 d'albums distincts, année et pochette représentative. Seules les entités ayant
-des morceaux indexés sont renvoyées. Les pages de détail chargent l'entité puis
-paginationnent ses morceaux avec un filtre constant (`artist_id` ou `album_id`)
-et des paramètres liés, jamais par concaténation de valeurs.
+des morceaux indexés sont renvoyées. La recherche est optionnelle, filtrée en SQL
+par nom d'artiste ou d'album avec un paramètre lié, jamais par concaténation. Les
+pages de détail chargent l'entité puis paginationnent ses morceaux avec un filtre
+constant (`artist_id` ou `album_id`) et des paramètres liés.
 
 ### Sauvegarde et restauration
 
