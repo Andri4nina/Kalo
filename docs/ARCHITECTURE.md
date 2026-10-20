@@ -110,6 +110,15 @@ déplacements. Les télécommandes média natives propres à chaque système ne 
 pas encore branchées. Le moteur audio reste dans le WebView pour le socle ; un
 moteur Rust pourra être ajouté sans changer le contrat des commandes.
 
+## Paroles et karaoké
+
+La commande `track_lyrics` reçoit un identifiant de morceau, retrouve son chemin
+en base, puis cherche un fichier `.lrc` ou `.LRC` de même nom. Elle refuse les
+fichiers de plus de 1 Mo et renvoie le texte UTF-8. Le front parse les
+horodatages, surligne la ligne active et applique un décalage local de ±5 s.
+Aucune écriture, aucun accès réseau et aucun autre fichier que le `.lrc` voisin
+d'un morceau indexé n'est lu.
+
 ## Sécurité des assets
 
 Le scope du protocole d'assets est vide dans la configuration. Il est étendu au

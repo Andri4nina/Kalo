@@ -40,9 +40,10 @@ vérification sur les plateformes concernées.
 
 ## Karaoké et paroles
 
-- Paroles locales ou synchronisées, sans envoi réseau par défaut.
-- Mode karaoké et décalage manuel.
-- Aucune source de paroles non autorisée.
+- Fichiers `.lrc` locaux, surlignage synchronisé, décalage et navigation par
+  clic (livré).
+- Paroles intégrées aux métadonnées, mode plein écran et décalage persistant.
+- Aucune source de paroles non autorisée, aucun envoi réseau par défaut.
 
 ## Téléchargements
 

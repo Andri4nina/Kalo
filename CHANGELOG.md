@@ -24,6 +24,8 @@ le versionnage sémantique à partir de la première version publiée.
   Linux.
 - Studio audio : égaliseur graphique 10 bandes, presets, bypass, réinitialisation
   et persistance locale, appliqué au graphe Web Audio sans modifier les fichiers.
+- Karaoké local : lecture d'un fichier `.lrc` UTF-8 voisin du morceau, lignes
+  synchronisées, décalage réglable et navigation par clic, sans réseau.
 - Historique d'écoute récent.
 - Thèmes clair et sombre, raccourcis clavier.
 - Accessibilité : piège et restitution du focus, fermeture par Échap, lien

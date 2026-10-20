@@ -20,6 +20,9 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
   dans la piste, volume, balance stéréo, mode muet, lecture aléatoire et répétition.
 - Studio audio : égaliseur graphique 10 bandes, presets, bypass et réglages
   persistants, appliqués à la lecture sans modifier les fichiers.
+- Karaoké local : lecture des fichiers `.lrc` UTF-8 placés à côté des morceaux,
+  surlignage synchronisé, décalage réglable et navigation par clic. Aucun envoi
+  réseau et aucune modification des fichiers.
 - File d'attente consultable, réordonnable par retrait et ajout, restaurée au
   lancement de l'application.
 - Playlists persistantes : création, renommage, suppression, ajout et retrait de
@@ -45,7 +48,7 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
 - Effets avancés, comparaison A/B et export du Studio audio.
 - Séparation de stems par IA et Stem Studio.
-- Paroles synchronisées et mode karaoké.
+- Paroles intégrées aux métadonnées, sources distantes et mode plein écran.
 - Téléchargements depuis des sources autorisées.
 - Publication App Store, Play Store et Microsoft Store.
 

@@ -7,6 +7,7 @@ import { ArtistDetailPage } from "@/features/artists/ArtistDetailPage";
 import { ArtistsPage } from "@/features/artists/ArtistsPage";
 import { FavoritesPage } from "@/features/favorites/FavoritesPage";
 import { HomePage } from "@/features/home/HomePage";
+import { KaraokePage } from "@/features/karaoke/KaraokePage";
 import { LibraryPage } from "@/features/library/LibraryPage";
 import { PlaylistDetailPage } from "@/features/playlists/PlaylistDetailPage";
 import { PlaylistsPage } from "@/features/playlists/PlaylistsPage";
@@ -27,6 +28,7 @@ export function App() {
           <Route path="playlists" element={<PlaylistsPage />} />
           <Route path="playlists/:playlistId" element={<PlaylistDetailPage />} />
           <Route path="favorites" element={<FavoritesPage />} />
+          <Route path="karaoke" element={<KaraokePage />} />
           <Route path="studio" element={<StudioPage />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFoundPage />} />
