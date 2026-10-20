@@ -123,8 +123,9 @@ côté Rust.
 
 Les crates Rust couvrent le scanner, les migrations, les playlists, les favoris,
 les vues Artistes/Albums et les sauvegardes. Côté front, Vitest sous jsdom couvre
-la file d'attente, la session locale, les préférences et le formatage. `npm run
-check` exécute les deux suites. Les tests d'interface visuelle restent à ajouter.
+la file d'attente, la session locale, les préférences, le formatage et le focus
+des modales. `npm run check` exécute les deux suites. Les tests d'interface
+visuelle restent à ajouter.
 
 ## Mobile et évolution
 

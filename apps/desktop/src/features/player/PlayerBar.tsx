@@ -1,4 +1,5 @@
 import { AlertCircle, X } from "lucide-react";
+import { focus } from "@/design/tokens";
 import { usePlayer } from "./player.store";
 import { PlayerControls } from "./PlayerControls";
 import { PlayerMixer } from "./PlayerMixer";
@@ -12,12 +13,12 @@ export function PlayerBar() {
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-30 px-3 pb-3">
-      <section className="mx-auto max-w-[1600px] rounded-2xl border border-kalo-line bg-kalo-panel/95 p-3 shadow-soft backdrop-blur dark:border-kalo-dark-line dark:bg-kalo-dark-panel/95">
+      <section aria-label="Lecteur audio" className="mx-auto max-w-[1600px] rounded-2xl border border-kalo-line bg-kalo-panel/95 p-3 shadow-soft backdrop-blur dark:border-kalo-dark-line dark:bg-kalo-dark-panel/95">
         {error ? (
-          <div className="mb-2 flex items-center gap-2 rounded-lg bg-kalo-danger/10 px-3 py-1.5 text-xs text-kalo-danger dark:bg-kalo-dark-danger/10 dark:text-kalo-dark-danger">
-            <AlertCircle size={14} className="shrink-0" />
+          <div role="alert" className="mb-2 flex items-center gap-2 rounded-lg bg-kalo-danger/10 px-3 py-1.5 text-xs text-kalo-danger dark:bg-kalo-dark-danger/10 dark:text-kalo-dark-danger">
+            <AlertCircle size={14} className="shrink-0" aria-hidden="true" />
             <span className="min-w-0 flex-1 truncate">{error}</span>
-            <button type="button" aria-label="Masquer l'erreur" onClick={() => setError(null)}>
+            <button type="button" aria-label="Masquer l'erreur" onClick={() => setError(null)} className={`${focus} rounded`}>
               <X size={14} />
             </button>
           </div>

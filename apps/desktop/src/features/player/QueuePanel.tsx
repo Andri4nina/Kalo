@@ -1,7 +1,9 @@
 import { ListMusic, Trash2, X } from "lucide-react";
+import { useRef } from "react";
 import { createPortal } from "react-dom";
 import { EmptyState } from "@/components/EmptyState";
 import { IconButton } from "@/components/IconButton";
+import { useDialogFocus } from "@/components/useDialogFocus";
 import { usePlayer } from "./player.store";
 import { QueueItem } from "./QueueItem";
 
@@ -10,13 +12,13 @@ export function QueuePanel() {
   const queue = usePlayer((state) => state.queue);
   const index = usePlayer((state) => state.index);
   const { setQueueOpen, clearQueue } = usePlayer.getState();
+  const panel = useRef<HTMLElement>(null);
+  useDialogFocus(open, panel, () => setQueueOpen(false));
   if (!open) return null;
-
   return createPortal(
     <div className="fixed inset-0 z-50 flex justify-end bg-black/50" onMouseDown={() => setQueueOpen(false)}>
       <aside
-        role="dialog"
-        aria-label="File d'attente"
+        ref={panel} role="dialog" aria-modal="true" aria-label="File d'attente"
         className="flex h-full w-full max-w-md flex-col rounded-l-3xl border border-kalo-line bg-kalo-panel dark:border-kalo-dark-line dark:bg-kalo-dark-panel"
         onMouseDown={(event) => event.stopPropagation()}
       >

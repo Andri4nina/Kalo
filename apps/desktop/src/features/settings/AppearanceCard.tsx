@@ -1,7 +1,7 @@
 import { Moon, Sun } from "lucide-react";
 import { Card } from "@/components/Card";
 import { useTheme } from "@/app/theme";
-import { muted } from "@/design/tokens";
+import { focus, muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 
 export function AppearanceCard() {
@@ -19,6 +19,7 @@ export function AppearanceCard() {
           onClick={() => theme === "light" && toggle()}
           className={cn(
             "flex flex-col items-start gap-2 rounded-xl border p-3 text-left transition-colors",
+            focus,
             theme === "dark"
               ? "border-kalo-accent bg-kalo-accent-soft text-kalo-accent-strong dark:border-kalo-dark-accent dark:bg-kalo-dark-accent-soft dark:text-kalo-dark-accent"
               : "border-kalo-line hover:bg-kalo-raised dark:border-kalo-dark-line dark:hover:bg-kalo-dark-raised",
@@ -33,6 +34,7 @@ export function AppearanceCard() {
           onClick={() => theme === "dark" && toggle()}
           className={cn(
             "flex flex-col items-start gap-2 rounded-xl border p-3 text-left transition-colors",
+            focus,
             theme === "light"
               ? "border-kalo-accent bg-kalo-accent-soft text-kalo-accent-strong"
               : "border-kalo-line hover:bg-kalo-raised dark:border-kalo-dark-line dark:hover:bg-kalo-dark-raised",

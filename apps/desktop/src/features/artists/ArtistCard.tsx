@@ -1,7 +1,7 @@
 import { ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card } from "@/components/Card";
-import { muted } from "@/design/tokens";
+import { focus, muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 import type { ArtistSummary } from "@/types";
 
@@ -11,7 +11,7 @@ export function ArtistCard({ artist }: { artist: ArtistSummary }) {
   const tracks = artist.trackCount > 1 ? "morceaux" : "morceau";
   return (
     <Card className="p-4 transition-colors hover:bg-kalo-raised/40 dark:hover:bg-kalo-dark-raised/40">
-      <Link to={`/artists/${artist.id}`} className="flex items-center gap-3">
+      <Link to={`/artists/${artist.id}`} className={`${focus} flex items-center gap-3 rounded-xl`}>
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-kalo-accent-soft font-display text-lg text-kalo-accent-strong dark:bg-kalo-dark-accent-soft dark:text-kalo-dark-accent">
           {initial}
         </span>

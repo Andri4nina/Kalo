@@ -22,6 +22,7 @@ export function PlayerProgress() {
         value={Math.min(position, max)}
         onChange={(event) => seek(Number(event.target.value))}
         aria-label="Position de lecture"
+        aria-valuetext={`${formatDuration(position)} sur ${formatDuration(duration)}`}
         className="h-1 w-full cursor-pointer accent-kalo-accent dark:accent-kalo-dark-accent"
       />
       <span className="w-9">{formatDuration(duration)}</span>

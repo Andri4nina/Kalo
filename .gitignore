@@ -10,3 +10,6 @@ apps/desktop/src-tauri/gen/
 coverage/
 models/*
 !models/README.md
+
+# Artefacts de compilation C
+*.obj

@@ -3,6 +3,7 @@ import { navigation } from "@/app/navigation";
 import { SidebarBrand } from "./SidebarBrand";
 import { SidebarFooter } from "./SidebarFooter";
 import { cn } from "@/lib/cn";
+import { focus } from "@/design/tokens";
 
 export function Sidebar() {
   return (
@@ -21,6 +22,7 @@ export function Sidebar() {
                 isActive
                   ? "bg-kalo-accent-soft font-medium text-kalo-accent-strong dark:bg-kalo-dark-accent-soft dark:text-kalo-dark-accent"
                   : "text-kalo-muted hover:bg-kalo-raised hover:text-kalo-ink dark:text-kalo-dark-muted dark:hover:bg-kalo-dark-raised dark:hover:text-kalo-dark-ink",
+                focus,
               )
             }
           >

@@ -1,7 +1,7 @@
 import { ListMusic } from "lucide-react";
 import { Card } from "@/components/Card";
 import { EmptyState } from "@/components/EmptyState";
-import { muted } from "@/design/tokens";
+import { focus, muted } from "@/design/tokens";
 import { usePlayer } from "@/features/player/player.store";
 import { cn } from "@/lib/cn";
 
@@ -19,7 +19,7 @@ export function QueueOverviewCard() {
           <ListMusic size={17} className="text-kalo-accent dark:text-kalo-dark-accent" />
           <h2 className="font-display text-lg">File d'attente</h2>
         </div>
-        <button type="button" onClick={() => setOpen(true)} className={cn("text-xs hover:underline", muted)}>
+        <button type="button" onClick={() => setOpen(true)} className={cn("rounded text-xs hover:underline", muted, focus)}>
           Ouvrir
         </button>
       </div>

@@ -1,7 +1,7 @@
 import { AudioLines, Trash2 } from "lucide-react";
 import { Cover } from "@/components/Cover";
 import { IconButton } from "@/components/IconButton";
-import { muted } from "@/design/tokens";
+import { focus, muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 import { usePlayer } from "./player.store";
 import type { Track } from "@/types";
@@ -24,7 +24,7 @@ export function QueueItem({ track, index, current }: QueueItemProps) {
       <button
         type="button"
         onClick={() => usePlayer.getState().jumpTo(index)}
-        className="flex min-w-0 flex-1 items-center gap-3 rounded-lg text-left"
+        className={cn("flex min-w-0 flex-1 items-center gap-3 rounded-lg text-left", focus)}
       >
         <Cover src={track.coverPath} size="sm" />
         <span className="min-w-0 flex-1">

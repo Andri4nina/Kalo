@@ -31,7 +31,8 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
 - Retrait d'un dossier bloqué pendant une analyse pour préserver l'index.
 - Touches média via l'API Media Session quand le WebView l'expose ; les
   télécommandes natives par plateforme restent à faire.
-- Thème clair et sombre, raccourcis clavier de base.
+- Thème clair et sombre, raccourcis clavier, focus visible, modales et file
+  d'attente utilisables au clavier avec restitution du focus.
 - Interface responsive en bento grid, états vides, chargement et erreurs.
 - Analyse Rust découpée en crates : domaine, base SQLite, scanner, application Tauri.
 

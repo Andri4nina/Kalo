@@ -21,13 +21,16 @@ le versionnage sémantique à partir de la première version publiée.
   fichier SQLite vérifié.
 - Historique d'écoute récent.
 - Thèmes clair et sombre, raccourcis clavier.
+- Accessibilité : piège et restitution du focus, fermeture par Échap, lien
+  d'évitement, focus visible, annonces des statuts et valeur vocale du lecteur.
 - Intégration des touches média via l'API Media Session quand elle est exposée.
 - Vérification automatique des règles de style et de structure.
 - Documentation d'architecture, de build, de sécurité et de contribution.
 - Tests Rust du scanner, de la base, des playlists, des favoris, de l'historique,
   des vues Artistes et Albums, et des sauvegardes.
-- Tests front Vitest de la file d'attente, de la session, des préférences et du
-  formatage, avec validation des préférences locales corrompues.
+- Tests front Vitest de la file d'attente, de la session, des préférences, du
+  formatage et du focus des modales, avec validation des préférences locales
+  corrompues.
 
 ### Modifié
 

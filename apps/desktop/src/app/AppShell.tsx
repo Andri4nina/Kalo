@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import { applyTheme, useTheme } from "@/app/theme";
 import { useKeyboardShortcuts } from "@/app/useKeyboardShortcuts";
@@ -12,6 +12,7 @@ import { Sidebar } from "./Sidebar";
 
 export function AppShell() {
   const theme = useTheme((state) => state.theme);
+  const main = useRef<HTMLElement>(null);
   useEffect(() => applyTheme(theme), [theme]);
   useAudioEngine();
   useKeyboardShortcuts();
@@ -20,9 +21,19 @@ export function AppShell() {
 
   return (
     <div className={page}>
+      <a
+        href="#contenu"
+        onClick={(event) => {
+          event.preventDefault();
+          main.current?.focus();
+        }}
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-kalo-panel focus:px-4 focus:py-2 focus:text-sm focus:shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-kalo-accent dark:focus:bg-kalo-dark-panel"
+      >
+        Aller au contenu
+      </a>
       <div className="flex h-screen">
         <Sidebar />
-        <main className="flex-1 overflow-y-auto px-4 pb-40 pt-6 md:px-8">
+        <main ref={main} id="contenu" tabIndex={-1} className="flex-1 overflow-y-auto px-4 pb-40 pt-6 focus:outline-none md:px-8">
           <div className="mx-auto max-w-[1500px]">
             <Outlet />
           </div>

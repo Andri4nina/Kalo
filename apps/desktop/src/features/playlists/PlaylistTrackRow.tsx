@@ -1,7 +1,7 @@
 import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
 import { MissingBadge } from "@/components/MissingBadge";
-import { muted } from "@/design/tokens";
+import { focus, muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 import { formatDuration } from "@/lib/format";
 import type { Track } from "@/types";
@@ -24,7 +24,7 @@ export function PlaylistTrackRow(props: Props) {
         <span className={muted}>{props.index + 1}</span>
       </td>
       <td className="min-w-48 py-2 pr-3">
-        <button type="button" disabled={props.track.isMissing} title={props.track.isMissing ? `Fichier introuvable : ${props.track.path}` : undefined} onClick={props.onPlay} className="block max-w-full truncate text-left text-sm font-medium hover:underline disabled:cursor-not-allowed disabled:no-underline disabled:opacity-70">
+        <button type="button" disabled={props.track.isMissing} title={props.track.isMissing ? `Fichier introuvable : ${props.track.path}` : undefined} onClick={props.onPlay} className={`${focus} block max-w-full truncate rounded text-left text-sm font-medium hover:underline disabled:cursor-not-allowed disabled:no-underline disabled:opacity-70`}>
           {props.track.title}
         </button>
         {props.track.isMissing ? <MissingBadge /> : null}

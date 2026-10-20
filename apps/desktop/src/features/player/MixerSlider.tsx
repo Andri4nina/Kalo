@@ -1,3 +1,5 @@
+import { focus } from "@/design/tokens";
+
 interface MixerSliderProps {
   id: string;
   label: string;
@@ -23,7 +25,7 @@ export function MixerSlider(props: MixerSliderProps) {
         step={props.step}
         value={props.value}
         onChange={(event) => props.onChange(Number(event.target.value))}
-        className="mt-2 w-full accent-kalo-accent dark:accent-kalo-dark-accent"
+        className={`${focus} mt-2 w-full accent-kalo-accent dark:accent-kalo-dark-accent`}
       />
       {props.lowLabel ? (
         <div className="flex justify-between text-[10px] text-kalo-muted dark:text-kalo-dark-muted">

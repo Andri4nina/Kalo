@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Card } from "@/components/Card";
 import { Cover } from "@/components/Cover";
 import { EmptyState } from "@/components/EmptyState";
-import { muted } from "@/design/tokens";
+import { focus, muted } from "@/design/tokens";
 import { usePlayer } from "@/features/player/player.store";
 import { cn } from "@/lib/cn";
 import { formatDuration } from "@/lib/format";
@@ -29,7 +29,7 @@ export function RecentTracksCard({ tracks }: { tracks: Track[] }) {
               <button
                 type="button"
                 onClick={() => playTrack(track, tracks)}
-                className="flex w-full items-center gap-3 rounded-xl px-2 py-2 text-left transition-colors hover:bg-kalo-raised/60 dark:hover:bg-kalo-dark-raised/60"
+                className={`${focus} flex w-full items-center gap-3 rounded-xl px-2 py-2 text-left transition-colors hover:bg-kalo-raised/60 dark:hover:bg-kalo-dark-raised/60`}
               >
                 <Cover src={track.coverPath} size="sm" />
                 <span className="min-w-0 flex-1">

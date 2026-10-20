@@ -1,5 +1,6 @@
 import { SlidersHorizontal, Volume1, Volume2, VolumeX } from "lucide-react";
 import { useState } from "react";
+import { focus } from "@/design/tokens";
 import { usePlayer } from "./player.store";
 import { PlayerMixerPopover } from "./PlayerMixerPopover";
 
@@ -16,7 +17,7 @@ export function PlayerMixer() {
         type="button"
         aria-label={muted ? "Réactiver le son" : "Couper le son"}
         onClick={toggleMute}
-        className="rounded-full p-2 text-kalo-muted hover:text-kalo-ink dark:text-kalo-dark-muted dark:hover:text-kalo-dark-ink"
+        className={`${focus} rounded-full p-2 text-kalo-muted hover:text-kalo-ink dark:text-kalo-dark-muted dark:hover:text-kalo-dark-ink`}
       >
         <VolumeIcon size={18} strokeWidth={1.9} />
       </button>
@@ -25,7 +26,7 @@ export function PlayerMixer() {
         aria-label="Volume et balance"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
-        className={`rounded-full p-2 transition-colors ${open ? "bg-kalo-raised text-kalo-ink dark:bg-kalo-dark-raised dark:text-kalo-dark-ink" : "text-kalo-muted hover:text-kalo-ink dark:text-kalo-dark-muted dark:hover:text-kalo-dark-ink"}`}
+        className={`${focus} rounded-full p-2 transition-colors ${open ? "bg-kalo-raised text-kalo-ink dark:bg-kalo-dark-raised dark:text-kalo-dark-ink" : "text-kalo-muted hover:text-kalo-ink dark:text-kalo-dark-muted dark:hover:text-kalo-dark-ink"}`}
       >
         <SlidersHorizontal size={18} strokeWidth={1.9} />
       </button>
@@ -34,6 +35,7 @@ export function PlayerMixer() {
           <button
             type="button"
             aria-label="Fermer le réglage du son"
+            tabIndex={-1}
             className="fixed inset-0 z-40 cursor-default"
             onClick={() => setOpen(false)}
           />

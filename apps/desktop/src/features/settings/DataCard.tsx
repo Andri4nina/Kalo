@@ -23,10 +23,10 @@ export function DataCard() {
       {backup.error ? <ErrorNotice message={backup.error} /> : null}
       {restore.error ? <ErrorNotice message={restore.error} /> : null}
       {backup.notice ? (
-        <p className="mt-3 text-xs text-kalo-success dark:text-kalo-dark-success">{backup.notice}</p>
+        <p role="status" className="mt-3 text-xs text-kalo-success dark:text-kalo-dark-success">{backup.notice}</p>
       ) : null}
       {restore.notice ? (
-        <p className="mt-3 text-xs text-kalo-success dark:text-kalo-dark-success">{restore.notice}</p>
+        <p role="status" className="mt-3 text-xs text-kalo-success dark:text-kalo-dark-success">{restore.notice}</p>
       ) : null}
       <div className="mt-4 flex flex-wrap gap-2">
         <Button size="sm" variant="subtle" disabled={busy} onClick={() => void backup.run()}>
