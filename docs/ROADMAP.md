@@ -24,7 +24,8 @@ vérification sur les plateformes concernées.
 
 ## Studio audio
 
-- Égaliseur paramétrique et presets.
+- Égaliseur graphique 10 bandes, presets, bypass et persistance (livré).
+- Mode paramétrique par bande (fréquence et largeur réglables).
 - Effets avec comparaison A/B et réinitialisation.
 - Export explicite uniquement, vers un nouveau fichier.
 - Aucune modification destructive du fichier d'origine.

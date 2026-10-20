@@ -8,6 +8,7 @@ import { QueuePanel } from "@/features/player/QueuePanel";
 import { useAudioEngine } from "@/features/player/useAudioEngine";
 import { bindMediaSession } from "@/features/player/media.session";
 import { watchPlayerSession } from "@/features/player/player.session";
+import { useStudioEq } from "@/features/studio/useStudioEq";
 import { Sidebar } from "./Sidebar";
 
 export function AppShell() {
@@ -15,6 +16,7 @@ export function AppShell() {
   const main = useRef<HTMLElement>(null);
   useEffect(() => applyTheme(theme), [theme]);
   useAudioEngine();
+  useStudioEq();
   useKeyboardShortcuts();
   useEffect(bindMediaSession, []);
   useEffect(watchPlayerSession, []);

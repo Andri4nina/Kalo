@@ -18,6 +18,8 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
   pagination.
 - Lecture audio : lecture et pause, morceau précédent et suivant, déplacement
   dans la piste, volume, balance stéréo, mode muet, lecture aléatoire et répétition.
+- Studio audio : égaliseur graphique 10 bandes, presets, bypass et réglages
+  persistants, appliqués à la lecture sans modifier les fichiers.
 - File d'attente consultable, réordonnable par retrait et ajout, restaurée au
   lancement de l'application.
 - Playlists persistantes : création, renommage, suppression, ajout et retrait de
@@ -41,7 +43,7 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
 ### Pas encore disponible
 
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
-- Égaliseur, effets, presets et export du Studio audio.
+- Effets avancés, comparaison A/B et export du Studio audio.
 - Séparation de stems par IA et Stem Studio.
 - Paroles synchronisées et mode karaoké.
 - Téléchargements depuis des sources autorisées.

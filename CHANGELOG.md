@@ -22,6 +22,8 @@ le versionnage sémantique à partir de la première version publiée.
 - Installateurs Windows MSI et NSIS non signés, avec installation et
   désinstallation vérifiées ; workflow de construction pour Windows, macOS et
   Linux.
+- Studio audio : égaliseur graphique 10 bandes, presets, bypass, réinitialisation
+  et persistance locale, appliqué au graphe Web Audio sans modifier les fichiers.
 - Historique d'écoute récent.
 - Thèmes clair et sombre, raccourcis clavier.
 - Accessibilité : piège et restitution du focus, fermeture par Échap, lien

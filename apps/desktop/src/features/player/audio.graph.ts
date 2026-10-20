@@ -1,7 +1,10 @@
+import { BANDS } from "@/features/studio/eq";
+
 export interface AudioGraph {
   ctx: AudioContext;
   gain: GainNode;
   panner: StereoPannerNode;
+  filters: BiquadFilterNode[];
 }
 
 export function createGraph(audio: HTMLAudioElement): AudioGraph {
@@ -9,8 +12,21 @@ export function createGraph(audio: HTMLAudioElement): AudioGraph {
   const source = ctx.createMediaElementSource(audio);
   const gain = ctx.createGain();
   const panner = ctx.createStereoPanner();
+  const filters = BANDS.map((hz, index) => {
+    const filter = ctx.createBiquadFilter();
+    filter.type = index === 0 ? "lowshelf" : index === BANDS.length - 1 ? "highshelf" : "peaking";
+    filter.frequency.value = hz;
+    filter.Q.value = 1.1;
+    filter.gain.value = 0;
+    return filter;
+  });
   source.connect(gain);
   gain.connect(panner);
-  panner.connect(ctx.destination);
-  return { ctx, gain, panner };
+  let node: AudioNode = panner;
+  for (const filter of filters) {
+    node.connect(filter);
+    node = filter;
+  }
+  node.connect(ctx.destination);
+  return { ctx, gain, panner, filters };
 }

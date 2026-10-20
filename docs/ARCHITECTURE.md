@@ -89,13 +89,16 @@ fichiers audio et les pochettes ne sont jamais copiés ni modifiés.
 ## Lecture audio
 
 Le front utilise un `HTMLAudioElement` alimenté par `convertFileSrc` et un graphe
-Web Audio (`MediaElementSource` → `GainNode` → `StereoPannerNode` →
-`destination`) pour le volume et la balance. Le protocole d'assets Tauri prend en
-charge les requêtes par plage d'octets, nécessaires au déplacement dans la piste.
+Web Audio (`MediaElementSource` → `GainNode` → `StereoPannerNode` → dix
+`BiquadFilterNode` → `destination`) pour le volume, la balance et l'égaliseur.
+Le Studio audio expose un égaliseur graphique de 31 Hz à 16 kHz, avec presets,
+bypass et réglages persistés dans `kalo:studio-eq`. Le protocole d'assets Tauri
+prend en charge les requêtes par plage d'octets, nécessaires au déplacement dans
+la piste.
 
 Le graphe est créé une seule fois et réutilisé. Si le navigateur refuse Web Audio,
-le volume retombe sur celui de l'élément média ; la balance n'est alors pas
-appliquée. Le mode muet, les préférences et la file d'attente sont gérés par
+le volume retombe sur celui de l'élément média ; la balance et l'égaliseur ne sont
+alors pas appliqués. Le mode muet, les préférences et la file d'attente sont gérés par
 Zustand. Le volume, la balance, l'aléatoire et la répétition sont conservés dans
 le stockage local ; la file d'attente et l'index courant sont restaurés au
 lancement, sans reprise exacte de la position de lecture. Les erreurs de lecture
@@ -123,9 +126,9 @@ côté Rust.
 
 Les crates Rust couvrent le scanner, les migrations, les playlists, les favoris,
 les vues Artistes/Albums et les sauvegardes. Côté front, Vitest sous jsdom couvre
-la file d'attente, la session locale, les préférences, le formatage et le focus
-des modales. `npm run check` exécute les deux suites. Les tests d'interface
-visuelle restent à ajouter.
+la file d'attente, la session locale, les préférences, le formatage, le focus
+des modales et l'égaliseur. `npm run check` exécute les deux suites. Les tests
+d'interface visuelle restent à ajouter.
 
 ## Mobile et évolution
 

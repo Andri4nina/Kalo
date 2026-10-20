@@ -11,6 +11,7 @@ import { LibraryPage } from "@/features/library/LibraryPage";
 import { PlaylistDetailPage } from "@/features/playlists/PlaylistDetailPage";
 import { PlaylistsPage } from "@/features/playlists/PlaylistsPage";
 import { SettingsPage } from "@/features/settings/SettingsPage";
+import { StudioPage } from "@/features/studio/StudioPage";
 
 export function App() {
   return (
@@ -26,6 +27,7 @@ export function App() {
           <Route path="playlists" element={<PlaylistsPage />} />
           <Route path="playlists/:playlistId" element={<PlaylistDetailPage />} />
           <Route path="favorites" element={<FavoritesPage />} />
+          <Route path="studio" element={<StudioPage />} />
           <Route path="settings" element={<SettingsPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
