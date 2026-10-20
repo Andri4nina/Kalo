@@ -25,6 +25,8 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
 - Sections Artistes et Albums : listes agrégées avec compteurs, détail par
   artiste ou album, pochettes et morceaux associés.
 - Favoris et historique d'écoute récents.
+- Sauvegarde et restauration de l'index, des playlists et des favoris dans un
+  fichier SQLite unique, avec vérification d'intégrité.
 - Signalement des morceaux disparus : badge explicite et lecture désactivée.
 - Retrait d'un dossier bloqué pendant une analyse pour préserver l'index.
 - Touches média via l'API Media Session quand le WebView l'expose ; les
@@ -40,7 +42,6 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
 - Séparation de stems par IA et Stem Studio.
 - Paroles synchronisées et mode karaoké.
 - Téléchargements depuis des sources autorisées.
-- Sauvegarde/restauration intégrée de la base et des playlists.
 - Publication App Store, Play Store et Microsoft Store.
 
 Les fonctionnalités listées ci-dessus ne sont pas revendiquées comme terminées.
@@ -85,6 +86,9 @@ de travail « Développement Desktop en C++ ». Le détail par plateforme est da
   Les fichiers audio restent sur le disque.
 - La base SQLite et les migrations sont dans le dossier de données de
   l'application, pas dans la musique.
+- Une sauvegarde contient l'index, les playlists, les favoris et l'historique,
+  jamais les fichiers audio ni les pochettes, et uniquement à l'emplacement
+  choisi par l'utilisateur.
 - Le protocole d'assets Tauri n'autorise que les dossiers ajoutés explicitement
   et le cache des pochettes.
 - Aucune télémétrie n'est envoyée. Kalo fonctionne hors ligne pour le socle actuel.

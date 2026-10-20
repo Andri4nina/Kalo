@@ -22,6 +22,8 @@ pub fn run() -> tauri::Result<()> {
             commands::browse::detail::album_get,
             commands::browse::detail::artist_tracks,
             commands::browse::detail::album_tracks,
+            commands::data::data_backup,
+            commands::data::data_restore,
             commands::listening::history::history_recent,
             commands::listening::history::history_record,
             commands::listening::favorites::favorites_toggle,

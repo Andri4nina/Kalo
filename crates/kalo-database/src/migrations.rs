@@ -23,3 +23,8 @@ pub fn run(conn: &mut Connection) -> DbResult<()> {
     }
     Ok(())
 }
+
+/// Schema version produced by this build.
+pub fn latest_version() -> i64 {
+    MIGRATIONS.last().map(|(version, _)| *version).unwrap_or(0)
+}

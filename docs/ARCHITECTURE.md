@@ -71,12 +71,19 @@ des morceaux indexés sont renvoyées. Les pages de détail chargent l'entité p
 paginationnent ses morceaux avec un filtre constant (`artist_id` ou `album_id`)
 et des paramètres liés, jamais par concaténation de valeurs.
 
-### Sauvegarde et reconstruction
+### Sauvegarde et restauration
 
 La base est reconstructible : supprimer `kalo.db` puis relancer une analyse
-recrée le catalogue. Les playlists et favoris, eux, devront être exportés avant
-cette opération. Une commande de sauvegarde/restauration est prévue ; elle n'est
-pas encore implémentée.
+recrée le catalogue, mais les playlists, favoris et l'historique seraient perdus.
+`data_backup` écrit donc un instantané cohérent avec `VACUUM INTO`, refuse
+d'écraser un fichier existant et vérifie le résultat avec `PRAGMA quick_check`.
+
+`data_restore` vérifie l'intégrité, la version du schéma et la présence des
+tables Kalo, refuse une base étrangère ou plus récente que l'application, puis
+remplace la base active via l'API de sauvegarde SQLite. Les migrations manquantes sont appliquées et le scope
+des assets est réétendu aux dossiers restaurés. La restauration est refusée
+pendant une analyse et la base active ne peut pas être sa propre sauvegarde. Les
+fichiers audio et les pochettes ne sont jamais copiés ni modifiés.
 
 ## Lecture audio
 

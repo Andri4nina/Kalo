@@ -10,6 +10,7 @@ vérification sur les plateformes concernées.
 - Scanner local en lecture seule, métadonnées et pochettes en cache.
 - Bibliothèque, favoris, historique, playlists persistantes.
 - Pages Artistes et Albums agrégées, avec détail et morceaux associés.
+- Sauvegarde et restauration vérifiées de l'index et des playlists.
 - Lecteur avec file d'attente, volume, balance, aléatoire et répétition.
 - Paramètres de bibliothèque, thème clair/sombre et raccourcis clavier.
 - Tests Rust, contrôles de règles et documentation de base.
@@ -17,7 +18,6 @@ vérification sur les plateformes concernées.
 ## Prochaine étape : consolidation
 
 - Télécommandes média natives et reprise après interruption.
-- Sauvegarde et restauration de la base et des playlists.
 - Meilleure gestion des pochettes et des gros catalogues.
 - Accessibilité complète au clavier et lecteurs d'écran.
 - CI multiplateforme et paquets signés pour Windows, macOS et Linux.

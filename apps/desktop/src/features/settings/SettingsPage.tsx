@@ -1,6 +1,7 @@
 import { PageHeader } from "@/components/PageHeader";
 import { AboutCard } from "./AboutCard";
 import { AppearanceCard } from "./AppearanceCard";
+import { DataCard } from "./DataCard";
 import { LibraryRootsCard } from "./LibraryRootsCard";
 
 export function SettingsPage() {
@@ -15,6 +16,7 @@ export function SettingsPage() {
         <LibraryRootsCard />
         <div className="flex flex-col gap-4">
           <AppearanceCard />
+          <DataCard />
           <AboutCard />
         </div>
       </div>

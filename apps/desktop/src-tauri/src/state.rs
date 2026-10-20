@@ -6,6 +6,7 @@ use kalo_database::Database;
 
 pub struct AppState {
     pub db: Database,
+    pub db_path: PathBuf,
     pub cache_dir: PathBuf,
     pub scanning: ScanSlot,
 }
