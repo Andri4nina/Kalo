@@ -1,3 +1,4 @@
+pub(crate) mod by;
 mod favorites;
 mod history;
 mod list;

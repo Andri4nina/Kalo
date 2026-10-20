@@ -1,4 +1,5 @@
 export type { Track, TrackPage, TrackQuery, TrackSort } from "./track";
+export type { AlbumSummary, ArtistSummary } from "./browse";
 export type {
   LibraryRoot,
   LibraryStats,

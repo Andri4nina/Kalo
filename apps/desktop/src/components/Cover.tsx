@@ -5,12 +5,17 @@ import { cn } from "@/lib/cn";
 
 interface CoverProps {
   src: string | null | undefined;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
 }
 
-const sizes = { sm: "h-10 w-10 rounded-lg", md: "h-14 w-14 rounded-xl", lg: "h-24 w-24 rounded-2xl" };
-const iconSizes = { sm: 16, md: 20, lg: 32 };
+const sizes = {
+  sm: "h-10 w-10 rounded-lg",
+  md: "h-14 w-14 rounded-xl",
+  lg: "h-24 w-24 rounded-2xl",
+  xl: "h-40 w-full rounded-2xl",
+};
+const iconSizes = { sm: 16, md: 20, lg: 32, xl: 36 };
 
 export function Cover({ src, size = "md", className }: CoverProps) {
   const [failed, setFailed] = useState(false);

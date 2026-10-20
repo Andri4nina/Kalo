@@ -22,6 +22,8 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
   lancement de l'application.
 - Playlists persistantes : création, renommage, suppression, ajout et retrait de
   morceaux, réordonnancement.
+- Sections Artistes et Albums : listes agrégées avec compteurs, détail par
+  artiste ou album, pochettes et morceaux associés.
 - Favoris et historique d'écoute récents.
 - Signalement des morceaux disparus : badge explicite et lecture désactivée.
 - Retrait d'un dossier bloqué pendant une analyse pour préserver l'index.
@@ -33,7 +35,6 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
 
 ### Pas encore disponible
 
-- Pages Artistes et Albums dédiées.
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
 - Égaliseur, effets, presets et export du Studio audio.
 - Séparation de stems par IA et Stem Studio.

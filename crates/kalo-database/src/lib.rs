@@ -1,9 +1,9 @@
-mod albums;
-mod artists;
 mod database;
 mod error;
 mod migrations;
 
+pub mod albums;
+pub mod artists;
 pub mod playlists;
 pub mod roots;
 pub mod tracks;

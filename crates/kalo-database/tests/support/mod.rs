@@ -3,7 +3,7 @@
 mod data;
 
 #[allow(unused_imports)]
-pub use data::{count_tracks, insert};
+pub use data::{count_tracks, insert, insert_with};
 
 use kalo_database::{roots, Database};
 

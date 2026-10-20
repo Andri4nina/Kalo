@@ -65,6 +65,12 @@ Les chemins sont uniques dans `tracks`. Les suppressions de playlists ne touchen
 jamais les morceaux. La suppression d'un dossier retire ses lignes de catalogue
 via cascade, mais jamais les fichiers.
 
+Les vues Artistes et Albums sont calculées par SQL : compteurs de morceaux et
+d'albums distincts, année et pochette représentative. Seules les entités ayant
+des morceaux indexés sont renvoyées. Les pages de détail chargent l'entité puis
+paginationnent ses morceaux avec un filtre constant (`artist_id` ou `album_id`)
+et des paramètres liés, jamais par concaténation de valeurs.
+
 ### Sauvegarde et reconstruction
 
 La base est reconstructible : supprimer `kalo.db` puis relancer une analyse
