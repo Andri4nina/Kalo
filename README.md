@@ -27,6 +27,8 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
 - Favoris et historique d'écoute récents.
 - Sauvegarde et restauration de l'index, des playlists et des favoris dans un
   fichier SQLite unique, avec vérification d'intégrité.
+- Installateurs Windows MSI et NSIS non signés, construits et testés localement
+  (installation, lancement, désinstallation).
 - Signalement des morceaux disparus : badge explicite et lecture désactivée.
 - Retrait d'un dossier bloqué pendant une analyse pour préserver l'index.
 - Touches média via l'API Media Session quand le WebView l'expose ; les

@@ -19,6 +19,9 @@ le versionnage sémantique à partir de la première version publiée.
 - Recherche par nom dans les vues Artistes et Albums, filtre appliqué en SQL.
 - Sauvegarde et restauration de l'index, des playlists et des favoris dans un
   fichier SQLite vérifié.
+- Installateurs Windows MSI et NSIS non signés, avec installation et
+  désinstallation vérifiées ; workflow de construction pour Windows, macOS et
+  Linux.
 - Historique d'écoute récent.
 - Thèmes clair et sombre, raccourcis clavier.
 - Accessibilité : piège et restitution du focus, fermeture par Échap, lien

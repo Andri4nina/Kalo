@@ -92,6 +92,17 @@ Les artefacts sont produits dans `target/release/bundle`. La signature, la
 notarisation macOS et la publication sur les stores ne sont pas encore
 configurées.
 
+Sous Windows, la configuration produit un MSI et un installateur NSIS en mode
+utilisateur courant. Les deux ont été vérifiés localement : installation,
+lancement de l'application installée et désinstallation. Ils ne sont pas signés,
+donc SmartScreen peut afficher un avertissement.
+
+Le workflow `.github/workflows/release.yml` construit les paquets sur les trois
+systèmes et les publie comme artefacts de workflow. Il ne crée pas encore de
+release GitHub et ne signe rien. La signature Windows nécessitera un certificat
+et les secrets correspondants ; macOS nécessitera une identité Developer ID et
+une notarisation.
+
 ## Données locales
 
 Les chemins exacts dépendent du système. Tauri utilise les dossiers standard :

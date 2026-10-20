@@ -37,7 +37,11 @@
     "shortDescription": "Lecteur musical local, open source et respectueux de vos fichiers.",
     "longDescription": "Kalo indexe et lit votre musique sur place, sans déplacer vos fichiers.",
     "copyright": "Copyright © 2026 Kalo contributors",
+    "publisher": "Kalo contributors",
     "licenseFile": "../../../LICENSE",
+    "windows": {
+      "nsis": { "installMode": "currentUser" }
+    },
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
