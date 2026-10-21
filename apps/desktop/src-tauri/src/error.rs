@@ -12,6 +12,8 @@ pub enum CommandError {
     Library(#[from] LibraryError),
     #[error("{0}")]
     Invalid(String),
+    #[error("Morceau introuvable.")]
+    NotFound,
     #[error("Une analyse est déjà en cours.")]
     Busy,
 }

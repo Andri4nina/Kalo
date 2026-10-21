@@ -16,6 +16,8 @@ pub fn run() -> tauri::Result<()> {
             commands::library::scan::library_scan,
             commands::library::catalog::library_tracks,
             commands::library::catalog::library_stats,
+            commands::library::catalog::library_update_track,
+            commands::library::relocate::library_relocate_track,
             commands::browse::list::library_artists,
             commands::browse::list::library_albums,
             commands::browse::detail::artist_get,

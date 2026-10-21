@@ -28,8 +28,10 @@ export function createQueueActions(set: PlayerSet): QueueActions {
     moveInQueue: (from, to) =>
       set((state) => {
         if (from === to || from < 0 || from >= state.queue.length || to < 0 || to >= state.queue.length) return state;
+        const moved = state.queue[from];
+        if (!moved) return state;
         const queue = [...state.queue];
-        const [moved] = queue.splice(from, 1);
+        queue.splice(from, 1);
         queue.splice(to, 0, moved);
         const index = state.index === from ? to : state.index > from && state.index <= to ? state.index - 1 : state.index < from && state.index >= to ? state.index + 1 : state.index;
         return { queue, index };

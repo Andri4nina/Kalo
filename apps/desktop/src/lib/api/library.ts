@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
-import type { LibraryRoot, LibraryStats, ScanSummary, TrackPage, TrackQuery } from "@/types";
+import type { LibraryRoot, LibraryStats, ScanSummary, TrackPage, TrackQuery, TrackUpdate } from "@/types";
 
 export const listRoots = () => invoke<LibraryRoot[]>("library_roots");
 
@@ -10,6 +10,19 @@ export const removeRoot = (rootId: number) => invoke<void>("library_remove_root"
 export const scanRoot = (rootId: number) => invoke<ScanSummary>("library_scan", { rootId });
 
 export const listTracks = (query: TrackQuery) => invoke<TrackPage>("library_tracks", { query });
+
+export const updateTrack = (input: TrackUpdate) =>
+  invoke<void>("library_update_track", {
+    trackId: input.trackId,
+    title: input.title,
+    artist: input.artist,
+    album: input.album,
+    genre: input.genre,
+    year: input.year,
+  });
+
+export const relocateTrack = (trackId: number, newPath: string) =>
+  invoke<void>("library_relocate_track", { trackId, newPath });
 
 export const getStats = () => invoke<LibraryStats>("library_stats");
 

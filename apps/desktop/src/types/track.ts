@@ -1,5 +1,14 @@
 export type TrackSort = "title" | "artist" | "album" | "added" | "duration" | "year";
 
+export interface TrackUpdate {
+  trackId: number;
+  title: string;
+  artist: string;
+  album: string | null;
+  genre: string | null;
+  year: number | null;
+}
+
 export interface Track {
   id: number;
   path: string;
