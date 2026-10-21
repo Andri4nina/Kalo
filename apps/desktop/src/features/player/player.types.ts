@@ -5,6 +5,8 @@ export type RepeatMode = "off" | "all" | "one";
 export interface PlayerState {
   queue: Track[];
   index: number;
+  history: Track[];
+  queueSource: string | null;
   resumePositionMs: number;
   playing: boolean;
   buffering: boolean;
@@ -18,8 +20,9 @@ export interface PlayerState {
   resumeOnLaunch: boolean;
   error: string | null;
   queueOpen: boolean;
-  playQueue: (tracks: Track[], startIndex?: number) => void;
-  playTrack: (track: Track, source?: Track[]) => void;
+  playQueue: (tracks: Track[], startIndex?: number, source?: string | null) => void;
+  playTrack: (track: Track, source?: Track[], sourceLabel?: string | null) => void;
+  replayHistory: (track: Track) => void;
   toggle: () => void;
   next: () => void;
   previous: () => void;

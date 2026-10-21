@@ -21,13 +21,13 @@ vérification sur les plateformes concernées.
   fichiers audio.
 - Reprise de lecture configurable, confidentialité et diagnostics dans les
   paramètres.
+- Provenance de la file et historique cliquable des morceaux récemment quittés.
 - Karaoké plein écran avec décalage mémorisé par morceau.
 - Préampli du Studio appliqué avant l'égaliseur.
 
 ## Prochaine étape : consolidation
 
 - Actions groupées dans les playlists.
-- Provenance de la file et retour arrière dans la file.
 - Sous-pages de paramètres, personnalisation des raccourcis et réglages
   d'accessibilité.
 - Télécommandes média natives et reprise après interruption système.

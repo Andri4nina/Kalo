@@ -19,7 +19,7 @@ export function createQueueActions(set: PlayerSet): QueueActions {
         queue: state.queue.map((track) => (track.id === trackId ? { ...track, ...patch } : track)),
       })),
     clearQueue: () =>
-      set({ queue: [], index: -1, playing: false, positionMs: 0, resumePositionMs: 0, durationMs: 0 }),
+      set({ queue: [], index: -1, playing: false, positionMs: 0, resumePositionMs: 0, durationMs: 0, history: [], queueSource: null }),
     playNext: (track) =>
       set((state) => ({
         queue: [...state.queue.slice(0, state.index + 1), track, ...state.queue.slice(state.index + 1)],

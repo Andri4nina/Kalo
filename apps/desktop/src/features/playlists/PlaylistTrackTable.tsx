@@ -9,9 +9,10 @@ import { usePlaylistEditor } from "./usePlaylistEditor";
 interface Props {
   playlistId: number;
   tracks: Track[];
+  source: string;
 }
 
-export function PlaylistTrackTable({ playlistId, tracks }: Props) {
+export function PlaylistTrackTable({ playlistId, tracks, source }: Props) {
   const { error, move, remove } = usePlaylistEditor(playlistId, tracks);
   const playTrack = usePlayer((state) => state.playTrack);
   const currentId = usePlayer((state) => state.queue[state.index]?.id);
@@ -32,7 +33,7 @@ export function PlaylistTrackTable({ playlistId, tracks }: Props) {
                   current={track.id === currentId}
                   canUp={index > 0}
                   canDown={index < tracks.length - 1}
-                  onPlay={() => playTrack(track, tracks)}
+                  onPlay={() => playTrack(track, tracks, source)}
                   onMove={(direction) => move(index, direction)}
                   onRemove={() => remove(track.id)}
                 />

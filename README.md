@@ -41,7 +41,8 @@ La matrice détaillée, fonction par fonction, est dans
   par clic et mode plein écran. Aucun envoi réseau et aucune modification des
   fichiers.
 - File d'attente consultable, réordonnable par retrait et ajout, restaurée au
-  lancement de l'application.
+  lancement de l'application, avec provenance affichée et historique des
+  morceaux récemment quittés.
 - Playlists persistantes : création, renommage, suppression, ajout et retrait de
   morceaux, réordonnancement, import et export M3U UTF-8.
 - Sections Artistes et Albums : listes agrégées avec compteurs et recherche,
@@ -66,7 +67,6 @@ La matrice détaillée, fonction par fonction, est dans
 
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
 - Actions groupées dans les playlists.
-- Provenance de la file et retour arrière dans la file.
 - Chaîne d'effets du Studio, presets personnalisés, comparaison A/B et export.
 - Séparation de stems par IA et Stem Studio.
 - Sources de paroles distantes et paroles intégrées aux métadonnées.

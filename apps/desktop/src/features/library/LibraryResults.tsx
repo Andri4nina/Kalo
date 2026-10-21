@@ -23,7 +23,7 @@ export function LibraryResults({ data, loading, error, search, page, total, sele
       {error ? <ErrorNotice message={error} /> : null}
       {loading && !data ? <Spinner label="Chargement de la bibliothèque" /> : null}
       {data && data.items.length === 0 ? <LibraryEmpty searching={search.length > 0} /> : null}
-      {data && data.items.length > 0 ? <TrackTable tracks={data.items} selection={selection} /> : null}
+      {data && data.items.length > 0 ? <TrackTable tracks={data.items} selection={selection} source="Bibliothèque" /> : null}
       <LibraryPagination page={page} total={total} onChange={onPage} />
     </>
   );

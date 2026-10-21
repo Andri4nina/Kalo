@@ -15,7 +15,7 @@ export function DuplicateGroupCard({ group }: { group: DuplicateGroup }) {
           <h2 className="truncate text-sm font-semibold">{group.title}</h2>
           <p className={cn("truncate text-xs", muted)}>{group.artist ?? "Artiste inconnu"} · {group.tracks.length} fichiers</p>
         </div>
-        <IconButton icon={Play} label="Lire ce groupe" size="sm" onClick={() => playQueue(group.tracks)} />
+        <IconButton icon={Play} label="Lire ce groupe" size="sm" onClick={() => playQueue(group.tracks, 0, "Doublons")} />
       </header>
       <ul className="divide-y divide-kalo-line dark:divide-kalo-dark-line">
         {group.tracks.map((track) => (

@@ -29,7 +29,7 @@ export function PlaylistDetailPage() {
       {data.tracks.length === 0 ? (
         <PlaylistEmpty />
       ) : (
-        <PlaylistTrackTable playlistId={data.playlist.id} tracks={data.tracks} />
+        <PlaylistTrackTable playlistId={data.playlist.id} tracks={data.tracks} source={data.playlist.name} />
       )}
       <RenamePlaylistModal playlist={data.playlist} open={renaming} onClose={() => setRenaming(false)} />
     </div>

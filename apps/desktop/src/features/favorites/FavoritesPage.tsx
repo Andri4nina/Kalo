@@ -29,7 +29,7 @@ export function FavoritesPage() {
           />
         </Card>
       ) : null}
-      {data && data.items.length > 0 ? <TrackTable tracks={data.items} /> : null}
+      {data && data.items.length > 0 ? <TrackTable tracks={data.items} source="Favoris" /> : null}
       <LibraryPagination page={page} total={data?.total ?? 0} onChange={setPage} />
     </div>
   );

@@ -4,6 +4,8 @@ export const resetPlayer = () =>
   usePlayer.setState({
     queue: [],
     index: -1,
+    history: [],
+    queueSource: null,
     resumePositionMs: 0,
     playing: false,
     positionMs: 0,

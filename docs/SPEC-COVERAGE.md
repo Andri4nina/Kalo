@@ -27,8 +27,8 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Lire maintenant / lire ensuite | Livré | `playTrack`, `playNext` |
 | Réordonner | Livré | Boutons monter / descendre |
 | Glisser-déposer | Absent | Les boutons assurent déjà le réordonnancement accessible |
-| Provenance des morceaux | Absent | Pas de source (album, playlist, recherche) stockée dans la file |
-| Historique de lecture dans la file | Absent | L'historique global existe, pas de retour arrière de file |
+| Provenance des morceaux | Livré | Source affichée dans la file : bibliothèque, favoris, playlist, album, artiste, doublons, récents |
+| Historique de lecture dans la file | Livré | 30 derniers morceaux quittés, liste cliquable dans la file |
 
 ## 3. Bibliothèque
 
@@ -153,11 +153,10 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 ## Prochaines tranches prioritaires
 
 1. Actions groupées dans les playlists.
-2. Provenance de la file et retour arrière de file.
-3. Sous-pages de paramètres, raccourcis et accessibilité.
-4. Chaîne d'effets du Studio et presets personnalisés.
-5. Téléchargement direct depuis une source autorisée, avec file et annulation.
-6. Lecture vidéo locale.
-7. Stem Studio après décision sur le modèle et sa licence.
+2. Sous-pages de paramètres, raccourcis et accessibilité.
+3. Chaîne d'effets du Studio et presets personnalisés.
+4. Téléchargement direct depuis une source autorisée, avec file et annulation.
+5. Lecture vidéo locale.
+6. Stem Studio après décision sur le modèle et sa licence.
 
 Tout élément marqué **Absent** ou **Bloqué** ne doit pas être présenté comme disponible dans l'interface ou la documentation commerciale.

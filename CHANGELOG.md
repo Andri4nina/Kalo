@@ -40,6 +40,8 @@ le versionnage sémantique à partir de la première version publiée.
   audio.
 - Retrait confirmé d'une référence de l'index, avec suppression en cascade des
   entrées de playlists, favoris et historique ; fichier audio conservé.
+- Provenance de la file affichée selon la vue d'origine et historique cliquable
+  des 30 derniers morceaux quittés.
 - Filtres de bibliothèque par format, disponibilité et durée.
 - Recherche étendue au chemin du fichier, avec échappement des jokers SQL.
 - Import et export M3U UTF-8 des playlists, avec résumé des morceaux ajoutés et

@@ -28,7 +28,7 @@ export function RecentTracksCard({ tracks }: { tracks: Track[] }) {
             <li key={track.id}>
               <button
                 type="button"
-                onClick={() => playTrack(track, tracks)}
+                onClick={() => playTrack(track, tracks, "Récents")}
                 className={`${focus} flex w-full items-center gap-3 rounded-xl px-2 py-2 text-left transition-colors hover:bg-kalo-raised/60 dark:hover:bg-kalo-dark-raised/60`}
               >
                 <Cover src={track.coverPath} size="sm" />

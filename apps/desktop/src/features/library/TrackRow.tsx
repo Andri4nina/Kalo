@@ -15,9 +15,10 @@ interface Props {
   current: boolean;
   selected?: boolean;
   onToggle?: () => void;
+  source?: string;
 }
 
-export function TrackRow({ track, index, queue, current, selected = false, onToggle }: Props) {
+export function TrackRow({ track, index, queue, current, selected = false, onToggle, source }: Props) {
   const playTrack = usePlayer((state) => state.playTrack);
   return (
     <tr className={cn("group transition-colors", track.isMissing && "opacity-60", current ? "bg-kalo-accent-soft/60 dark:bg-kalo-dark-accent-soft/60" : "hover:bg-kalo-raised/60 dark:hover:bg-kalo-dark-raised/60")}>
@@ -30,7 +31,7 @@ export function TrackRow({ track, index, queue, current, selected = false, onTog
         )}
       </td>
       <td className="min-w-48 py-2 pr-3">
-        <button type="button" disabled={track.isMissing} title={track.isMissing ? `Fichier introuvable : ${track.path}` : undefined} onClick={() => playTrack(track, queue)} className={`${focus} block max-w-full truncate rounded text-left text-sm font-medium hover:underline disabled:cursor-not-allowed disabled:no-underline disabled:opacity-70`}>
+        <button type="button" disabled={track.isMissing} title={track.isMissing ? `Fichier introuvable : ${track.path}` : undefined} onClick={() => playTrack(track, queue, source)} className={`${focus} block max-w-full truncate rounded text-left text-sm font-medium hover:underline disabled:cursor-not-allowed disabled:no-underline disabled:opacity-70`}>
           {track.title}
         </button>
         {track.isMissing ? <MissingBadge /> : null}

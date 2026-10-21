@@ -14,7 +14,7 @@ export function PlaylistHeaderActions({ playlist, tracks, onRename }: Props) {
   const playQueue = usePlayer((state) => state.playQueue);
   return (
     <>
-      <Button size="sm" disabled={tracks.length === 0} onClick={() => playQueue(tracks)}>
+      <Button size="sm" disabled={tracks.length === 0} onClick={() => playQueue(tracks, 0, playlist.name)}>
         <Play size={15} fill="currentColor" /> Lire
       </Button>
       <Button variant="subtle" size="sm" onClick={onRename}>

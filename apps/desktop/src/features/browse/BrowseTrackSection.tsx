@@ -11,10 +11,11 @@ import type { TrackPage } from "@/types";
 interface Props {
   state: AsyncState<TrackPage>;
   page: number;
+  source: string;
   onPage: (page: number) => void;
 }
 
-export function BrowseTrackSection({ state, page, onPage }: Props) {
+export function BrowseTrackSection({ state, page, source, onPage }: Props) {
   return (
     <>
       {state.error ? <ErrorNotice message={state.error} /> : null}
@@ -28,7 +29,7 @@ export function BrowseTrackSection({ state, page, onPage }: Props) {
           />
         </Card>
       ) : null}
-      {state.data && state.data.items.length > 0 ? <TrackTable tracks={state.data.items} /> : null}
+      {state.data && state.data.items.length > 0 ? <TrackTable tracks={state.data.items} source={source} /> : null}
       <LibraryPagination page={page} total={state.data?.total ?? 0} onChange={onPage} />
     </>
   );

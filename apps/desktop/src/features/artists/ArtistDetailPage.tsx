@@ -34,7 +34,7 @@ export function ArtistDetailPage() {
   return (
     <div>
       <ArtistDetailHeader artist={artist.data} />
-      <BrowseTrackSection state={tracks} page={page} onPage={setPage} />
+      <BrowseTrackSection state={tracks} page={page} source={artist.data.name} onPage={setPage} />
     </div>
   );
 }

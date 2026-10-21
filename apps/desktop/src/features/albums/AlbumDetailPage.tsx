@@ -34,7 +34,7 @@ export function AlbumDetailPage() {
   return (
     <div>
       <AlbumDetailHeader album={album.data} />
-      <BrowseTrackSection state={tracks} page={page} onPage={setPage} />
+      <BrowseTrackSection state={tracks} page={page} source={album.data.title} onPage={setPage} />
     </div>
   );
 }
