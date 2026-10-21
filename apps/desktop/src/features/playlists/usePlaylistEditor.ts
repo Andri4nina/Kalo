@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLibraryVersion } from "@/features/library/library.store";
-import { removeTrackFromPlaylist, reorderPlaylist } from "@/lib/api/playlists";
+import { removeTrackFromPlaylist, removeTracksFromPlaylist, reorderPlaylist } from "@/lib/api/playlists";
 import { errorMessage } from "@/lib/format";
 import type { Track } from "@/types";
 
@@ -8,13 +8,15 @@ export function usePlaylistEditor(playlistId: number, tracks: Track[]) {
   const [error, setError] = useState<string | null>(null);
   const bump = useLibraryVersion((state) => state.bump);
 
-  const run = async (action: () => Promise<void>) => {
+  const run = async (action: () => Promise<void>): Promise<boolean> => {
     setError(null);
     try {
       await action();
       bump();
+      return true;
     } catch (reason: unknown) {
       setError(errorMessage(reason));
+      return false;
     }
   };
 
@@ -34,5 +36,7 @@ export function usePlaylistEditor(playlistId: number, tracks: Track[]) {
     void run(() => removeTrackFromPlaylist(playlistId, trackId));
   };
 
-  return { error, move, remove };
+  const removeMany = (trackIds: number[]) => run(() => removeTracksFromPlaylist(playlistId, trackIds));
+
+  return { error, move, remove, removeMany };
 }

@@ -2,7 +2,6 @@ mod commands;
 mod error;
 mod setup;
 mod state;
-
 pub use error::CommandError;
 
 pub fn run() -> tauri::Result<()> {
@@ -42,6 +41,7 @@ pub fn run() -> tauri::Result<()> {
             commands::playlists::tracks::detail::playlist_detail,
             commands::playlists::tracks::mutate::playlist_add_track,
             commands::playlists::tracks::mutate::playlist_remove_track,
+            commands::playlists::tracks::mutate::playlist_remove_tracks,
             commands::playlists::tracks::mutate::playlist_reorder,
             commands::playlists::m3u_export::playlist_export_m3u,
             commands::playlists::m3u_import::playlist_import_m3u,

@@ -34,6 +34,8 @@ le versionnage sémantique à partir de la première version publiée.
   surveillés et aux formats audio pris en charge.
 - Détection de doublons probables par titre, artiste et durée, sans suppression
   automatique.
+- Sélection multiple dans une playlist, avec retrait groupé transactionnel ou
+  ajout à la file d'attente.
 - Sélection multiple dans la bibliothèque, avec ajout groupé à la file d'attente
   ou à une playlist ; les morceaux manquants ne sont pas ajoutés à la file.
 - Changement de pochette par copie dans le cache Kalo, sans réécriture du fichier

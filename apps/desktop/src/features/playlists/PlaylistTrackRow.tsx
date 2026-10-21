@@ -5,6 +5,7 @@ import { focus, muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 import { formatDuration } from "@/lib/format";
 import type { Track } from "@/types";
+import { SelectionCheckbox } from "@/features/library/SelectionCheckbox";
 
 interface Props {
   track: Track;
@@ -12,6 +13,8 @@ interface Props {
   current: boolean;
   canUp: boolean;
   canDown: boolean;
+  selected: boolean;
+  onToggle: () => void;
   onPlay: () => void;
   onMove: (direction: -1 | 1) => void;
   onRemove: () => void;
@@ -20,6 +23,7 @@ interface Props {
 export function PlaylistTrackRow(props: Props) {
   return (
     <tr className={cn("transition-colors", props.track.isMissing && "opacity-60", props.current ? "bg-kalo-accent-soft/60 dark:bg-kalo-dark-accent-soft/60" : "hover:bg-kalo-raised/60 dark:hover:bg-kalo-dark-raised/60")}>
+      <td className="w-10 pl-3"><SelectionCheckbox checked={props.selected} label={`Sélectionner ${props.track.title}`} onChange={props.onToggle} /></td>
       <td className="w-10 py-2 pl-3 text-right text-xs tabular-nums">
         <span className={muted}>{props.index + 1}</span>
       </td>

@@ -22,6 +22,18 @@ pub fn playlist_remove_track(state: State<'_, AppState>, playlist_id: i64, track
 }
 
 #[tauri::command]
+pub fn playlist_remove_tracks(
+    state: State<'_, AppState>,
+    playlist_id: i64,
+    track_ids: Vec<i64>,
+) -> Result<(), CommandError> {
+    state
+        .db
+        .with(|conn| playlists::remove_tracks(conn, playlist_id, &track_ids))?;
+    Ok(())
+}
+
+#[tauri::command]
 pub fn playlist_reorder(state: State<'_, AppState>, playlist_id: i64, track_ids: Vec<i64>) -> Result<(), CommandError> {
     state
         .db

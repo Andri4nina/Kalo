@@ -21,6 +21,11 @@ pub fn remove_track(conn: &Connection, playlist_id: i64, track_id: i64) -> DbRes
         "DELETE FROM playlist_tracks WHERE playlist_id = ?1 AND track_id = ?2",
         params![playlist_id, track_id],
     )?;
+    normalize(conn, playlist_id)?;
+    touch(conn, playlist_id)
+}
+
+pub(super) fn normalize(conn: &Connection, playlist_id: i64) -> DbResult<()> {
     conn.execute(
         "WITH ordered AS (
             SELECT track_id, ROW_NUMBER() OVER (ORDER BY position) - 1 AS new_position
@@ -31,10 +36,10 @@ pub fn remove_track(conn: &Connection, playlist_id: i64, track_id: i64) -> DbRes
          WHERE playlist_id = ?1",
         [playlist_id],
     )?;
-    touch(conn, playlist_id)
+    Ok(())
 }
 
-fn touch(conn: &Connection, playlist_id: i64) -> DbResult<()> {
+pub(super) fn touch(conn: &Connection, playlist_id: i64) -> DbResult<()> {
     conn.execute(
         "UPDATE playlists SET updated_at = unixepoch() WHERE id = ?1",
         [playlist_id],

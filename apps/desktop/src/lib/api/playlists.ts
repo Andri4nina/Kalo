@@ -21,6 +21,9 @@ export const addTrackToPlaylist = (playlistId: number, trackId: number) =>
 export const removeTrackFromPlaylist = (playlistId: number, trackId: number) =>
   invoke<void>("playlist_remove_track", { playlistId, trackId });
 
+export const removeTracksFromPlaylist = (playlistId: number, trackIds: number[]) =>
+  invoke<void>("playlist_remove_tracks", { playlistId, trackIds });
+
 export const reorderPlaylist = (playlistId: number, trackIds: number[]) =>
   invoke<void>("playlist_reorder", { playlistId, trackIds });
 

@@ -1,6 +1,7 @@
 # Couverture de la spécification Kalo
 
-État vérifié au 21 octobre 2026, après les commits `8764e49` à `2c2a606`.
+État vérifié au 21 octobre 2026, après les commits `8764e49` à `6325613` et les
+tranches provenance de la file, paramètres avancés et actions groupées.
 Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais incomplet ;
 **Absent** = non implémenté ; **Bloqué** = dépend d'une décision ou d'une ressource externe.
 
@@ -60,7 +61,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Import / export M3U | Livré | UTF-8, fichiers locaux, résolution des chemins, résumé ajoutés/ignorés |
 | Description et pochette | Absent | Modèle de playlist minimal |
 | Duplication de playlist | Absent | Pas d'action dédiée |
-| Actions groupées | Absent | Pas de sélection multiple |
+| Actions groupées | Livré | Sélection multiple, retrait groupé transactionnel et ajout à la file |
 
 ## 5. Paroles et karaoké
 
@@ -152,10 +153,9 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 
 ## Prochaines tranches prioritaires
 
-1. Actions groupées dans les playlists.
-2. Chaîne d'effets du Studio et presets personnalisés.
-3. Téléchargement direct depuis une source autorisée, avec file et annulation.
-4. Lecture vidéo locale.
-5. Stem Studio après décision sur le modèle et sa licence.
+1. Chaîne d'effets du Studio et presets personnalisés.
+2. Téléchargement direct depuis une source autorisée, avec file et annulation.
+3. Lecture vidéo locale.
+4. Stem Studio après décision sur le modèle et sa licence.
 
 Tout élément marqué **Absent** ou **Bloqué** ne doit pas être présenté comme disponible dans l'interface ou la documentation commerciale.

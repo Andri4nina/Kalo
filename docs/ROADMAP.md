@@ -19,6 +19,8 @@ vérification sur les plateformes concernées.
 - Recherche échappée, filtres format / disponibilité / durée, édition des
   métadonnées en base et relocalisation des fichiers manquants.
 - Détection de doublons probables et import / export M3U des playlists.
+- Sélection multiple dans une playlist : retrait groupé en une transaction et
+  ajout des morceaux sélectionnés à la file d'attente.
 - Retrait contrôlé d'une référence et changement de pochette sans modifier les
   fichiers audio.
 - Reprise de lecture configurable, confidentialité et diagnostics dans les
@@ -29,7 +31,6 @@ vérification sur les plateformes concernées.
 
 ## Prochaine étape : consolidation
 
-- Actions groupées dans les playlists.
 - Télécommandes média natives et reprise après interruption système.
 - Meilleure gestion des pochettes et des gros catalogues.
 - CI multiplateforme et paquets signés pour Windows, macOS et Linux.
