@@ -1,14 +1,16 @@
 import { Pencil, Play } from "lucide-react";
 import { Button } from "@/components/Button";
 import { usePlayer } from "@/features/player/player.store";
-import type { Track } from "@/types";
+import type { Playlist, Track } from "@/types";
+import { M3uActions } from "./M3uActions";
 
 interface Props {
+  playlist: Playlist;
   tracks: Track[];
   onRename: () => void;
 }
 
-export function PlaylistHeaderActions({ tracks, onRename }: Props) {
+export function PlaylistHeaderActions({ playlist, tracks, onRename }: Props) {
   const playQueue = usePlayer((state) => state.playQueue);
   return (
     <>
@@ -18,6 +20,7 @@ export function PlaylistHeaderActions({ tracks, onRename }: Props) {
       <Button variant="subtle" size="sm" onClick={onRename}>
         <Pencil size={15} /> Renommer
       </Button>
+      <M3uActions playlist={playlist} />
     </>
   );
 }

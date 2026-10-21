@@ -17,6 +17,7 @@ pub fn run() -> tauri::Result<()> {
             commands::library::catalog::library_tracks,
             commands::library::catalog::library_stats,
             commands::library::catalog::library_update_track,
+            commands::library::duplicates::library_duplicates,
             commands::library::relocate::library_relocate_track,
             commands::browse::list::library_artists,
             commands::browse::list::library_albums,
@@ -39,6 +40,8 @@ pub fn run() -> tauri::Result<()> {
             commands::playlists::tracks::mutate::playlist_add_track,
             commands::playlists::tracks::mutate::playlist_remove_track,
             commands::playlists::tracks::mutate::playlist_reorder,
+            commands::playlists::m3u_export::playlist_export_m3u,
+            commands::playlists::m3u_import::playlist_import_m3u,
         ])
         .run(tauri::generate_context!())
 }

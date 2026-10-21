@@ -32,6 +32,13 @@ pub struct ScanProgress {
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct ImportSummary {
+    pub added: i64,
+    pub skipped: i64,
+}
+
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct ScanSummary {
     pub files_found: i64,
     pub imported: i64,

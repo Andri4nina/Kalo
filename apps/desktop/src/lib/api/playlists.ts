@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
-import type { Playlist, PlaylistDetail } from "@/types";
+import type { ImportSummary, Playlist, PlaylistDetail } from "@/types";
 
 export const listPlaylists = () => invoke<Playlist[]>("playlist_list");
 
@@ -23,3 +23,9 @@ export const removeTrackFromPlaylist = (playlistId: number, trackId: number) =>
 
 export const reorderPlaylist = (playlistId: number, trackIds: number[]) =>
   invoke<void>("playlist_reorder", { playlistId, trackIds });
+
+export const exportPlaylistM3u = (playlistId: number, destination: string) =>
+  invoke<void>("playlist_export_m3u", { playlistId, destination });
+
+export const importPlaylistM3u = (playlistId: number, source: string) =>
+  invoke<ImportSummary>("playlist_import_m3u", { playlistId, source });

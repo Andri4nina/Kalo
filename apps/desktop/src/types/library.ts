@@ -30,3 +30,8 @@ export interface ScanSummary {
   missing: number;
   durationMs: number;
 }
+
+export interface ImportSummary {
+  added: number;
+  skipped: number;
+}

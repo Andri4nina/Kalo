@@ -1,6 +1,8 @@
 export type { Track, TrackPage, TrackQuery, TrackSort, TrackUpdate } from "./track";
+export type { DuplicateGroup } from "./duplicate";
 export type { AlbumSummary, ArtistSummary } from "./browse";
 export type {
+  ImportSummary,
   LibraryRoot,
   LibraryStats,
   ScanProgress,

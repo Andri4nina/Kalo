@@ -24,7 +24,7 @@ export function PlaylistDetailPage() {
         eyebrow="Playlist"
         title={data.playlist.name}
         description={`${data.tracks.length} morceau${data.tracks.length > 1 ? "x" : ""}`}
-        actions={<PlaylistHeaderActions tracks={data.tracks} onRename={() => setRenaming(true)} />}
+        actions={<PlaylistHeaderActions playlist={data.playlist} tracks={data.tracks} onRename={() => setRenaming(true)} />}
       />
       {data.tracks.length === 0 ? (
         <PlaylistEmpty />

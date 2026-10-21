@@ -1,4 +1,5 @@
 pub(crate) mod by;
+mod duplicates;
 mod favorites;
 mod history;
 mod list;
@@ -12,9 +13,10 @@ mod update;
 mod upsert;
 
 pub use favorites::toggle_favorite;
+pub use duplicates::duplicates;
 pub use history::{recent, record_play};
 pub use list::{count, list};
-pub use path::find_path;
+pub use path::{find_id_by_path, find_path};
 pub use relocate::relocate;
 pub use scan::{finish_scan, touch_seen};
 pub use stats::stats;

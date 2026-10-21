@@ -1,5 +1,5 @@
 import { invoke } from "@tauri-apps/api/core";
-import type { LibraryRoot, LibraryStats, ScanSummary, TrackPage, TrackQuery, TrackUpdate } from "@/types";
+import type { DuplicateGroup, LibraryRoot, LibraryStats, ScanSummary, TrackPage, TrackQuery, TrackUpdate } from "@/types";
 
 export const listRoots = () => invoke<LibraryRoot[]>("library_roots");
 
@@ -25,5 +25,7 @@ export const relocateTrack = (trackId: number, newPath: string) =>
   invoke<void>("library_relocate_track", { trackId, newPath });
 
 export const getStats = () => invoke<LibraryStats>("library_stats");
+
+export const listDuplicates = () => invoke<DuplicateGroup[]>("library_duplicates");
 
 export const getRecent = (limit = 6) => invoke<TrackPage>("history_recent", { limit });
