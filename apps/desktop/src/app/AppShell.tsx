@@ -8,13 +8,15 @@ import { QueuePanel } from "@/features/player/QueuePanel";
 import { useAudioEngine } from "@/features/player/useAudioEngine";
 import { bindMediaSession } from "@/features/player/media.session";
 import { watchPlayerSession } from "@/features/player/player.session";
+import { applyAccessibility, useAccessibility } from "@/features/settings/accessibility";
 import { useStudioEq } from "@/features/studio/useStudioEq";
 import { Sidebar } from "./Sidebar";
 
 export function AppShell() {
   const theme = useTheme((state) => state.theme);
+  const reduceMotion = useAccessibility((state) => state.reduceMotion);
   const main = useRef<HTMLElement>(null);
-  useEffect(() => applyTheme(theme), [theme]);
+  useEffect(() => { applyTheme(theme); applyAccessibility(reduceMotion); }, [theme, reduceMotion]);
   useAudioEngine();
   useStudioEq();
   useKeyboardShortcuts();
@@ -22,7 +24,7 @@ export function AppShell() {
   useEffect(watchPlayerSession, []);
 
   return (
-    <div className={page}>
+    <div className={`${page} ${reduceMotion ? "[&_*]:!animate-none [&_*]:!transition-none" : ""}`}>
       <a
         href="#contenu"
         onClick={(event) => {

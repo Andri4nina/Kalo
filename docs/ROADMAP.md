@@ -13,6 +13,8 @@ vérification sur les plateformes concernées.
 - Sauvegarde et restauration vérifiées de l'index et des playlists.
 - Lecteur avec file d'attente, volume, balance, aléatoire et répétition.
 - Paramètres de bibliothèque, thème clair/sombre et raccourcis clavier.
+- Sous-pages de paramètres, raccourcis personnalisables et réduction des
+  animations.
 - Tests Rust et front, contrôles de règles et documentation de base.
 - Recherche échappée, filtres format / disponibilité / durée, édition des
   métadonnées en base et relocalisation des fichiers manquants.
@@ -28,8 +30,6 @@ vérification sur les plateformes concernées.
 ## Prochaine étape : consolidation
 
 - Actions groupées dans les playlists.
-- Sous-pages de paramètres, personnalisation des raccourcis et réglages
-  d'accessibilité.
 - Télécommandes média natives et reprise après interruption système.
 - Meilleure gestion des pochettes et des gros catalogues.
 - CI multiplateforme et paquets signés pour Windows, macOS et Linux.

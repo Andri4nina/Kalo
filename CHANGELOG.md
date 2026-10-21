@@ -42,6 +42,12 @@ le versionnage sémantique à partir de la première version publiée.
   entrées de playlists, favoris et historique ; fichier audio conservé.
 - Provenance de la file affichée selon la vue d'origine et historique cliquable
   des 30 derniers morceaux quittés.
+- Paramètres structurés en sous-pages : général, bibliothèque, confidentialité et
+  données, raccourcis.
+- Raccourcis personnalisables avec détection des conflits, réinitialisation et
+  persistance locale.
+- Réduction des animations depuis les réglages d'accessibilité, appliquée à
+  l'ensemble de l'interface.
 - Filtres de bibliothèque par format, disponibilité et durée.
 - Recherche étendue au chemin du fichier, avec échappement des jokers SQL.
 - Import et export M3U UTF-8 des playlists, avec résumé des morceaux ajoutés et

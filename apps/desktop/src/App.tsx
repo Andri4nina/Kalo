@@ -12,7 +12,11 @@ import { KaraokePage } from "@/features/karaoke/KaraokePage";
 import { LibraryPage } from "@/features/library/LibraryPage";
 import { PlaylistDetailPage } from "@/features/playlists/PlaylistDetailPage";
 import { PlaylistsPage } from "@/features/playlists/PlaylistsPage";
+import { SettingsLayout } from "@/features/settings/SettingsLayout";
+import { SettingsLibraryPage } from "@/features/settings/SettingsLibraryPage";
 import { SettingsPage } from "@/features/settings/SettingsPage";
+import { SettingsPrivacyPage } from "@/features/settings/SettingsPrivacyPage";
+import { SettingsShortcutsPage } from "@/features/settings/SettingsShortcutsPage";
 import { StudioPage } from "@/features/studio/StudioPage";
 
 export function App() {
@@ -32,7 +36,12 @@ export function App() {
           <Route path="favorites" element={<FavoritesPage />} />
           <Route path="karaoke" element={<KaraokePage />} />
           <Route path="studio" element={<StudioPage />} />
-          <Route path="settings" element={<SettingsPage />} />
+          <Route path="settings" element={<SettingsLayout />}>
+            <Route index element={<SettingsPage />} />
+            <Route path="library" element={<SettingsLibraryPage />} />
+            <Route path="privacy" element={<SettingsPrivacyPage />} />
+            <Route path="shortcuts" element={<SettingsShortcutsPage />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

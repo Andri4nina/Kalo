@@ -122,9 +122,9 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Sauvegarde / restauration | Livré | `VACUUM INTO`, vérification d'intégrité, refus de bases étrangères |
 | Confidentialité | Livré | Engagements explicites, aucune télémétrie |
 | Diagnostics | Livré | Compteurs, durée indexée, copie du rapport |
-| Sous-pages de réglages | Absent | Une seule page ; pas de routes par catégorie |
-| Accessibilité | Partiel | Navigation clavier, focus, reduced motion ; pas de réglages dédiés |
-| Raccourcis | Partiel | Raccourcis actifs ; pas d'écran de personnalisation |
+| Sous-pages de réglages | Livré | Routes dédiées : général, bibliothèque, confidentialité et données, raccourcis |
+| Accessibilité | Partiel | Navigation clavier, focus, réglage dédié de réduction des animations ; validation lecteur d'écran non réalisée |
+| Raccourcis | Livré | Neuf actions personnalisables, détection des conflits, réinitialisation et persistance locale |
 | Notifications | Absent | Pas de préférences de notifications |
 | Périphériques audio | Absent | Pas de sélection de sortie |
 | Stockage | Partiel | Statistiques affichées ; pas de nettoyage ni d'emplacement configurable |
@@ -153,10 +153,9 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 ## Prochaines tranches prioritaires
 
 1. Actions groupées dans les playlists.
-2. Sous-pages de paramètres, raccourcis et accessibilité.
-3. Chaîne d'effets du Studio et presets personnalisés.
-4. Téléchargement direct depuis une source autorisée, avec file et annulation.
-5. Lecture vidéo locale.
-6. Stem Studio après décision sur le modèle et sa licence.
+2. Chaîne d'effets du Studio et presets personnalisés.
+3. Téléchargement direct depuis une source autorisée, avec file et annulation.
+4. Lecture vidéo locale.
+5. Stem Studio après décision sur le modèle et sa licence.
 
 Tout élément marqué **Absent** ou **Bloqué** ne doit pas être présenté comme disponible dans l'interface ou la documentation commerciale.

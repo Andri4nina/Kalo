@@ -50,16 +50,17 @@ La matrice détaillée, fonction par fonction, est dans
 - Favoris et historique d'écoute récents.
 - Sauvegarde et restauration de l'index, des playlists et des favoris dans un
   fichier SQLite unique, avec vérification d'intégrité.
-- Paramètres : dossiers, analyse, apparence, reprise de lecture, sauvegarde,
-  engagements de confidentialité et diagnostics locaux copiables.
+- Paramètres structurés en sous-pages : dossiers et analyse, apparence, lecture,
+  confidentialité et données, raccourcis personnalisables et accessibilité.
 - Installateurs Windows MSI et NSIS non signés, construits et testés localement
   (installation, lancement, désinstallation).
 - Signalement des morceaux disparus : badge explicite et lecture désactivée.
 - Retrait d'un dossier bloqué pendant une analyse pour préserver l'index.
 - Touches média via l'API Media Session quand le WebView l'expose ; les
   télécommandes natives par plateforme restent à faire.
-- Thème clair et sombre, raccourcis clavier, focus visible, modales et file
-  d'attente utilisables au clavier avec restitution du focus.
+- Thème clair et sombre, raccourcis clavier personnalisables, focus visible,
+  modales et file d'attente utilisables au clavier avec restitution du focus.
+- Réduction des animations activable dans les réglages d'accessibilité.
 - Interface responsive en bento grid, états vides, chargement et erreurs.
 - Analyse Rust découpée en crates : domaine, base SQLite, scanner, application Tauri.
 
@@ -72,8 +73,6 @@ La matrice détaillée, fonction par fonction, est dans
 - Sources de paroles distantes et paroles intégrées aux métadonnées.
 - Téléchargements depuis des sources autorisées.
 - Lecture vidéo locale.
-- Sous-pages de paramètres, personnalisation des raccourcis et réglages
-  d'accessibilité dédiés.
 - Publication App Store, Play Store et Microsoft Store.
 
 Les fonctionnalités listées ci-dessus ne sont pas revendiquées comme terminées.
