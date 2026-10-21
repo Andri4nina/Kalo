@@ -1,22 +1,21 @@
 import { useDeferredValue, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/Button";
-import { ErrorNotice } from "@/components/ErrorNotice";
 import { PageHeader } from "@/components/PageHeader";
-import { Spinner } from "@/components/Spinner";
 import type { TrackSort } from "@/types";
-import { LibraryEmpty } from "./LibraryEmpty";
-import { LibraryPagination } from "./LibraryPagination";
+import { toTrackFilters } from "./filters";
+import { DEFAULT_FILTERS, LibraryFilters } from "./LibraryFilters";
+import { LibraryResults } from "./LibraryResults";
 import { LibraryToolbar } from "./LibraryToolbar";
-import { TrackTable } from "./TrackTable";
 import { useTrackPage } from "./useTrackPage";
 
 export function LibraryPage() {
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState<TrackSort>("added");
   const [page, setPage] = useState(0);
+  const [filters, setFilters] = useState(DEFAULT_FILTERS);
   const deferredSearch = useDeferredValue(search);
-  const { data, loading, error, reload } = useTrackPage({ search: deferredSearch, sort, page });
+  const { data, loading, error, reload } = useTrackPage({ search: deferredSearch, sort, page, filters: toTrackFilters(filters) });
 
   useEffect(() => {
     if (data && data.items.length === 0 && page > 0) setPage(0);
@@ -39,11 +38,8 @@ export function LibraryPage() {
         onSort={(value) => { setSort(value); setPage(0); }}
         onRefresh={reload}
       />
-      {error ? <ErrorNotice message={error} /> : null}
-      {loading && !data ? <Spinner label="Chargement de la bibliothèque" /> : null}
-      {data && data.items.length === 0 ? <LibraryEmpty searching={search.length > 0} /> : null}
-      {data && data.items.length > 0 ? <TrackTable tracks={data.items} /> : null}
-      <LibraryPagination page={page} total={total} onChange={setPage} />
+      <LibraryFilters value={filters} onChange={(value) => { setFilters(value); setPage(0); }} />
+      <LibraryResults data={data} loading={loading} error={error} search={search} page={page} total={total} onPage={setPage} />
     </div>
   );
 }

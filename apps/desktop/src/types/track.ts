@@ -1,4 +1,5 @@
 export type TrackSort = "title" | "artist" | "album" | "added" | "duration" | "year";
+export type TrackAvailability = "available" | "missing";
 
 export interface TrackUpdate {
   trackId: number;
@@ -32,6 +33,10 @@ export interface TrackQuery {
   playlistId: number | null;
   limit: number;
   offset: number;
+  format?: string | null;
+  availability?: TrackAvailability | null;
+  minDurationMs?: number | null;
+  maxDurationMs?: number | null;
 }
 
 export interface TrackPage {

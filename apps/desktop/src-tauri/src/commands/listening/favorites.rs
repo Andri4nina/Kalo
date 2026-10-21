@@ -20,6 +20,10 @@ pub fn favorites_list(state: State<'_, AppState>, limit: i64, offset: i64) -> Re
         playlist_id: None,
         limit,
         offset,
+        format: None,
+        availability: None,
+        min_duration_ms: None,
+        max_duration_ms: None,
     };
     let page = state.db.with(|conn| {
         let total = tracks::count(conn, &query)?;

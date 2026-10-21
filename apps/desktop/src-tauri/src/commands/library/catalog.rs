@@ -5,7 +5,6 @@ use kalo_database::tracks;
 
 use crate::state::AppState;
 use crate::CommandError;
-
 #[tauri::command]
 pub fn library_tracks(state: State<'_, AppState>, query: TrackQuery) -> Result<TrackPage, CommandError> {
     let page = state.db.with(|conn| {
@@ -19,6 +18,11 @@ pub fn library_tracks(state: State<'_, AppState>, query: TrackQuery) -> Result<T
 #[tauri::command]
 pub fn library_stats(state: State<'_, AppState>) -> Result<LibraryStats, CommandError> {
     Ok(state.db.with(|conn| tracks::stats(conn))?)
+}
+
+#[tauri::command]
+pub fn library_formats(state: State<'_, AppState>) -> Result<Vec<String>, CommandError> {
+    Ok(state.db.with(|conn| tracks::formats(conn))?)
 }
 
 #[tauri::command]

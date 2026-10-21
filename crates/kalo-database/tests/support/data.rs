@@ -39,6 +39,10 @@ pub fn count_tracks(db: &Database) -> i64 {
         playlist_id: None,
         limit: 500,
         offset: 0,
+        format: None,
+        availability: None,
+        min_duration_ms: None,
+        max_duration_ms: None,
     };
     db.with(|conn| tracks::count(conn, &query))
         .unwrap_or_else(|error| panic!("comptage : {error}"))

@@ -11,6 +11,10 @@ pub struct TrackQuery {
     pub playlist_id: Option<i64>,
     pub limit: i64,
     pub offset: i64,
+    pub format: Option<String>,
+    pub availability: Option<String>,
+    pub min_duration_ms: Option<i64>,
+    pub max_duration_ms: Option<i64>,
 }
 
 impl TrackQuery {

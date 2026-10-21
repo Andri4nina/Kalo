@@ -11,6 +11,7 @@ export interface MixerActions {
   toggleMute: () => void;
   toggleShuffle: () => void;
   cycleRepeat: () => void;
+  setResumeOnLaunch: (value: boolean) => void;
   setError: (error: string | null) => void;
 }
 
@@ -40,6 +41,10 @@ export function createMixerActions(set: PlayerSet): MixerActions {
         savePlayerPrefs({ repeat });
         return { repeat };
       }),
+    setResumeOnLaunch: (resumeOnLaunch) => {
+      savePlayerPrefs({ resumeOnLaunch });
+      set({ resumeOnLaunch });
+    },
     setError: (error) => set({ error }),
   };
 }

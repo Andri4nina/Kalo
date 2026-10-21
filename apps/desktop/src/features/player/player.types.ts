@@ -15,6 +15,7 @@ export interface PlayerState {
   muted: boolean;
   shuffle: boolean;
   repeat: RepeatMode;
+  resumeOnLaunch: boolean;
   error: string | null;
   queueOpen: boolean;
   playQueue: (tracks: Track[], startIndex?: number) => void;
@@ -33,6 +34,7 @@ export interface PlayerState {
   toggleMute: () => void;
   toggleShuffle: () => void;
   cycleRepeat: () => void;
+  setResumeOnLaunch: (value: boolean) => void;
   enqueue: (track: Track) => void;
   playNext: (track: Track) => void;
   moveInQueue: (from: number, to: number) => void;

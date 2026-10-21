@@ -26,6 +26,8 @@ export const relocateTrack = (trackId: number, newPath: string) =>
 
 export const getStats = () => invoke<LibraryStats>("library_stats");
 
+export const listFormats = () => invoke<string[]>("library_formats");
+
 export const listDuplicates = () => invoke<DuplicateGroup[]>("library_duplicates");
 
 export const getRecent = (limit = 6) => invoke<TrackPage>("history_recent", { limit });

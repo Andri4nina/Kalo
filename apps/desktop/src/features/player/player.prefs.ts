@@ -5,9 +5,10 @@ interface PlayerPrefs {
   balance: number;
   shuffle: boolean;
   repeat: RepeatMode;
+  resumeOnLaunch: boolean;
 }
 
-const FALLBACK: PlayerPrefs = { volume: 0.8, balance: 0, shuffle: false, repeat: "off" };
+const FALLBACK: PlayerPrefs = { volume: 0.8, balance: 0, shuffle: false, repeat: "off", resumeOnLaunch: true };
 const KEY = "kalo:player-prefs";
 
 function bound(value: unknown, fallback: number, min: number, max: number): number {
@@ -29,6 +30,7 @@ export function loadPlayerPrefs(): PlayerPrefs {
       balance: bound(parsed.balance, FALLBACK.balance, -1, 1),
       shuffle: typeof parsed.shuffle === "boolean" ? parsed.shuffle : FALLBACK.shuffle,
       repeat: repeatMode(parsed.repeat),
+      resumeOnLaunch: typeof parsed.resumeOnLaunch === "boolean" ? parsed.resumeOnLaunch : FALLBACK.resumeOnLaunch,
     };
   } catch {
     return FALLBACK;

@@ -7,11 +7,11 @@ beforeEach(() => localStorage.clear());
 
 describe("préférences du lecteur", () => {
   it("applique les valeurs par défaut", () => {
-    expect(loadPlayerPrefs()).toEqual({ volume: 0.8, balance: 0, shuffle: false, repeat: "off" });
+    expect(loadPlayerPrefs()).toEqual({ volume: 0.8, balance: 0, shuffle: false, repeat: "off", resumeOnLaunch: true });
   });
   it("borne et valide les valeurs stockées", () => {
     localStorage.setItem(KEY, JSON.stringify({ volume: 4, balance: -9, shuffle: "oui", repeat: "x" }));
-    expect(loadPlayerPrefs()).toEqual({ volume: 1, balance: -1, shuffle: false, repeat: "off" });
+    expect(loadPlayerPrefs()).toEqual({ volume: 1, balance: -1, shuffle: false, repeat: "off", resumeOnLaunch: true });
     localStorage.setItem(KEY, JSON.stringify({ volume: -1, repeat: "one" }));
     expect(loadPlayerPrefs()).toMatchObject({ volume: 0, repeat: "one" });
   });

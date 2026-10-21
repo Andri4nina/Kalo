@@ -1,6 +1,7 @@
 pub(crate) mod by;
 mod duplicates;
 mod favorites;
+mod formats;
 mod history;
 mod list;
 mod path;
@@ -14,6 +15,7 @@ mod upsert;
 
 pub use favorites::toggle_favorite;
 pub use duplicates::duplicates;
+pub use formats::formats;
 pub use history::{recent, record_play};
 pub use list::{count, list};
 pub use path::{find_id_by_path, find_path};

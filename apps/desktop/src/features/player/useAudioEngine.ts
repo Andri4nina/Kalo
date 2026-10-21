@@ -17,7 +17,7 @@ export function useAudioEngine(): void {
     if (!track) return;
     const resume = usePlayer.getState().resumePositionMs;
     audioTransport.load(track.path, track.id);
-    if (resume > 0) audioTransport.resume(resume);
+    if (resume > 0 && usePlayer.getState().resumeOnLaunch) audioTransport.resume(resume);
     if (usePlayer.getState().playing) {
       audioMixer.ensure();
       void audioTransport.play();
