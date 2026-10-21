@@ -84,8 +84,9 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Presets intégrés | Livré | Plat, graves, voix, rock, podcast |
 | Bypass, réinitialisation | Livré | Persistés |
 | Préampli | Livré | ±12 dB, appliqué avant l'égaliseur |
-| Presets personnalisés | Absent | Pas d'enregistrement nommé par l'utilisateur |
-| Chaîne d'effets | Absent | Pas de reverb, écho, compresseur ou saturation |
+| Presets personnalisés | Livré | Nom, gains, préampli et effets enregistrés localement, limités à 20 |
+| Chaîne d'effets | Livré | Saturation, compression, réverbération et écho après l'égaliseur, bypass global |
+| Comparaison A/B | Livré | Écoute sans traitement puis retour au réglage conservé |
 | Export du rendu | Absent | Pas de rendu hors ligne ni d'écriture audio |
 | Visualisation spectrale | Absent | Pas d'analyseur temps réel |
 
@@ -153,7 +154,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 
 ## Prochaines tranches prioritaires
 
-1. Chaîne d'effets du Studio et presets personnalisés.
+1. Export du rendu Studio vers un nouveau fichier audio.
 2. Téléchargement direct depuis une source autorisée, avec file et annulation.
 3. Lecture vidéo locale.
 4. Stem Studio après décision sur le modèle et sa licence.

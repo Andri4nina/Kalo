@@ -4,9 +4,9 @@ import { muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 
 const points = [
-  "L'égaliseur agit en temps réel sur la lecture.",
+  "L'égaliseur et les effets agissent en temps réel sur la lecture.",
   "Aucun fichier audio n'est modifié.",
-  "Les réglages restent sur cet appareil.",
+  "Les réglages et presets restent sur cet appareil.",
   "L'export audio n'est pas encore disponible.",
 ];
 

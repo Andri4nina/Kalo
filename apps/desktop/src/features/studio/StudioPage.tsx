@@ -1,4 +1,7 @@
 import { PageHeader } from "@/components/PageHeader";
+import { CompareCard } from "./CompareCard";
+import { CustomPresetsCard } from "./CustomPresetsCard";
+import { EffectsCard } from "./EffectsCard";
 import { EqCard } from "./EqCard";
 import { PreampCard } from "./PreampCard";
 import { PresetPicker } from "./PresetPicker";
@@ -16,9 +19,12 @@ export function StudioPage() {
         <EqCard />
         <div className="flex flex-col gap-4">
           <PreampCard />
-          <PresetPicker />
-          <StudioInfoCard />
+          <EffectsCard />
+          <CompareCard />
         </div>
+        <PresetPicker />
+        <CustomPresetsCard />
+        <StudioInfoCard />
       </div>
     </div>
   );

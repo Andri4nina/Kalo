@@ -29,6 +29,9 @@ le versionnage sémantique à partir de la première version publiée.
 - Karaoké plein écran, décalage mémorisé par morceau et commandes de lecture
   dans la superposition.
 - Préampli du Studio (±12 dB), appliqué avant l'égaliseur et persisté.
+- Studio audio : chaîne d'effets après l'égaliseur (saturation, compression,
+  réverbération, écho), comparaison A/B et presets personnalisés nommés,
+  supprimables et limités à 20, le tout persistant localement.
 - Édition des métadonnées en base uniquement, sans réécriture du fichier audio.
 - Relocalisation contrôlée d'un fichier manquant, limitée aux dossiers déjà
   surveillés et aux formats audio pris en charge.
@@ -89,8 +92,7 @@ le versionnage sémantique à partir de la première version publiée.
 ### Prévu
 
 - Télécommandes média natives et lecture mobile en arrière-plan.
-- Actions groupées, suppression de référence et édition des pochettes.
-- Studio audio : effets, presets personnalisés, A/B et export explicite.
+- Studio audio : export explicite du rendu vers un nouveau fichier.
 - Stem Studio local.
 - Téléchargements depuis des sources autorisées et lecture vidéo locale.
 - Publication et signature des paquets.

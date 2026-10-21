@@ -39,9 +39,10 @@ vérification sur les plateformes concernées.
 
 - Égaliseur graphique 10 bandes, presets, bypass et persistance (livré).
 - Préampli avant l'égaliseur (livré).
-- Presets personnalisés nommés et supprimables.
+- Presets personnalisés nommés et supprimables (livré).
+- Chaîne d'effets saturation, compression, réverbération et écho avec comparaison
+  A/B et réinitialisation (livré).
 - Mode paramétrique par bande (fréquence et largeur réglables).
-- Chaîne d'effets avec comparaison A/B et réinitialisation.
 - Export explicite uniquement, vers un nouveau fichier.
 - Aucune modification destructive du fichier d'origine.
 

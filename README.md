@@ -34,8 +34,10 @@ La matrice détaillée, fonction par fonction, est dans
   dans la piste, volume, balance stéréo, mode muet, lecture aléatoire et répétition.
 - Reprise de la file et de la position au lancement, désactivable dans les
   paramètres.
-- Studio audio : égaliseur graphique 10 bandes, presets, préampli, bypass et
-  réglages persistants, appliqués à la lecture sans modifier les fichiers.
+- Studio audio : égaliseur graphique 10 bandes, presets intégrés et
+  personnalisés, préampli, saturation, compression, réverbération, écho,
+  comparaison A/B et réglages persistants, appliqués à la lecture sans modifier
+  les fichiers.
 - Karaoké local : lecture des fichiers `.lrc` UTF-8 placés à côté des morceaux,
   surlignage synchronisé, décalage réglable et mémorisé par morceau, navigation
   par clic et mode plein écran. Aucun envoi réseau et aucune modification des
@@ -68,7 +70,7 @@ La matrice détaillée, fonction par fonction, est dans
 ### Pas encore disponible
 
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
-- Chaîne d'effets du Studio, presets personnalisés, comparaison A/B et export.
+- Export du rendu Studio vers un nouveau fichier audio.
 - Séparation de stems par IA et Stem Studio.
 - Sources de paroles distantes et paroles intégrées aux métadonnées.
 - Téléchargements depuis des sources autorisées.
