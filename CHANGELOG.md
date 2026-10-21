@@ -36,6 +36,10 @@ le versionnage sémantique à partir de la première version publiée.
   automatique.
 - Sélection multiple dans la bibliothèque, avec ajout groupé à la file d'attente
   ou à une playlist ; les morceaux manquants ne sont pas ajoutés à la file.
+- Changement de pochette par copie dans le cache Kalo, sans réécriture du fichier
+  audio.
+- Retrait confirmé d'une référence de l'index, avec suppression en cascade des
+  entrées de playlists, favoris et historique ; fichier audio conservé.
 - Filtres de bibliothèque par format, disponibilité et durée.
 - Recherche étendue au chemin du fichier, avec échappement des jokers SQL.
 - Import et export M3U UTF-8 des playlists, avec résumé des morceaux ajoutés et

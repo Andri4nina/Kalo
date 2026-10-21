@@ -24,6 +24,11 @@ export const updateTrack = (input: TrackUpdate) =>
 export const relocateTrack = (trackId: number, newPath: string) =>
   invoke<void>("library_relocate_track", { trackId, newPath });
 
+export const removeTrack = (trackId: number) => invoke<void>("library_remove_track", { trackId });
+
+export const setTrackCover = (trackId: number, source: string) =>
+  invoke<string>("library_set_cover", { trackId, source });
+
 export const getStats = () => invoke<LibraryStats>("library_stats");
 
 export const listFormats = () => invoke<string[]>("library_formats");

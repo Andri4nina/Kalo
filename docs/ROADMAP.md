@@ -17,6 +17,8 @@ vérification sur les plateformes concernées.
 - Recherche échappée, filtres format / disponibilité / durée, édition des
   métadonnées en base et relocalisation des fichiers manquants.
 - Détection de doublons probables et import / export M3U des playlists.
+- Retrait contrôlé d'une référence et changement de pochette sans modifier les
+  fichiers audio.
 - Reprise de lecture configurable, confidentialité et diagnostics dans les
   paramètres.
 - Karaoké plein écran avec décalage mémorisé par morceau.
@@ -25,7 +27,6 @@ vérification sur les plateformes concernées.
 ## Prochaine étape : consolidation
 
 - Actions groupées dans les playlists.
-- Suppression contrôlée d'une référence et édition des pochettes.
 - Provenance de la file et retour arrière dans la file.
 - Sous-pages de paramètres, personnalisation des raccourcis et réglages
   d'accessibilité.

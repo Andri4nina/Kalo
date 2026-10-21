@@ -41,8 +41,8 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Favoris | Livré | Page dédiée et filtre |
 | Fichiers manquants | Livré | Badge, relocalisation contrôlée, refus des doublons de chemin |
 | Édition des métadonnées | Livré | Titre, artiste, album, genre, année, en base uniquement |
-| Édition des pochettes | Absent | Aucune écriture d'image |
-| Suppression d'une référence | Absent | Aucun retrait de l'index depuis l'interface |
+| Édition des pochettes | Livré | Image copiée dans le cache Kalo ; fichier audio inchangé |
+| Suppression d'une référence | Livré | Retrait de l'index, des playlists, favoris et historiques ; fichier conservé |
 | Doublons | Livré | Groupes titre + artiste + durée proche ; aucune suppression automatique |
 | Doublons par contenu | Absent | Pas d'empreinte de fichier |
 | Sélection et actions groupées | Livré | Sélection multiple, ajout groupé à la file ou à une playlist |
@@ -153,12 +153,11 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 ## Prochaines tranches prioritaires
 
 1. Actions groupées dans les playlists.
-2. Suppression contrôlée d'une référence et édition de pochette.
-3. Provenance de la file et retour arrière de file.
-4. Sous-pages de paramètres, raccourcis et accessibilité.
-5. Chaîne d'effets du Studio et presets personnalisés.
-6. Téléchargement direct depuis une source autorisée, avec file et annulation.
-7. Lecture vidéo locale.
-8. Stem Studio après décision sur le modèle et sa licence.
+2. Provenance de la file et retour arrière de file.
+3. Sous-pages de paramètres, raccourcis et accessibilité.
+4. Chaîne d'effets du Studio et presets personnalisés.
+5. Téléchargement direct depuis une source autorisée, avec file et annulation.
+6. Lecture vidéo locale.
+7. Stem Studio après décision sur le modèle et sa licence.
 
 Tout élément marqué **Absent** ou **Bloqué** ne doit pas être présenté comme disponible dans l'interface ou la documentation commerciale.

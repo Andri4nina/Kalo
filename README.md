@@ -26,6 +26,10 @@ La matrice détaillée, fonction par fonction, est dans
   automatique.
 - Sélection multiple dans la bibliothèque : ajout groupé à la file d'attente ou
   à une playlist.
+- Changement de pochette : l'image choisie est copiée dans le cache Kalo, sans
+  réécrire le fichier audio.
+- Retrait contrôlé d'une référence de l'index, avec confirmation ; le fichier
+  audio reste sur le disque.
 - Lecture audio : lecture et pause, morceau précédent et suivant, déplacement
   dans la piste, volume, balance stéréo, mode muet, lecture aléatoire et répétition.
 - Reprise de la file et de la position au lancement, désactivable dans les
@@ -62,7 +66,6 @@ La matrice détaillée, fonction par fonction, est dans
 
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
 - Actions groupées dans les playlists.
-- Suppression d'une référence de l'index et édition des pochettes.
 - Provenance de la file et retour arrière dans la file.
 - Chaîne d'effets du Studio, presets personnalisés, comparaison A/B et export.
 - Séparation de stems par IA et Stem Studio.

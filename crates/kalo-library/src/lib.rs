@@ -9,6 +9,7 @@ mod paths;
 mod scan;
 mod track;
 
+pub use cover::store as store_cover;
 pub use error::LibraryError;
 pub use extensions::is_supported;
 pub use scan::scan_root;
