@@ -27,7 +27,9 @@ fn new_track(path: &str, root_id: i64, title: &str, duration_ms: i64) -> NewTrac
 #[test]
 fn groups_tracks_with_same_title_artist_and_duration() {
     let db = Database::in_memory().unwrap_or_else(|error| panic!("base : {error}"));
-    let root = db.with(|conn| roots::add(conn, "C:/musique")).unwrap_or_else(|error| panic!("racine : {error}"));
+    let root = db
+        .with(|conn| roots::add(conn, "C:/musique"))
+        .unwrap_or_else(|error| panic!("racine : {error}"));
     for (path, title, duration) in [
         ("C:/musique/a.mp3", "Titre", 180_000),
         ("C:/musique/b.mp3", "Titre", 180_500),
@@ -36,7 +38,9 @@ fn groups_tracks_with_same_title_artist_and_duration() {
         db.with(|conn| tracks::upsert(conn, &new_track(path, root.id, title, duration)))
             .unwrap_or_else(|error| panic!("morceau : {error}"));
     }
-    let groups = db.with(|conn| tracks::duplicates(conn)).unwrap_or_else(|error| panic!("doublons : {error}"));
+    let groups = db
+        .with(|conn| tracks::duplicates(conn))
+        .unwrap_or_else(|error| panic!("doublons : {error}"));
     assert_eq!(groups.len(), 1);
     assert_eq!(groups[0].tracks.len(), 2);
     assert_eq!(groups[0].title, "Titre");

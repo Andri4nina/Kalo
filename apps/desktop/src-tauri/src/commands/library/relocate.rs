@@ -26,8 +26,12 @@ pub fn library_relocate_track(
     let root = roots
         .iter()
         .find(|candidate| canonical.starts_with(&candidate.path))
-        .ok_or_else(|| CommandError::Invalid("Le fichier doit se trouver dans un dossier de la bibliothèque.".into()))?;
-    let changed = state.db.with(|conn| tracks::relocate(conn, track_id, &display, root.id))?;
+        .ok_or_else(|| {
+            CommandError::Invalid("Le fichier doit se trouver dans un dossier de la bibliothèque.".into())
+        })?;
+    let changed = state
+        .db
+        .with(|conn| tracks::relocate(conn, track_id, &display, root.id))?;
     if !changed {
         return Err(CommandError::NotFound);
     }

@@ -23,7 +23,12 @@ pub fn duplicates(conn: &Connection) -> DbResult<Vec<DuplicateGroup>> {
         let key = group_key(&track);
         groups
             .entry(key.clone())
-            .or_insert_with(|| DuplicateGroup { key, title: track.title.clone(), artist: track.artist.clone(), tracks: Vec::new() })
+            .or_insert_with(|| DuplicateGroup {
+                key,
+                title: track.title.clone(),
+                artist: track.artist.clone(),
+                tracks: Vec::new(),
+            })
             .tracks
             .push(track);
     }

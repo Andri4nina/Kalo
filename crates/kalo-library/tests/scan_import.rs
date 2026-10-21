@@ -28,6 +28,10 @@ fn scan_imports_wav_and_marks_deleted_file_missing() {
         playlist_id: None,
         limit: 50,
         offset: 0,
+        format: None,
+        availability: None,
+        min_duration_ms: None,
+        max_duration_ms: None,
     };
     let items = db
         .with(|conn| tracks::list(conn, &query))

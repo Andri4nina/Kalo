@@ -3,7 +3,7 @@ import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
-import { PRESETS } from "./eq";
+import { PRESETS } from "./presets";
 import { useStudio } from "./studio.store";
 
 export function PresetPicker() {

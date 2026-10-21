@@ -1,11 +1,11 @@
 import { assetUrl, isTauri } from "@/lib/assets";
 import { errorMessage } from "@/lib/format";
 import { audioElement } from "./audio.element";
+import { resumeAt } from "./audio.transport.resume";
 import { usePlayer } from "./player.store";
 
 class AudioTransport {
   private loadedId: number | null = null;
-
   load(path: string, id: number): void {
     if (this.loadedId === id) return;
     if (!isTauri()) {
@@ -18,7 +18,6 @@ class AudioTransport {
     audioElement.src = url;
     audioElement.load();
   }
-
   async play(): Promise<void> {
     if (!audioElement.src) return;
     try {
@@ -30,29 +29,17 @@ class AudioTransport {
       }
     }
   }
-
   pause(): void {
     audioElement.pause();
   }
-
   seek(positionMs: number): void {
     const duration = audioElement.duration;
     if (!Number.isFinite(duration)) return;
     audioElement.currentTime = Math.min(Math.max(positionMs / 1000, 0), duration);
   }
-
   resume(positionMs: number): void {
-    if (positionMs <= 0) return;
-    const apply = () => {
-      const duration = audioElement.duration;
-      if (Number.isFinite(duration) && duration > positionMs / 1000) {
-        audioElement.currentTime = positionMs / 1000;
-      }
-    };
-    if (audioElement.readyState >= 1) apply();
-    else audioElement.addEventListener("loadedmetadata", apply, { once: true });
+    resumeAt(positionMs);
   }
-
   setLoop(loop: boolean): void {
     audioElement.loop = loop;
   }

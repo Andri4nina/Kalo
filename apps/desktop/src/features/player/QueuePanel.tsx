@@ -1,11 +1,11 @@
-import { ListMusic, Trash2, X } from "lucide-react";
+import { ListMusic } from "lucide-react";
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ConfirmModal } from "@/components/ConfirmModal";
 import { EmptyState } from "@/components/EmptyState";
-import { IconButton } from "@/components/IconButton";
 import { useDialogFocus } from "@/components/useDialogFocus";
 import { usePlayer } from "./player.store";
+import { QueueHeader } from "./QueueHeader";
 import { QueueItem } from "./QueueItem";
 
 export function QueuePanel() {
@@ -24,17 +24,7 @@ export function QueuePanel() {
         className="flex h-full w-full max-w-md flex-col rounded-l-3xl border border-kalo-line bg-kalo-panel dark:border-kalo-dark-line dark:bg-kalo-dark-panel"
         onMouseDown={(event) => event.stopPropagation()}
       >
-        <header className="flex items-center justify-between gap-3 p-5">
-          <div className="flex items-center gap-2">
-            <ListMusic size={18} className="text-kalo-accent dark:text-kalo-dark-accent" />
-            <h2 className="font-display text-lg">File d'attente</h2>
-            <span className="text-xs text-kalo-muted dark:text-kalo-dark-muted">{queue.length}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <IconButton icon={Trash2} label="Vider la file" onClick={() => setConfirmClear(true)} disabled={queue.length === 0} />
-            <IconButton icon={X} label="Fermer" onClick={() => setQueueOpen(false)} />
-          </div>
-        </header>
+        <QueueHeader count={queue.length} onClear={() => setConfirmClear(true)} onClose={() => setQueueOpen(false)} />
         <div className="flex-1 overflow-y-auto px-3 pb-5">
           {queue.length === 0 ? (
             <EmptyState icon={ListMusic} title="File vide" description="Ajoutez des morceaux depuis la bibliothèque pour construire votre file d'attente." />

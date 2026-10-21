@@ -13,8 +13,8 @@ mod stats;
 mod update;
 mod upsert;
 
-pub use favorites::toggle_favorite;
 pub use duplicates::duplicates;
+pub use favorites::toggle_favorite;
 pub use formats::formats;
 pub use history::{recent, record_play};
 pub use list::{count, list};

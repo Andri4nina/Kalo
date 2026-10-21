@@ -10,28 +10,41 @@ une empreinte mémoire faible, une lecture audio fiable et une interface claire.
 
 Kalo est en développement actif. Le socle fonctionnel est en place, mais toutes
 les fonctionnalités annoncées dans la feuille de route ne sont pas encore livrées.
+La matrice détaillée, fonction par fonction, est dans
+[docs/SPEC-COVERAGE.md](docs/SPEC-COVERAGE.md).
 
 ### Disponible dans le dépôt
 
 - Bibliothèque locale : ajout de dossiers, analyse récursive, métadonnées,
-  pochettes intégrées ou fichiers `cover.jpg` / `folder.png`, recherche, tri et
-  pagination.
+  pochettes intégrées ou fichiers `cover.jpg` / `folder.png`, recherche, tri,
+  pagination et filtres par format, disponibilité et durée.
+- Édition des métadonnées en base uniquement (titre, artiste, album, genre,
+  année), sans jamais réécrire le fichier audio.
+- Relocalisation contrôlée d'un fichier manquant vers un dossier déjà surveillé,
+  avec refus des chemins déjà indexés.
+- Détection de doublons probables par titre, artiste et durée, sans suppression
+  automatique.
 - Lecture audio : lecture et pause, morceau précédent et suivant, déplacement
   dans la piste, volume, balance stéréo, mode muet, lecture aléatoire et répétition.
-- Studio audio : égaliseur graphique 10 bandes, presets, bypass et réglages
-  persistants, appliqués à la lecture sans modifier les fichiers.
+- Reprise de la file et de la position au lancement, désactivable dans les
+  paramètres.
+- Studio audio : égaliseur graphique 10 bandes, presets, préampli, bypass et
+  réglages persistants, appliqués à la lecture sans modifier les fichiers.
 - Karaoké local : lecture des fichiers `.lrc` UTF-8 placés à côté des morceaux,
-  surlignage synchronisé, décalage réglable et navigation par clic. Aucun envoi
-  réseau et aucune modification des fichiers.
+  surlignage synchronisé, décalage réglable et mémorisé par morceau, navigation
+  par clic et mode plein écran. Aucun envoi réseau et aucune modification des
+  fichiers.
 - File d'attente consultable, réordonnable par retrait et ajout, restaurée au
   lancement de l'application.
 - Playlists persistantes : création, renommage, suppression, ajout et retrait de
-  morceaux, réordonnancement.
+  morceaux, réordonnancement, import et export M3U UTF-8.
 - Sections Artistes et Albums : listes agrégées avec compteurs et recherche,
   détail par artiste ou album, pochettes et morceaux associés.
 - Favoris et historique d'écoute récents.
 - Sauvegarde et restauration de l'index, des playlists et des favoris dans un
   fichier SQLite unique, avec vérification d'intégrité.
+- Paramètres : dossiers, analyse, apparence, reprise de lecture, sauvegarde,
+  engagements de confidentialité et diagnostics locaux copiables.
 - Installateurs Windows MSI et NSIS non signés, construits et testés localement
   (installation, lancement, désinstallation).
 - Signalement des morceaux disparus : badge explicite et lecture désactivée.
@@ -46,10 +59,16 @@ les fonctionnalités annoncées dans la feuille de route ne sont pas encore livr
 ### Pas encore disponible
 
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
-- Effets avancés, comparaison A/B et export du Studio audio.
+- Actions groupées dans la bibliothèque et les playlists.
+- Suppression d'une référence de l'index et édition des pochettes.
+- Provenance de la file et retour arrière dans la file.
+- Chaîne d'effets du Studio, presets personnalisés, comparaison A/B et export.
 - Séparation de stems par IA et Stem Studio.
-- Paroles intégrées aux métadonnées, sources distantes et mode plein écran.
+- Sources de paroles distantes et paroles intégrées aux métadonnées.
 - Téléchargements depuis des sources autorisées.
+- Lecture vidéo locale.
+- Sous-pages de paramètres, personnalisation des raccourcis et réglages
+  d'accessibilité dédiés.
 - Publication App Store, Play Store et Microsoft Store.
 
 Les fonctionnalités listées ci-dessus ne sont pas revendiquées comme terminées.
@@ -125,6 +144,8 @@ Détails : [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
   les tests Rust sous Linux, Windows et macOS.
 - État des versions : [CHANGELOG.md](CHANGELOG.md).
 - Travaux prévus et critères de sortie : [docs/ROADMAP.md](docs/ROADMAP.md).
+- Couverture de la spécification, avec limites explicites :
+  [docs/SPEC-COVERAGE.md](docs/SPEC-COVERAGE.md).
 
 ### Vérifié localement
 

@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { BANDS, PRESETS, applyEq, clampGain, clampPreamp, normalizeGains, preampGain, presetGains } from "./eq";
+import { BANDS, applyEq, clampGain, clampPreamp, normalizeGains, preampGain, presetGains } from "./eq";
+import { PRESETS } from "./presets";
 
 describe("égaliseur", () => {
   it("borne et normalise les gains", () => {

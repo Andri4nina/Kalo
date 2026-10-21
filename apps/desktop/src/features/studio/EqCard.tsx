@@ -3,7 +3,8 @@ import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
-import { BAND_LABELS, BANDS, PRESETS } from "./eq";
+import { BAND_LABELS, BANDS } from "./eq";
+import { PRESETS } from "./presets";
 import { EqBand } from "./EqBand";
 import { useStudio } from "./studio.store";
 

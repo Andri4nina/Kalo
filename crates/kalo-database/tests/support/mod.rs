@@ -1,9 +1,15 @@
 #![allow(dead_code)]
 
 mod data;
+mod new_track;
+mod query;
 
 #[allow(unused_imports)]
 pub use data::{count_tracks, insert, insert_with};
+#[allow(unused_imports)]
+pub use new_track::new_track;
+#[allow(unused_imports)]
+pub use query::{filtered_database, metadata_row, query};
 
 use std::fs;
 use std::path::{Path, PathBuf};

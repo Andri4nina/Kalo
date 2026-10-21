@@ -14,19 +14,32 @@ vérification sur les plateformes concernées.
 - Lecteur avec file d'attente, volume, balance, aléatoire et répétition.
 - Paramètres de bibliothèque, thème clair/sombre et raccourcis clavier.
 - Tests Rust et front, contrôles de règles et documentation de base.
+- Recherche échappée, filtres format / disponibilité / durée, édition des
+  métadonnées en base et relocalisation des fichiers manquants.
+- Détection de doublons probables et import / export M3U des playlists.
+- Reprise de lecture configurable, confidentialité et diagnostics dans les
+  paramètres.
+- Karaoké plein écran avec décalage mémorisé par morceau.
+- Préampli du Studio appliqué avant l'égaliseur.
 
 ## Prochaine étape : consolidation
 
-- Télécommandes média natives et reprise après interruption.
+- Actions groupées dans la bibliothèque et les playlists.
+- Suppression contrôlée d'une référence et édition des pochettes.
+- Provenance de la file et retour arrière dans la file.
+- Sous-pages de paramètres, personnalisation des raccourcis et réglages
+  d'accessibilité.
+- Télécommandes média natives et reprise après interruption système.
 - Meilleure gestion des pochettes et des gros catalogues.
-- Accessibilité complète au clavier et lecteurs d'écran.
 - CI multiplateforme et paquets signés pour Windows, macOS et Linux.
 
 ## Studio audio
 
 - Égaliseur graphique 10 bandes, presets, bypass et persistance (livré).
+- Préampli avant l'égaliseur (livré).
+- Presets personnalisés nommés et supprimables.
 - Mode paramétrique par bande (fréquence et largeur réglables).
-- Effets avec comparaison A/B et réinitialisation.
+- Chaîne d'effets avec comparaison A/B et réinitialisation.
 - Export explicite uniquement, vers un nouveau fichier.
 - Aucune modification destructive du fichier d'origine.
 
@@ -42,7 +55,8 @@ vérification sur les plateformes concernées.
 
 - Fichiers `.lrc` locaux, surlignage synchronisé, décalage et navigation par
   clic (livré).
-- Paroles intégrées aux métadonnées, mode plein écran et décalage persistant.
+- Mode plein écran et décalage persistant par morceau (livré).
+- Paroles intégrées aux métadonnées et sources distantes sous licence.
 - Aucune source de paroles non autorisée, aucun envoi réseau par défaut.
 
 ## Téléchargements
@@ -50,6 +64,12 @@ vérification sur les plateformes concernées.
 - Uniquement depuis des sources autorisées.
 - Aucun contournement de DRM ni de conditions d'utilisation.
 - Vérification de l'intégrité, de l'espace disque et des droits.
+
+## Vidéo
+
+- Lecture vidéo locale avec piste audio et commandes cohérentes.
+- Aucun téléchargement ni extraction non autorisée.
+- Formats et moteur à décider avant implémentation.
 
 ## Mobile
 

@@ -9,7 +9,6 @@ class AudioMixer {
   private eq: number[] = [];
   private eqEnabled = false;
   private preamp = 0;
-
   ensure(): void {
     if (this.graph) {
       void this.graph.ctx.resume();
@@ -25,24 +24,20 @@ class AudioMixer {
       audioElement.volume = this.volume;
     }
   }
-
   setVolume(volume: number): void {
     this.volume = volume;
     if (this.graph) this.graph.gain.gain.value = volume;
     else audioElement.volume = volume;
   }
-
   setBalance(balance: number): void {
     this.balance = balance;
     if (this.graph) this.graph.panner.pan.value = balance;
   }
-
   setEq(gains: number[], enabled: boolean): void {
     this.eq = gains;
     this.eqEnabled = enabled;
     if (this.graph) applyEq(this.graph.filters, gains, enabled);
   }
-
   setPreamp(value: number): void {
     this.preamp = value;
     if (this.graph) this.graph.preamp.gain.value = preampGain(value);
