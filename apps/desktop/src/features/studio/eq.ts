@@ -2,6 +2,8 @@ export const BANDS = [31, 62, 125, 250, 500, 1_000, 2_000, 4_000, 8_000, 16_000]
 export const BAND_LABELS = ["31", "62", "125", "250", "500", "1 k", "2 k", "4 k", "8 k", "16 k"];
 export const MIN_GAIN = -12;
 export const MAX_GAIN = 12;
+export const MIN_PREAMP = -12;
+export const MAX_PREAMP = 12;
 
 export interface Preset {
   id: string;
@@ -20,6 +22,15 @@ export const PRESETS: Preset[] = [
 export function clampGain(value: number): number {
   if (!Number.isFinite(value)) return 0;
   return Math.min(MAX_GAIN, Math.max(MIN_GAIN, Math.round(value * 2) / 2));
+}
+
+export function clampPreamp(value: number): number {
+  if (!Number.isFinite(value)) return 0;
+  return Math.min(MAX_PREAMP, Math.max(MIN_PREAMP, Math.round(value * 2) / 2));
+}
+
+export function preampGain(value: number): number {
+  return 10 ** (clampPreamp(value) / 20);
 }
 
 export function normalizeGains(value: unknown): number[] {

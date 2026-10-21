@@ -2,12 +2,10 @@ import { Captions, Music2 } from "lucide-react";
 import { EmptyState } from "@/components/EmptyState";
 import { ErrorNotice } from "@/components/ErrorNotice";
 import { Spinner } from "@/components/Spinner";
-import { muted } from "@/design/tokens";
 import { audioTransport } from "@/features/player/audio.transport";
-import { cn } from "@/lib/cn";
 import type { Track } from "@/types";
+import { KaraokeHeader } from "./KaraokeHeader";
 import { LyricsView } from "./LyricsView";
-import { OffsetControl } from "./OffsetControl";
 import type { LyricLine } from "./lrc";
 
 interface Props {
@@ -19,6 +17,7 @@ interface Props {
   playing: boolean;
   offsetMs: number;
   onOffset: (offsetMs: number) => void;
+  onFullscreen: () => void;
 }
 
 export function KaraokeContent(props: Props) {
@@ -32,13 +31,7 @@ export function KaraokeContent(props: Props) {
   }
   return (
     <>
-      <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="min-w-0">
-          <p className="truncate text-sm font-semibold">{props.track.title}</p>
-          <p className={cn("truncate text-xs", muted)}>{props.track.artist ?? "Artiste inconnu"}</p>
-        </div>
-        <OffsetControl offsetMs={props.offsetMs} onChange={props.onOffset} />
-      </div>
+      <KaraokeHeader track={props.track} offsetMs={props.offsetMs} onOffset={props.onOffset} onFullscreen={props.onFullscreen} />
       <LyricsView
         lines={props.lines}
         active={props.active}

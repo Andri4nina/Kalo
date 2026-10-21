@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { BANDS, PRESETS, applyEq, clampGain, normalizeGains, presetGains } from "./eq";
+import { BANDS, PRESETS, applyEq, clampGain, clampPreamp, normalizeGains, preampGain, presetGains } from "./eq";
 
 describe("égaliseur", () => {
   it("borne et normalise les gains", () => {
@@ -20,6 +20,13 @@ describe("égaliseur", () => {
     }
     expect(presetGains("inconnu")).toBeNull();
     expect(presetGains("bass")?.[0]).toBe(6);
+  });
+
+  it("borne le préampli et calcule son gain linéaire", () => {
+    expect(clampPreamp(99)).toBe(12);
+    expect(clampPreamp(-99)).toBe(-12);
+    expect(preampGain(0)).toBe(1);
+    expect(preampGain(6)).toBeCloseTo(1.995, 2);
   });
 
   it("applique ou contourne les gains", () => {

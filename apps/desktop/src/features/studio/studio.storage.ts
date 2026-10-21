@@ -1,12 +1,13 @@
-import { normalizeGains } from "./eq";
+import { clampPreamp, normalizeGains } from "./eq";
 
 export interface EqState {
   enabled: boolean;
   preset: string;
   gains: number[];
+  preamp: number;
 }
 
-export const EQ_FALLBACK: EqState = { enabled: false, preset: "flat", gains: normalizeGains(null) };
+export const EQ_FALLBACK: EqState = { enabled: false, preset: "flat", gains: normalizeGains(null), preamp: 0 };
 const KEY = "kalo:studio-eq";
 
 export function loadStudioState(): EqState {
@@ -18,6 +19,7 @@ export function loadStudioState(): EqState {
       enabled: parsed.enabled === true,
       preset: typeof parsed.preset === "string" ? parsed.preset : EQ_FALLBACK.preset,
       gains: normalizeGains(parsed.gains),
+      preamp: typeof parsed.preamp === "number" ? clampPreamp(parsed.preamp) : 0,
     };
   } catch {
     return EQ_FALLBACK;

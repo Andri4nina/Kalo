@@ -8,9 +8,10 @@ interface Props {
   active: number;
   playing: boolean;
   onSeek: (timeMs: number) => void;
+  variant?: "default" | "fullscreen";
 }
 
-export function LyricsView({ lines, active, playing, onSeek }: Props) {
+export function LyricsView({ lines, active, playing, onSeek, variant = "default" }: Props) {
   const items = useRef<Array<HTMLButtonElement | null>>([]);
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export function LyricsView({ lines, active, playing, onSeek }: Props) {
   }, [active, playing]);
 
   return (
-    <div className="max-h-[58vh] overflow-y-auto rounded-2xl border border-kalo-line bg-kalo-canvas/50 p-2 dark:border-kalo-dark-line dark:bg-kalo-dark-canvas/50">
+    <div className={cn("overflow-y-auto rounded-2xl border border-kalo-line bg-kalo-canvas/50 dark:border-kalo-dark-line dark:bg-kalo-dark-canvas/50", variant === "fullscreen" ? "max-h-[74vh] p-4" : "max-h-[58vh] p-2")}>
       <ol className="space-y-0.5">
         {lines.map((line, index) => (
           <li key={`${line.timeMs}-${index}`}>
@@ -30,8 +31,9 @@ export function LyricsView({ lines, active, playing, onSeek }: Props) {
               onClick={() => onSeek(line.timeMs)}
               aria-current={index === active ? "true" : undefined}
               className={cn(
-                "w-full rounded-xl px-3 py-2 text-left text-sm transition-colors",
+                "w-full rounded-xl text-left transition-colors",
                 focus,
+                variant === "fullscreen" ? "px-4 py-3 text-2xl md:text-3xl" : "px-3 py-2 text-sm",
                 index === active
                   ? "bg-kalo-accent-soft font-semibold text-kalo-accent-strong dark:bg-kalo-dark-accent-soft dark:text-kalo-dark-accent"
                   : cn("hover:bg-kalo-raised/60 dark:hover:bg-kalo-dark-raised/60", muted),

@@ -1,4 +1,4 @@
-import { applyEq } from "@/features/studio/eq";
+import { applyEq, preampGain } from "@/features/studio/eq";
 import { audioElement } from "./audio.element";
 import { createGraph, type AudioGraph } from "./audio.graph";
 
@@ -8,6 +8,7 @@ class AudioMixer {
   private balance = 0;
   private eq: number[] = [];
   private eqEnabled = false;
+  private preamp = 0;
 
   ensure(): void {
     if (this.graph) {
@@ -18,6 +19,7 @@ class AudioMixer {
       this.graph = createGraph(audioElement);
       this.graph.gain.gain.value = this.volume;
       this.graph.panner.pan.value = this.balance;
+      this.graph.preamp.gain.value = preampGain(this.preamp);
       applyEq(this.graph.filters, this.eq, this.eqEnabled);
     } catch {
       audioElement.volume = this.volume;
@@ -39,6 +41,11 @@ class AudioMixer {
     this.eq = gains;
     this.eqEnabled = enabled;
     if (this.graph) applyEq(this.graph.filters, gains, enabled);
+  }
+
+  setPreamp(value: number): void {
+    this.preamp = value;
+    if (this.graph) this.graph.preamp.gain.value = preampGain(value);
   }
 }
 

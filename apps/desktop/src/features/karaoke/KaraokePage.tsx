@@ -5,6 +5,8 @@ import { readLyrics } from "@/lib/api/lyrics";
 import { useCurrentTrack, usePlayer } from "@/features/player/player.store";
 import { useAsync } from "@/lib/useAsync";
 import { KaraokeContent } from "./KaraokeContent";
+import { KaraokeFullscreen } from "./KaraokeFullscreen";
+import { loadKaraokeOffset, saveKaraokeOffset } from "./karaoke.prefs";
 import { activeLineIndex, parseLrc } from "./lrc";
 
 export function KaraokePage() {
@@ -16,7 +18,12 @@ export function KaraokePage() {
     [track?.id],
   );
   const [offsetMs, setOffsetMs] = useState(0);
-  useEffect(() => setOffsetMs(0), [track?.id]);
+  const [fullscreen, setFullscreen] = useState(false);
+  useEffect(() => setOffsetMs(track ? loadKaraokeOffset(track.id) : 0), [track?.id]);
+  const changeOffset = (value: number) => {
+    setOffsetMs(value);
+    if (track) saveKaraokeOffset(track.id, value);
+  };
   const lines = useMemo(() => parseLrc(data ?? ""), [data]);
   const active = activeLineIndex(lines, positionMs, offsetMs);
 
@@ -32,9 +39,11 @@ export function KaraokePage() {
           active={active}
           playing={playing}
           offsetMs={offsetMs}
-          onOffset={setOffsetMs}
+          onOffset={changeOffset}
+          onFullscreen={() => setFullscreen(true)}
         />
       </Card>
+      <KaraokeFullscreen open={fullscreen} track={track} lines={lines} active={active} playing={playing} offsetMs={offsetMs} onOffset={changeOffset} onClose={() => setFullscreen(false)} />
     </div>
   );
 }
