@@ -1,7 +1,8 @@
 # Couverture de la spécification Kalo
 
-État vérifié au 21 octobre 2026, après les commits `8764e49` à `6325613` et les
-tranches provenance de la file, paramètres avancés et actions groupées.
+État vérifié au 21 octobre 2026, après les commits `8764e49` à `e3584e2`. Les
+tranches provenance de la file, paramètres avancés, actions groupées et Studio
+audio (effets, presets personnalisés, comparaison A/B) sont couvertes.
 Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais incomplet ;
 **Absent** = non implémenté ; **Bloqué** = dépend d'une décision ou d'une ressource externe.
 
