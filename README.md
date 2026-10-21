@@ -36,8 +36,8 @@ La matrice détaillée, fonction par fonction, est dans
   paramètres.
 - Studio audio : égaliseur graphique 10 bandes, presets intégrés et
   personnalisés, préampli, saturation, compression, réverbération, écho,
-  comparaison A/B et réglages persistants, appliqués à la lecture sans modifier
-  les fichiers.
+  comparaison A/B, export WAV hors ligne vers un nouveau fichier et réglages
+  persistants, appliqués à la lecture sans modifier les fichiers.
 - Karaoké local : lecture des fichiers `.lrc` UTF-8 placés à côté des morceaux,
   surlignage synchronisé, décalage réglable et mémorisé par morceau, navigation
   par clic et mode plein écran. Aucun envoi réseau et aucune modification des
@@ -70,7 +70,7 @@ La matrice détaillée, fonction par fonction, est dans
 ### Pas encore disponible
 
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
-- Export du rendu Studio vers un nouveau fichier audio.
+- Validation sur poste réel de l'export WAV.
 - Séparation de stems par IA et Stem Studio.
 - Sources de paroles distantes et paroles intégrées aux métadonnées.
 - Téléchargements depuis des sources autorisées.

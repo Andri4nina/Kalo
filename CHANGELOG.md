@@ -32,6 +32,9 @@ le versionnage sémantique à partir de la première version publiée.
 - Studio audio : chaîne d'effets après l'égaliseur (saturation, compression,
   réverbération, écho), comparaison A/B et presets personnalisés nommés,
   supprimables et limités à 20, le tout persistant localement.
+- Export WAV hors ligne du morceau en cours avec les réglages actifs, écrit dans
+  un fichier choisi par l'utilisateur ; le fichier d'origine ne peut pas être
+  remplacé. Validation audio native encore à faire.
 - Édition des métadonnées en base uniquement, sans réécriture du fichier audio.
 - Relocalisation contrôlée d'un fichier manquant, limitée aux dossiers déjà
   surveillés et aux formats audio pris en charge.
@@ -88,11 +91,11 @@ le versionnage sémantique à partir de la première version publiée.
 - Aucun fichier audio n'est modifié par le scanner, l'édition ou la relocalisation.
 - L'import M3U est limité à 2 Mo, en UTF-8, et ne résout que des chemins locaux
   déjà indexés.
+- L'export WAV refuse d'écrire sur le fichier audio d'origine.
 
 ### Prévu
 
 - Télécommandes média natives et lecture mobile en arrière-plan.
-- Studio audio : export explicite du rendu vers un nouveau fichier.
 - Stem Studio local.
 - Téléchargements depuis des sources autorisées et lecture vidéo locale.
 - Publication et signature des paquets.

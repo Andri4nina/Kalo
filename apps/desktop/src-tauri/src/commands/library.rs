@@ -1,6 +1,7 @@
 pub(crate) mod catalog;
 pub(crate) mod cover;
 pub(crate) mod duplicates;
+pub(crate) mod export;
 pub(crate) mod relocate;
 pub(crate) mod remove;
 pub(crate) mod roots;

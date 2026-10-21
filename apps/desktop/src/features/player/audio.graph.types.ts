@@ -1,5 +1,4 @@
-export interface AudioGraph {
-  ctx: AudioContext;
+export interface AudioChain {
   preamp: GainNode;
   gain: GainNode;
   panner: StereoPannerNode;
@@ -14,3 +13,5 @@ export interface AudioGraph {
   delay: DelayNode;
   feedback: GainNode;
 }
+
+export type AudioGraph = AudioChain & { ctx: AudioContext };

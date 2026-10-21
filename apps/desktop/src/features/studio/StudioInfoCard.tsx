@@ -5,9 +5,9 @@ import { cn } from "@/lib/cn";
 
 const points = [
   "L'égaliseur et les effets agissent en temps réel sur la lecture.",
-  "Aucun fichier audio n'est modifié.",
+  "L'export WAV écrit un nouveau fichier, jamais l'original.",
   "Les réglages et presets restent sur cet appareil.",
-  "L'export audio n'est pas encore disponible.",
+  "Le rendu d'export se fait hors ligne, sans réseau.",
 ];
 
 export function StudioInfoCard() {

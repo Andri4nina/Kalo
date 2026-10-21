@@ -1,7 +1,7 @@
-import type { AudioGraph } from "@/features/player/audio.graph";
+import type { AudioChain } from "@/features/player/audio.graph.types";
 import { clampMix, compressorSettings, distortionCurve, type EffectState } from "./effects";
 
-export function applyEffects(graph: AudioGraph, effects: EffectState, enabled: boolean): void {
+export function applyEffects(graph: AudioChain, effects: EffectState, enabled: boolean): void {
   const reverb = enabled ? clampMix(effects.reverb) : 0;
   const echo = enabled ? clampMix(effects.echo) : 0;
   graph.saturator.curve = enabled && effects.drive > 0 ? distortionCurve(effects.drive) : null;

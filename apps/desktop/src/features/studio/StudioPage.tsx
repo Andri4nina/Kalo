@@ -5,6 +5,7 @@ import { EffectsCard } from "./EffectsCard";
 import { EqCard } from "./EqCard";
 import { PreampCard } from "./PreampCard";
 import { PresetPicker } from "./PresetPicker";
+import { ExportCard } from "./ExportCard";
 import { StudioInfoCard } from "./StudioInfoCard";
 
 export function StudioPage() {
@@ -24,6 +25,7 @@ export function StudioPage() {
         </div>
         <PresetPicker />
         <CustomPresetsCard />
+        <ExportCard />
         <StudioInfoCard />
       </div>
     </div>

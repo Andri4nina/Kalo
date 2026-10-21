@@ -43,7 +43,8 @@ vérification sur les plateformes concernées.
 - Chaîne d'effets saturation, compression, réverbération et écho avec comparaison
   A/B et réinitialisation (livré).
 - Mode paramétrique par bande (fréquence et largeur réglables).
-- Export explicite uniquement, vers un nouveau fichier.
+- Export explicite uniquement, vers un nouveau fichier (implémenté, validation
+  native à faire).
 - Aucune modification destructive du fichier d'origine.
 
 ## Stem Studio

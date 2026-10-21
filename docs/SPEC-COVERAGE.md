@@ -88,7 +88,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Presets personnalisés | Livré | Nom, gains, préampli et effets enregistrés localement, limités à 20 |
 | Chaîne d'effets | Livré | Saturation, compression, réverbération et écho après l'égaliseur, bypass global |
 | Comparaison A/B | Livré | Écoute sans traitement puis retour au réglage conservé |
-| Export du rendu | Absent | Pas de rendu hors ligne ni d'écriture audio |
+| Export du rendu | Partiel | Rendu hors ligne vers un nouveau WAV, sans écraser l'original ; validation audio native non réalisée |
 | Visualisation spectrale | Absent | Pas d'analyseur temps réel |
 
 ## 7. Stem Studio et IA
@@ -155,7 +155,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 
 ## Prochaines tranches prioritaires
 
-1. Export du rendu Studio vers un nouveau fichier audio.
+1. Validation native de l'export WAV et mode paramétrique par bande.
 2. Téléchargement direct depuis une source autorisée, avec file et annulation.
 3. Lecture vidéo locale.
 4. Stem Studio après décision sur le modèle et sa licence.

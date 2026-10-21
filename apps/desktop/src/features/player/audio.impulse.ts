@@ -1,4 +1,4 @@
-export function createImpulse(ctx: AudioContext): AudioBuffer {
+export function createImpulse(ctx: BaseAudioContext): AudioBuffer {
   const length = Math.floor(ctx.sampleRate * 1.6);
   const buffer = ctx.createBuffer(2, length, ctx.sampleRate);
   for (let channel = 0; channel < 2; channel += 1) {

@@ -36,3 +36,6 @@ export const listFormats = () => invoke<string[]>("library_formats");
 export const listDuplicates = () => invoke<DuplicateGroup[]>("library_duplicates");
 
 export const getRecent = (limit = 6) => invoke<TrackPage>("history_recent", { limit });
+
+export const exportAudioWav = (trackId: number, destination: string, data: string) =>
+  invoke<void>("library_export_wav", { trackId, destination, data });

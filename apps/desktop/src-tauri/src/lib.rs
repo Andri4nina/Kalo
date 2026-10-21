@@ -3,7 +3,6 @@ mod error;
 mod setup;
 mod state;
 pub use error::CommandError;
-
 pub fn run() -> tauri::Result<()> {
     tauri::Builder::default()
         .plugin(tauri_plugin_dialog::init())
@@ -21,6 +20,7 @@ pub fn run() -> tauri::Result<()> {
             commands::library::remove::library_remove_track,
             commands::library::duplicates::library_duplicates,
             commands::library::relocate::library_relocate_track,
+            commands::library::export::library_export_wav,
             commands::browse::list::library_artists,
             commands::browse::list::library_albums,
             commands::browse::detail::artist_get,
