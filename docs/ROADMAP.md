@@ -24,7 +24,7 @@ vérification sur les plateformes concernées.
 
 ## Prochaine étape : consolidation
 
-- Actions groupées dans la bibliothèque et les playlists.
+- Actions groupées dans les playlists.
 - Suppression contrôlée d'une référence et édition des pochettes.
 - Provenance de la file et retour arrière dans la file.
 - Sous-pages de paramètres, personnalisation des raccourcis et réglages

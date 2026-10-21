@@ -24,6 +24,8 @@ La matrice détaillée, fonction par fonction, est dans
   avec refus des chemins déjà indexés.
 - Détection de doublons probables par titre, artiste et durée, sans suppression
   automatique.
+- Sélection multiple dans la bibliothèque : ajout groupé à la file d'attente ou
+  à une playlist.
 - Lecture audio : lecture et pause, morceau précédent et suivant, déplacement
   dans la piste, volume, balance stéréo, mode muet, lecture aléatoire et répétition.
 - Reprise de la file et de la position au lancement, désactivable dans les
@@ -59,7 +61,7 @@ La matrice détaillée, fonction par fonction, est dans
 ### Pas encore disponible
 
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
-- Actions groupées dans la bibliothèque et les playlists.
+- Actions groupées dans les playlists.
 - Suppression d'une référence de l'index et édition des pochettes.
 - Provenance de la file et retour arrière dans la file.
 - Chaîne d'effets du Studio, presets personnalisés, comparaison A/B et export.

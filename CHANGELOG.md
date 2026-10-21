@@ -34,6 +34,8 @@ le versionnage sémantique à partir de la première version publiée.
   surveillés et aux formats audio pris en charge.
 - Détection de doublons probables par titre, artiste et durée, sans suppression
   automatique.
+- Sélection multiple dans la bibliothèque, avec ajout groupé à la file d'attente
+  ou à une playlist ; les morceaux manquants ne sont pas ajoutés à la file.
 - Filtres de bibliothèque par format, disponibilité et durée.
 - Recherche étendue au chemin du fichier, avec échappement des jokers SQL.
 - Import et export M3U UTF-8 des playlists, avec résumé des morceaux ajoutés et

@@ -4,7 +4,7 @@ import { addTrackToPlaylist, createPlaylist, listPlaylists } from "@/lib/api/pla
 import { errorMessage } from "@/lib/format";
 import type { Playlist } from "@/types";
 
-export function usePlaylistPicker(open: boolean, trackId: number, onDone: () => void) {
+export function usePlaylistPicker(open: boolean, trackIds: number[], onDone: () => void) {
   const [playlists, setPlaylists] = useState<Playlist[]>([]);
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -19,7 +19,7 @@ export function usePlaylistPicker(open: boolean, trackId: number, onDone: () => 
   const attach = async (playlistId: number) => {
     setBusy(true);
     try {
-      await addTrackToPlaylist(playlistId, trackId);
+      for (const trackId of trackIds) await addTrackToPlaylist(playlistId, trackId);
       bump();
       onDone();
     } catch (reason: unknown) {
@@ -34,7 +34,7 @@ export function usePlaylistPicker(open: boolean, trackId: number, onDone: () => 
     setBusy(true);
     try {
       const playlist = await createPlaylist(name.trim());
-      await addTrackToPlaylist(playlist.id, trackId);
+      for (const trackId of trackIds) await addTrackToPlaylist(playlist.id, trackId);
       bump();
       onDone();
     } catch (reason: unknown) {

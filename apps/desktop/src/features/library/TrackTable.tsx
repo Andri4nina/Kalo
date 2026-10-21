@@ -1,18 +1,24 @@
 import { Card } from "@/components/Card";
 import { usePlayer } from "@/features/player/player.store";
 import type { Track } from "@/types";
+import { SelectAllCell } from "./SelectAllCell";
 import { TrackRow } from "./TrackRow";
-
+import type { TrackSelection } from "./useTrackSelection";
 const columns = ["#", "Titre", "Artiste", "Album", "Format", "Durée", ""];
-
-export function TrackTable({ tracks }: { tracks: Track[] }) {
+interface Props {
+  tracks: Track[];
+  selection?: TrackSelection;
+}
+export function TrackTable({ tracks, selection }: Props) {
   const currentId = usePlayer((state) => state.queue[state.index]?.id);
+  const allSelected = tracks.length > 0 && tracks.every((track) => selection?.selected.has(track.id));
   return (
     <Card className="overflow-hidden p-0">
       <div className="overflow-x-auto">
         <table className="w-full border-collapse text-left">
           <thead className="bg-kalo-raised/50 dark:bg-kalo-dark-raised/50">
             <tr>
+              {selection ? <SelectAllCell checked={allSelected} onToggle={() => selection.toggleAll(tracks.map((track) => track.id))} /> : null}
               {columns.map((label, index) => (
                 <th
                   key={`${label}-${index}`}
@@ -32,6 +38,8 @@ export function TrackTable({ tracks }: { tracks: Track[] }) {
                 index={index}
                 queue={tracks}
                 current={track.id === currentId}
+                selected={selection?.selected.has(track.id)}
+                onToggle={selection ? () => selection.toggle(track.id) : undefined}
               />
             ))}
           </tbody>

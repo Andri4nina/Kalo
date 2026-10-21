@@ -45,7 +45,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Suppression d'une référence | Absent | Aucun retrait de l'index depuis l'interface |
 | Doublons | Livré | Groupes titre + artiste + durée proche ; aucune suppression automatique |
 | Doublons par contenu | Absent | Pas d'empreinte de fichier |
-| Sélection et actions groupées | Absent | Pas de sélection multiple |
+| Sélection et actions groupées | Livré | Sélection multiple, ajout groupé à la file ou à une playlist |
 | Import et classement de fichiers | Absent | Le scanner lit sur place, ne copie ni ne déplace |
 | Filtrage des sons non musicaux | Absent | Pas de détection ringtones / jingles |
 | Surveillance des dossiers | Absent | Analyse manuelle ou à l'ajout d'un dossier |
@@ -152,7 +152,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 
 ## Prochaines tranches prioritaires
 
-1. Actions groupées dans la bibliothèque et les playlists.
+1. Actions groupées dans les playlists.
 2. Suppression contrôlée d'une référence et édition de pochette.
 3. Provenance de la file et retour arrière de file.
 4. Sous-pages de paramètres, raccourcis et accessibilité.

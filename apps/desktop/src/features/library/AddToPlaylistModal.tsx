@@ -5,12 +5,12 @@ import { usePlaylistPicker } from "./usePlaylistPicker";
 
 interface Props {
   open: boolean;
-  trackId: number;
+  trackIds: number[];
   onClose: () => void;
 }
 
-export function AddToPlaylistModal({ open, trackId, onClose }: Props) {
-  const { playlists, busy, error, attach, createAndAttach } = usePlaylistPicker(open, trackId, onClose);
+export function AddToPlaylistModal({ open, trackIds, onClose }: Props) {
+  const { playlists, busy, error, attach, createAndAttach } = usePlaylistPicker(open, trackIds, onClose);
   return (
     <Modal open={open} title="Ajouter à une playlist" onClose={onClose}>
       {error ? <p className="mb-3 text-xs text-kalo-danger dark:text-kalo-dark-danger">{error}</p> : null}

@@ -5,6 +5,7 @@ import { cn } from "@/lib/cn";
 import { formatDuration } from "@/lib/format";
 import { usePlayer } from "@/features/player/player.store";
 import type { Track } from "@/types";
+import { SelectionCheckbox } from "./SelectionCheckbox";
 import { TrackRowActions } from "./TrackRowActions";
 
 interface Props {
@@ -12,12 +13,15 @@ interface Props {
   index: number;
   queue: Track[];
   current: boolean;
+  selected?: boolean;
+  onToggle?: () => void;
 }
 
-export function TrackRow({ track, index, queue, current }: Props) {
+export function TrackRow({ track, index, queue, current, selected = false, onToggle }: Props) {
   const playTrack = usePlayer((state) => state.playTrack);
   return (
     <tr className={cn("group transition-colors", track.isMissing && "opacity-60", current ? "bg-kalo-accent-soft/60 dark:bg-kalo-dark-accent-soft/60" : "hover:bg-kalo-raised/60 dark:hover:bg-kalo-dark-raised/60")}>
+      {onToggle ? <td className="w-10 pl-3"><SelectionCheckbox checked={selected} label={`Sélectionner ${track.title}`} onChange={onToggle} /></td> : null}
       <td className="w-12 py-2 pl-3 text-right text-xs tabular-nums">
         {current ? (
           <AudioLines size={15} className="ml-auto text-kalo-accent dark:text-kalo-dark-accent" aria-label="En lecture" />

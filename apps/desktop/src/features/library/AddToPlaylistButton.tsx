@@ -8,7 +8,7 @@ export function AddToPlaylistButton({ trackId }: { trackId: number }) {
   return (
     <>
       <IconButton icon={ListMusic} label="Ajouter à une playlist" size="sm" onClick={() => setOpen(true)} />
-      <AddToPlaylistModal open={open} trackId={trackId} onClose={() => setOpen(false)} />
+      <AddToPlaylistModal open={open} trackIds={[trackId]} onClose={() => setOpen(false)} />
     </>
   );
 }
