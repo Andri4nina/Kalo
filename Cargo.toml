@@ -5,6 +5,7 @@ members = [
   "crates/kalo-core",
   "crates/kalo-database",
   "crates/kalo-library",
+  "crates/kalo-stems",
 ]
 
 [workspace.package]

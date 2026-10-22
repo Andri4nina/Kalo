@@ -1,0 +1,15 @@
+[package]
+name = "kalo-stems"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+description = "Séparation locale des instruments (Spleeter 4 pistes via ONNX Runtime)"
+
+[dependencies]
+thiserror.workspace = true
+realfft = "3"
+symphonia = "0.6"
+ort = "=2.0.0-rc.15"
+ureq = "3"
+sha2 = "0.10"

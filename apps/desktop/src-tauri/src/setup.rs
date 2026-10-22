@@ -5,6 +5,7 @@ use tauri::{App, AppHandle, Manager};
 
 use kalo_database::{Database, DbResult};
 
+use crate::commands::stems::state::StemState;
 use crate::state::AppState;
 use crate::watch::FolderWatch;
 
@@ -16,6 +17,10 @@ pub fn init(app: &mut App) -> Result<(), Box<dyn std::error::Error>> {
     let db_path = data_dir.join("kalo.db");
     let db = Database::open(&db_path)?;
     app.asset_protocol_scope().allow_directory(&cache_dir, true)?;
+    let stems_dir = data_dir.join("stems");
+    fs::create_dir_all(&stems_dir)?;
+    app.asset_protocol_scope().allow_directory(&stems_dir, true)?;
+    db.with(|conn| kalo_database::stems::mark_interrupted(conn))?;
     allow_library_roots(app.handle(), &db)?;
     app.manage(AppState {
         db,
@@ -24,6 +29,7 @@ pub fn init(app: &mut App) -> Result<(), Box<dyn std::error::Error>> {
         scanning: Default::default(),
     });
     app.manage(FolderWatch::default());
+    app.manage(StemState::default());
     Ok(())
 }
 

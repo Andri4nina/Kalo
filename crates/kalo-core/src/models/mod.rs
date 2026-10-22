@@ -6,6 +6,7 @@ pub mod maintenance;
 pub mod new_track;
 pub mod playlist;
 pub mod query;
+pub mod stems;
 pub mod track;
 pub mod video;
 
@@ -17,5 +18,6 @@ pub use maintenance::{FileImportFailure, FileImportReport, FingerprintProgress, 
 pub use new_track::NewTrack;
 pub use playlist::{Playlist, PlaylistDetail};
 pub use query::{TrackPage, TrackQuery};
+pub use stems::{StemJob, StemModelStatus, StemProgress};
 pub use track::Track;
 pub use video::{NewVideo, Video};

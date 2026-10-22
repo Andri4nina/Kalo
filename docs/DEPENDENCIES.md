@@ -43,6 +43,14 @@ revérifiées avant chaque publication avec les outils de l'écosystème.
 | `blake3` | 1.8.7 | CC0-1.0 OR Apache-2.0 OR Apache-2.0 WITH LLVM-exception |
 | `dunce` | 1.0.5 | CC0-1.0 OR MIT-0 OR Apache-2.0 |
 | `notify` | 8.2.0 | CC0-1.0 |
+| `ort` (ONNX Runtime, lié statiquement, + `DirectML.dll` sous Windows) | 2.0.0-rc.15 | MIT OR Apache-2.0 (ONNX Runtime : MIT) |
+| `realfft` | 3.5.0 | MIT |
+| `symphonia` | 0.6.1 | MPL-2.0 |
+| `ureq` | 3.5.0 | MIT OR Apache-2.0 |
+| `sha2` | 0.10.9 | MIT OR Apache-2.0 |
+
+Le modèle de séparation n'est pas une dépendance de compilation : il est
+téléchargé sur demande. Voir [models/README.md](../models/README.md).
 
 SQLite est compilé via `libsqlite3-sys` avec la fonctionnalité `bundled`.
 SQLite est dans le domaine public.

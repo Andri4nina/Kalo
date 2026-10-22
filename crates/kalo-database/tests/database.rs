@@ -18,7 +18,7 @@ fn file_database_enables_wal_and_runs_migrations() {
     let version: i64 = db
         .with(|conn| Ok(conn.pragma_query_value(None, "user_version", |row| row.get(0))?))
         .unwrap_or_else(|error| panic!("version : {error}"));
-    assert_eq!(version, 10);
+    assert_eq!(version, 11);
     drop(db);
     for suffix in ["", "-wal", "-shm", "-journal"] {
         let _ = fs::remove_file(format!("{}{suffix}", path.display()));

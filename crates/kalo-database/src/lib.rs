@@ -10,6 +10,7 @@ pub mod lyrics;
 pub mod playlists;
 pub mod restore;
 pub mod roots;
+pub mod stems;
 pub mod tracks;
 pub mod videos;
 

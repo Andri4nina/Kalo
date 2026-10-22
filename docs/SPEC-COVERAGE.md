@@ -78,7 +78,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Édition manuelle de la synchronisation | Livré | Marquage pendant la lecture, réglage au dixième de seconde, enregistrement en base, export `.lrc` |
 | Recherche de paroles en ligne | Écarté | Décision du 22 octobre 2026 : paroles locales uniquement, aucune source sous licence |
 | Cache de paroles | Livré | Paroles éditées dans SQLite (migration 009), prioritaires sur les fichiers voisins jamais modifiés |
-| Voix / instrumental | Bloqué | Dépend de la séparation de stems |
+| Voix / instrumental | Livré | Préréglage Karaoké et volumes voix / accompagnement dans le mixeur du Stem Studio |
 | Contrôle de préparation | Partiel | Absence de `.lrc` signalée ; pas de diagnostic avancé |
 
 ## 6. Studio audio
@@ -100,10 +100,11 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 
 | Fonction | État | Détail |
 | --- | --- | --- |
-| Séparation voix / batterie / basse / autres | Bloqué | Modèle, licence, taille et politique de ressources non décidés |
-| Gestionnaire de modèles | Absent | Aucun téléchargement ni vérification de modèle |
-| Mixage de stems | Absent | Dépend de la séparation |
-| Consentement et traitement local | Partiel | Principe documenté ; aucune fonction IA active |
+| Séparation voix / batterie / basse / autres | Livré | Spleeter 4 pistes en ONNX, local, par blocs, progression et annulation ; instrumental en plus |
+| Gestionnaire de modèles | Livré | Téléchargement sur demande, révision et SHA-256 figées, désinstallation |
+| Mixage de stems | Livré | Lecture synchronisée, volume, panoramique, sourdine, préréglages, écoute de l'original, export des pistes et du mix |
+| Consentement et traitement local | Livré | Aucun téléchargement sans action explicite ; aucun envoi d'audio |
+| Guitare, piano | Absent | Le modèle 4 pistes ne les isole pas |
 
 ## 8. Téléchargements
 

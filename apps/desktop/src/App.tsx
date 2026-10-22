@@ -13,6 +13,7 @@ import { KaraokePage } from "@/features/karaoke/KaraokePage";
 import { LibraryPage } from "@/features/library/LibraryPage";
 import { PlaylistDetailPage } from "@/features/playlists/PlaylistDetailPage";
 import { PlaylistsPage } from "@/features/playlists/PlaylistsPage";
+import { StemStudioPage } from "@/features/stems/StemStudioPage";
 import { StudioPage } from "@/features/studio/StudioPage";
 import { VideosPage } from "@/features/videos/VideosPage";
 
@@ -34,6 +35,7 @@ export function App() {
           <Route path="videos" element={<VideosPage />} />
           <Route path="karaoke" element={<KaraokePage />} />
           <Route path="studio" element={<StudioPage />} />
+          <Route path="stems" element={<StemStudioPage />} />
           {settingsRoutes()}
           <Route path="*" element={<NotFoundPage />} />
         </Route>

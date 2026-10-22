@@ -1,4 +1,4 @@
-import { Captions, Clapperboard, Copy, Disc3, Heart, Home, Library, Mic2, Settings, SlidersHorizontal, type LucideIcon } from "lucide-react";
+import { Captions, Clapperboard, Copy, Disc3, Heart, Home, Layers, Library, Mic2, Settings, SlidersHorizontal, type LucideIcon } from "lucide-react";
 
 export interface NavItem {
   to: string;
@@ -17,6 +17,7 @@ export const primaryNav: NavItem[] = [
   { to: "/videos", label: "Clips", icon: Clapperboard },
   { to: "/karaoke", label: "Karaoké", icon: Captions },
   { to: "/studio", label: "Studio audio", icon: SlidersHorizontal },
+  { to: "/stems", label: "Stem Studio", icon: Layers },
 ];
 
 /** Maintenance : bas du panneau « Playlists ». */

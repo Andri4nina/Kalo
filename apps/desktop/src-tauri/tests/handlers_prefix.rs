@@ -18,6 +18,8 @@ fn each_registry_matches_the_dispatch_prefix() {
     let library = commands("library.rs");
     let playlists = commands("playlists.rs");
     let media = commands("media.rs");
+    let stems = commands("stems.rs");
+    assert!(stems.iter().all(|name| name.starts_with("stem_")), "{stems:?}");
     assert!(!library.is_empty() && !playlists.is_empty() && !media.is_empty());
     assert!(library.iter().all(|name| name.starts_with("library_")), "{library:?}");
     assert!(
@@ -27,7 +29,7 @@ fn each_registry_matches_the_dispatch_prefix() {
     assert!(
         media
             .iter()
-            .all(|name| !name.starts_with("library_") && !name.starts_with("playlist_")),
+            .all(|name| !name.starts_with("library_") && !name.starts_with("playlist_") && !name.starts_with("stem_")),
         "{media:?}"
     );
 }

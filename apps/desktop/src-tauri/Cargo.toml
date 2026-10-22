@@ -24,3 +24,4 @@ dunce.workspace = true
 kalo-core = { path = "../../../crates/kalo-core" }
 kalo-database = { path = "../../../crates/kalo-database" }
 kalo-library = { path = "../../../crates/kalo-library" }
+kalo-stems = { path = "../../../crates/kalo-stems" }

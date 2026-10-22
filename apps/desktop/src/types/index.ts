@@ -18,3 +18,4 @@ export type {
 } from "./maintenance";
 export type { LyricsOrigin, LyricsSource } from "./lyrics";
 export type { Video } from "./video";
+export type { StemJob, StemModelStatus, StemProgress, StemStatus } from "./stems";

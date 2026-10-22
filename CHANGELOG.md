@@ -41,6 +41,10 @@ le versionnage sémantique à partir de la première version publiée.
 - Export WAV hors ligne du morceau en cours avec les réglages actifs, écrit dans
   un fichier choisi par l'utilisateur ; le fichier d'origine ne peut pas être
   remplacé. Validation audio native encore à faire.
+- Stem Studio : séparation locale voix, batterie, basse, autres et
+  instrumental (Spleeter 4 pistes, ONNX Runtime), modèle téléchargé sur demande
+  avec empreintes vérifiées, tâches annulables, mixeur multipiste (volume,
+  panoramique, karaoké, a cappella, comparaison à l'original) et exports.
 - Clips vidéo locaux (MP4, M4V, WebM) : indexation séparée de la musique,
   page Clips avec recherche et lecteur intégré, import classé dans
   `<Artiste>/video/`.

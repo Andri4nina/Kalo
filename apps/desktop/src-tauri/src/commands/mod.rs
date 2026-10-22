@@ -5,4 +5,5 @@ pub(crate) mod library;
 pub(crate) mod listening;
 pub(crate) mod lyrics;
 pub(crate) mod playlists;
+pub(crate) mod stems;
 pub(crate) mod videos;
