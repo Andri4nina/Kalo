@@ -1,10 +1,9 @@
 import { useDeferredValue, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/Button";
 import { PageHeader } from "@/components/PageHeader";
 import type { TrackSort } from "@/types";
 import { toTrackFilters } from "./filters";
 import { LibraryBatchBar } from "./LibraryBatchBar";
+import { LibraryHeaderActions } from "./LibraryHeaderActions";
 import { DEFAULT_FILTERS, LibraryFilters } from "./LibraryFilters";
 import { LibraryResults } from "./LibraryResults";
 import { LibraryToolbar } from "./LibraryToolbar";
@@ -30,7 +29,7 @@ export function LibraryPage() {
         eyebrow="Collection"
         title="Bibliothèque"
         description="Tous les morceaux indexés sur cet appareil."
-        actions={<Link to="/settings"><Button variant="subtle" size="sm">Gérer les dossiers</Button></Link>}
+        actions={<LibraryHeaderActions />}
       />
       <LibraryToolbar
         search={search}

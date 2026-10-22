@@ -29,3 +29,9 @@ export const mediaGrid =
 /** Liste déroulante compacte en pilule (filtres, tri). */
 export const chipSelect =
   "h-9 cursor-pointer rounded-full border-0 bg-kalo-raised px-4 text-sm font-semibold text-kalo-ink hover:bg-kalo-line focus:outline-none focus-visible:ring-2 focus-visible:ring-kalo-accent dark:bg-kalo-dark-raised dark:text-kalo-dark-ink dark:hover:bg-kalo-dark-line dark:focus-visible:ring-kalo-dark-accent";
+
+/** Puces de filtre ou d'onglet : active en encre pleine, sinon surface relevée. */
+export const chipOn = "bg-kalo-ink text-kalo-panel dark:bg-kalo-dark-ink dark:text-kalo-dark-canvas";
+
+export const chipOff =
+  "bg-kalo-raised text-kalo-ink hover:bg-kalo-line dark:bg-kalo-dark-raised dark:text-kalo-dark-ink dark:hover:bg-kalo-dark-line";

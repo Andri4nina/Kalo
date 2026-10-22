@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { listen } from "@tauri-apps/api/event";
+import { useState } from "react";
 import { scanRoot } from "@/lib/api/library";
 import { errorMessage } from "@/lib/format";
+import { useTauriEvent } from "@/lib/useTauriEvent";
 import type { ScanProgress, ScanSummary } from "@/types";
 
 export function useScan(onFinished: () => void) {
@@ -9,21 +9,7 @@ export function useScan(onFinished: () => void) {
   const [progress, setProgress] = useState<ScanProgress | null>(null);
   const [summary, setSummary] = useState<ScanSummary | null>(null);
   const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let active = true;
-    let unlisten: (() => void) | undefined;
-    listen<ScanProgress>("library:scan-progress", (event) => setProgress(event.payload))
-      .then((stop) => {
-        if (active) unlisten = stop;
-        else stop();
-      })
-      .catch(() => undefined);
-    return () => {
-      active = false;
-      unlisten?.();
-    };
-  }, []);
+  useTauriEvent<ScanProgress>("library:scan-progress", setProgress);
 
   const start = async (rootId: number) => {
     setScanningId(rootId);

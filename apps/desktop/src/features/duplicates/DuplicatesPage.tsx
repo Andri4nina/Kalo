@@ -1,33 +1,47 @@
-import { Copy } from "lucide-react";
-import { EmptyState } from "@/components/EmptyState";
-import { ErrorNotice } from "@/components/ErrorNotice";
+import { useState } from "react";
 import { PageHeader } from "@/components/PageHeader";
-import { Spinner } from "@/components/Spinner";
-import { listDuplicates } from "@/lib/api/library";
-import { useAsync } from "@/lib/useAsync";
-import { useLibraryVersion } from "@/features/library/library.store";
-import { DuplicateGroupCard } from "./DuplicateGroupCard";
+import { chipOff, chipOn, focus } from "@/design/tokens";
+import { cn } from "@/lib/cn";
+import { ContentDuplicates } from "./ContentDuplicates";
+import { MetadataDuplicates } from "./MetadataDuplicates";
+
+const tabs = [
+  { id: "metadata", label: "Probables" },
+  { id: "content", label: "Identiques" },
+] as const;
+
+type Tab = (typeof tabs)[number]["id"];
 
 export function DuplicatesPage() {
-  const version = useLibraryVersion((state) => state.version);
-  const { data, loading, error } = useAsync(listDuplicates, [version]);
+  const [tab, setTab] = useState<Tab>("metadata");
   return (
     <div>
       <PageHeader
         eyebrow="Entretien"
         title="Doublons"
-        description="Morceaux partageant le même titre, artiste et une durée proche. Aucun fichier n'est supprimé automatiquement."
+        description="Probables : même titre, artiste et durée proche. Identiques : même contenu. Aucun fichier n'est supprimé automatiquement."
       />
-      {error ? <ErrorNotice message={error} /> : null}
-      {loading && !data ? <Spinner label="Recherche des doublons" /> : null}
-      {data && data.length === 0 ? (
-        <EmptyState icon={Copy} title="Aucun doublon détecté" description="Les doublons sont repérés par titre, artiste et durée. Modifiez les métadonnées si deux fichiers distincts sont signalés à tort." />
-      ) : null}
-      {data && data.length > 0 ? (
-        <div className="grid gap-3 xl:grid-cols-2">
-          {data.map((group) => <DuplicateGroupCard key={group.key} group={group} />)}
-        </div>
-      ) : null}
+      <div role="tablist" aria-label="Type de doublons" className="mb-5 flex gap-2">
+        {tabs.map(({ id, label }) => (
+          <button
+            key={id}
+            type="button"
+            role="tab"
+            aria-selected={tab === id}
+            onClick={() => setTab(id)}
+            className={cn(
+              focus,
+              "rounded-full px-3 py-1.5 text-sm font-semibold transition-colors",
+              tab === id
+                ? chipOn
+                : chipOff,
+            )}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+      <div role="tabpanel">{tab === "metadata" ? <MetadataDuplicates /> : <ContentDuplicates />}</div>
     </div>
   );
 }

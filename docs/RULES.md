@@ -72,8 +72,10 @@ l'interface.
 
 ## 9. Sécurité des fichiers
 
-Le code ne déplace, ne renomme et ne supprime jamais un fichier audio. Les
-pochettes vont dans le cache. Les chemins reçus du front sont validés côté Rust.
+Le code ne déplace, ne renomme et ne supprime jamais un fichier audio. L'import
+crée des copies vérifiées par empreinte dans un dossier surveillé, sans jamais
+remplacer un fichier existant ni toucher la source. Les pochettes vont dans le
+cache. Les chemins reçus du front sont validés côté Rust.
 Les téléchargements, quand ils existeront, seront limités à des sources
 autorisées, sans contournement de DRM ni de conditions d'utilisation.
 

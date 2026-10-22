@@ -1,7 +1,9 @@
 pub(crate) mod by;
+mod content_duplicates;
 mod cover;
 mod duplicates;
 mod favorites;
+mod fingerprint;
 mod formats;
 mod history;
 mod list;
@@ -15,9 +17,11 @@ mod stats;
 mod update;
 mod upsert;
 
+pub use content_duplicates::content_duplicates;
 pub use cover::set_cover;
 pub use duplicates::duplicates;
 pub use favorites::toggle_favorite;
+pub use fingerprint::{hash_candidates, set_content_hash, HashCandidate};
 pub use formats::formats;
 pub use history::{recent, record_play};
 pub use list::{count, list};

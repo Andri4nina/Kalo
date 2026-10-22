@@ -9,3 +9,9 @@ export type {
   ScanSummary,
 } from "./library";
 export type { Playlist, PlaylistDetail } from "./playlist";
+export type {
+  FileImportFailure,
+  FileImportReport,
+  FingerprintProgress,
+  FingerprintSummary,
+} from "./maintenance";

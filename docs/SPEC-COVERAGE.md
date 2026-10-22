@@ -47,9 +47,9 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Édition des pochettes | Livré | Image copiée dans le cache Kalo ; fichier audio inchangé |
 | Suppression d'une référence | Livré | Retrait de l'index, des playlists, favoris et historiques ; fichier conservé |
 | Doublons | Livré | Groupes titre + artiste + durée proche ; aucune suppression automatique |
-| Doublons par contenu | Absent | Pas d'empreinte de fichier |
+| Doublons par contenu | Livré | Empreinte BLAKE3 des seuls fichiers de même taille, mise en cache par date de modification |
 | Sélection et actions groupées | Livré | Sélection multiple, ajout groupé à la file ou à une playlist |
-| Import et classement de fichiers | Absent | Le scanner lit sur place, ne copie ni ne déplace |
+| Import et classement de fichiers | Livré | Copie vérifiée vers `<racine>/<Artiste>/<Titre>.<ext>`, sans écrasement ; la source n'est jamais supprimée |
 | Filtrage des sons non musicaux | Absent | Pas de détection ringtones / jingles |
 | Surveillance des dossiers | Absent | Analyse manuelle ou à l'ajout d'un dossier |
 

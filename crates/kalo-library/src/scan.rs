@@ -7,7 +7,7 @@ use kalo_database::{roots, Database};
 use crate::LibraryError;
 
 mod file;
-mod helpers;
+pub(crate) mod helpers;
 mod report;
 mod walk;
 

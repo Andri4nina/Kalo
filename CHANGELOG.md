@@ -40,6 +40,11 @@ le versionnage sémantique à partir de la première version publiée.
   surveillés et aux formats audio pris en charge.
 - Détection de doublons probables par titre, artiste et durée, sans suppression
   automatique.
+- Doublons identiques par empreinte BLAKE3 (fichiers de même taille seulement,
+  empreintes mises en cache), onglet dédié sur la page Doublons.
+- Import de fichiers : copie vérifiée par empreinte vers
+  `<racine>/<Artiste>/<Titre>.<ext>`, sans écrasement, puis indexation ; les
+  fichiers d'origine restent intacts.
 - Sélection multiple dans une playlist, avec retrait groupé transactionnel ou
   ajout à la file d'attente.
 - Sélection multiple dans la bibliothèque, avec ajout groupé à la file d'attente

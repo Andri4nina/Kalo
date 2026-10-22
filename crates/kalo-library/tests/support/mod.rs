@@ -1,3 +1,12 @@
+#![allow(dead_code)]
+
+mod count;
+mod fixture;
+
+#[allow(unused_imports)]
+pub use count::track_count;
+#[allow(unused_imports)]
+pub use fixture::{import_fixture, ImportFixture};
 use std::fs;
 use std::path::PathBuf;
 
