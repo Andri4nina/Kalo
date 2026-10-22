@@ -3,7 +3,7 @@ use std::path::{Path, PathBuf};
 use kalo_core::FileImportReport;
 use kalo_database::{roots, Database};
 
-use crate::{index, LibraryError};
+use crate::{extensions, index, scan::helpers, videos, LibraryError};
 
 mod copy;
 mod place;
@@ -33,6 +33,10 @@ pub fn import_files(
         let outcome = place::place(Path::new(source), &root_path, cache_dir);
         report::record(&mut report, &mut placed, source, outcome);
     }
-    index::index_files(db, root_id, cache_dir, &placed)?;
+    let (clips, audio): (Vec<_>, Vec<_>) = placed.into_iter().partition(|path| extensions::is_video(path));
+    index::index_files(db, root_id, cache_dir, &audio)?;
+    if !clips.is_empty() {
+        videos::scan_videos(db, root_id, &root_path, helpers::mark())?;
+    }
     Ok(report)
 }

@@ -1,4 +1,4 @@
-import { Captions, Copy, Disc3, Heart, Home, Library, Mic2, Settings, SlidersHorizontal, type LucideIcon } from "lucide-react";
+import { Captions, Clapperboard, Copy, Disc3, Heart, Home, Library, Mic2, Settings, SlidersHorizontal, type LucideIcon } from "lucide-react";
 
 export interface NavItem {
   to: string;
@@ -14,6 +14,7 @@ export const primaryNav: NavItem[] = [
   { to: "/artists", label: "Artistes", icon: Mic2 },
   { to: "/albums", label: "Albums", icon: Disc3 },
   { to: "/favorites", label: "Favoris", icon: Heart },
+  { to: "/videos", label: "Clips", icon: Clapperboard },
   { to: "/karaoke", label: "Karaoké", icon: Captions },
   { to: "/studio", label: "Studio audio", icon: SlidersHorizontal },
 ];

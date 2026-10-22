@@ -41,6 +41,9 @@ le versionnage sémantique à partir de la première version publiée.
 - Export WAV hors ligne du morceau en cours avec les réglages actifs, écrit dans
   un fichier choisi par l'utilisateur ; le fichier d'origine ne peut pas être
   remplacé. Validation audio native encore à faire.
+- Clips vidéo locaux (MP4, M4V, WebM) : indexation séparée de la musique,
+  page Clips avec recherche et lecteur intégré, import classé dans
+  `<Artiste>/video/`.
 - Édition des métadonnées en base uniquement, sans réécriture du fichier audio.
 - Relocalisation contrôlée d'un fichier manquant, limitée aux dossiers déjà
   surveillés et aux formats audio pris en charge.

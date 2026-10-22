@@ -117,8 +117,9 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 
 | Fonction | État | Détail |
 | --- | --- | --- |
-| Lecture vidéo musicale | Absent | Le scanner et le lecteur ne traitent que l'audio |
-| Piste audio extraite | Absent | Aucun pipeline vidéo |
+| Lecture vidéo musicale | Livré | Clips MP4, M4V, WebM indexés à part (migration 010), page Clips, lecteur natif, musique mise en pause |
+| Classement des clips | Livré | Import vers `<Artiste>/video/<Titre>.<ext>`, copie vérifiée |
+| Piste audio extraite | Absent | Nécessite un décodeur vidéo (ffmpeg) non embarqué |
 
 ## 10. Paramètres et vie privée
 

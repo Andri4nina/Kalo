@@ -7,6 +7,7 @@ pub mod new_track;
 pub mod playlist;
 pub mod query;
 pub mod track;
+pub mod video;
 
 pub use browse::{AlbumSummary, ArtistSummary};
 pub use duplicate::DuplicateGroup;
@@ -17,3 +18,4 @@ pub use new_track::NewTrack;
 pub use playlist::{Playlist, PlaylistDetail};
 pub use query::{TrackPage, TrackQuery};
 pub use track::Track;
+pub use video::{NewVideo, Video};

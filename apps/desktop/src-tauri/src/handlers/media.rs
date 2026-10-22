@@ -18,5 +18,6 @@ pub(crate) fn handler() -> impl Fn(Invoke<Wry>) -> bool + Send + Sync + 'static 
         crate::commands::listening::history::history_record,
         crate::commands::listening::favorites::favorites_toggle,
         crate::commands::listening::favorites::favorites_list,
+        crate::commands::videos::video_list,
     ]
 }

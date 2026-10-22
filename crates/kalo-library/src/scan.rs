@@ -26,6 +26,7 @@ where
     let mut summary = ScanSummary::default();
     walk::walk(db, root_id, root_path, cache_dir, mark, &on_progress, &mut summary)?;
     summary.missing = helpers::finish(db, root_id, mark)?;
+    crate::videos::scan_videos(db, root_id, root_path, mark)?;
     summary.duration_ms = started.elapsed().as_millis() as i64;
     report::report(&on_progress, &summary, root_path);
     Ok(summary)

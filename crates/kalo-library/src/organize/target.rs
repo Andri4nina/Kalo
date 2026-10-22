@@ -1,13 +1,19 @@
 use std::path::{Path, PathBuf};
 
+use crate::extensions;
+
 use super::sanitize::component;
 
-/// `<racine>/<Artiste>/<Titre>.<extension>`, with safe names.
+/// `<racine>/<Artiste>/<Titre>.<ext>`, or `<racine>/<Artiste>/video/<Titre>.<ext>`
+/// for a clip, with safe names.
 pub fn target(root: &Path, artist: Option<&str>, title: &str, extension: &str) -> PathBuf {
-    let folder = component(artist.unwrap_or_default(), "Artiste inconnu");
-    let name = component(title, "Sans titre");
-    root.join(folder)
-        .join(format!("{name}.{}", extension.to_ascii_lowercase()))
+    let folder = root.join(component(artist.unwrap_or_default(), "Artiste inconnu"));
+    let file = format!("{}.{}", component(title, "Sans titre"), extension.to_ascii_lowercase());
+    if extensions::is_video(Path::new(&file)) {
+        folder.join("video").join(file)
+    } else {
+        folder.join(file)
+    }
 }
 
 /// First free name: `Titre.mp3`, then `Titre (2).mp3`, `Titre (3).mp3`...

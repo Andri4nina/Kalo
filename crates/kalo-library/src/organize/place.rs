@@ -13,7 +13,7 @@ pub enum Placed {
 /// Places one file in the root: kept as is when already inside it, skipped when
 /// an identical copy exists, otherwise copied under a free name and verified.
 pub fn place(source: &Path, root: &Path, cache_dir: &Path) -> Result<Placed, String> {
-    if !source.is_file() || !extensions::is_supported(source) {
+    if !source.is_file() || !(extensions::is_supported(source) || extensions::is_video(source)) {
         return Err("Fichier introuvable ou format non pris en charge.".into());
     }
     let canonical = dunce::canonicalize(source).map_err(|error| error.to_string())?;
@@ -21,13 +21,16 @@ pub fn place(source: &Path, root: &Path, cache_dir: &Path) -> Result<Placed, Str
     if canonical.starts_with(&canonical_root) {
         return Ok(Placed::Present(canonical));
     }
-    let meta = metadata::read(source, cache_dir)?;
-    let title = meta.title.unwrap_or_else(|| paths::fallback_title(source));
+    let meta = metadata::read(source, cache_dir).ok();
+    let artist = meta.as_ref().and_then(|value| value.artist.clone());
+    let title = meta
+        .and_then(|value| value.title)
+        .unwrap_or_else(|| paths::fallback_title(source));
     let extension = source
         .extension()
         .map(|value| value.to_string_lossy().into_owned())
         .unwrap_or_default();
-    let wanted = target(root, meta.artist.as_deref(), &title, &extension);
+    let wanted = target(root, artist.as_deref(), &title, &extension);
     if wanted.exists() && hash_file(&wanted).ok() == hash_file(source).ok() {
         return Ok(Placed::Present(wanted));
     }

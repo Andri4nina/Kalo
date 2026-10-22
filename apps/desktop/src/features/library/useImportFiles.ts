@@ -6,6 +6,7 @@ import type { FileImportReport } from "@/types";
 import { useLibraryVersion } from "./library.store";
 
 const AUDIO = ["mp3", "flac", "m4a", "aac", "ogg", "oga", "opus", "wav"];
+const VIDEO = ["mp4", "m4v", "webm"];
 
 /** Choix des fichiers, copie vérifiée vers un dossier de la bibliothèque, bilan. */
 export function useImportFiles() {
@@ -16,7 +17,7 @@ export function useImportFiles() {
   const bump = useLibraryVersion((state) => state.bump);
 
   const choose = async () => {
-    const picked = await open({ multiple: true, directory: false, filters: [{ name: "Audio", extensions: AUDIO }] });
+    const picked = await open({ multiple: true, directory: false, filters: [{ name: "Audio et clips", extensions: [...AUDIO, ...VIDEO] }] });
     const list = Array.isArray(picked) ? picked : typeof picked === "string" ? [picked] : [];
     setReport(null);
     setError(null);

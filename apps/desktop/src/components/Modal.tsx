@@ -10,9 +10,10 @@ interface ModalProps {
   title: string;
   onClose: () => void;
   children: React.ReactNode;
+  size?: "md" | "wide";
 }
 
-export function Modal({ open, title, onClose, children }: ModalProps) {
+export function Modal({ open, title, onClose, children, size = "md" }: ModalProps) {
   const overlay = useRef<HTMLDivElement>(null);
   const titleId = useId();
   useDialogFocus(open, overlay, onClose);
@@ -28,7 +29,7 @@ export function Modal({ open, title, onClose, children }: ModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="w-full max-w-md border border-kalo-line p-6 shadow-soft dark:border-kalo-dark-line"
+        className={`w-full ${size === "wide" ? "max-w-4xl" : "max-w-md"} border border-kalo-line p-6 shadow-soft dark:border-kalo-dark-line`}
         onMouseDown={(event) => event.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between gap-4">

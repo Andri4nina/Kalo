@@ -17,3 +17,4 @@ export type {
   LibraryChanges,
 } from "./maintenance";
 export type { LyricsOrigin, LyricsSource } from "./lyrics";
+export type { Video } from "./video";
