@@ -1,10 +1,9 @@
-import { muted } from "@/design/tokens";
+import { divider } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 import type { Track } from "@/types";
 import { SelectAllCell } from "@/features/library/SelectAllCell";
+import { trackHead } from "@/features/library/track.row.styles";
 import type { TrackSelection } from "@/features/library/useTrackSelection";
-
-const head = "px-3 py-2.5 text-[10px] uppercase tracking-[0.12em]";
 
 interface Props {
   tracks: Track[];
@@ -14,14 +13,17 @@ interface Props {
 export function PlaylistTableHead({ tracks, selection }: Props) {
   const allSelected = tracks.length > 0 && tracks.every((track) => selection.selected.has(track.id));
   return (
-    <thead className="bg-kalo-raised/50 dark:bg-kalo-dark-raised/50">
+    <thead>
       <tr>
         <SelectAllCell checked={allSelected} onToggle={() => selection.toggleAll(tracks.map((track) => track.id))} />
-        <th className={cn(head, muted)}>#</th>
-        <th className={cn(head, muted)}>Titre</th>
-        <th className={cn(head, muted, "hidden md:table-cell")}>Artiste</th>
-        <th className={cn(head, muted, "hidden text-right sm:table-cell")}>Durée</th>
-        <th className={head}><span className="sr-only">Actions</span></th>
+        <th scope="col" className={cn(trackHead, "text-right")}>#</th>
+        <th scope="col" className={trackHead}>Titre</th>
+        <th scope="col" className={cn(trackHead, "hidden lg:table-cell")}>Album</th>
+        <th scope="col" className={cn(trackHead, "hidden text-right sm:table-cell")}>Durée</th>
+        <th scope="col" className={trackHead}><span className="sr-only">Actions</span></th>
+      </tr>
+      <tr aria-hidden="true">
+        <td colSpan={6} className="pb-2"><div className={divider} /></td>
       </tr>
     </thead>
   );

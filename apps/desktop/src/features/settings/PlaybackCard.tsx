@@ -9,7 +9,7 @@ export function PlaybackCard() {
   const setResumeOnLaunch = usePlayer((state) => state.setResumeOnLaunch);
   return (
     <Card className="p-5">
-      <h2 className="flex items-center gap-2 font-display text-lg">
+      <h2 className="flex items-center gap-2 font-display font-bold tracking-tight text-lg">
         <RotateCcw size={18} className="text-kalo-accent dark:text-kalo-dark-accent" aria-hidden />
         Lecture
       </h2>
@@ -21,7 +21,7 @@ export function PlaybackCard() {
         role="switch"
         aria-checked={resumeOnLaunch}
         onClick={() => setResumeOnLaunch(!resumeOnLaunch)}
-        className={cn("mt-4 flex w-full items-center justify-between gap-4 rounded-xl border p-3 text-left text-xs", focus, "border-kalo-line dark:border-kalo-dark-line")}
+        className={cn("mt-4 flex w-full items-center justify-between gap-4 rounded-md border p-3 text-left text-xs", focus, "border-kalo-line dark:border-kalo-dark-line")}
       >
         <span>
           <span className="block font-medium">Reprendre la lecture au lancement</span>

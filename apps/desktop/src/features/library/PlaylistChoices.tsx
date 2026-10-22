@@ -23,7 +23,7 @@ export function PlaylistChoices({ playlists, busy, onSelect }: Props) {
           type="button"
           disabled={busy}
           onClick={() => onSelect(playlist.id)}
-          className="flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-sm hover:bg-kalo-raised disabled:opacity-50 dark:hover:bg-kalo-dark-raised"
+          className="flex w-full items-center justify-between rounded-md px-3 py-2 text-left text-sm hover:bg-kalo-raised disabled:opacity-50 dark:hover:bg-kalo-dark-raised"
         >
           <span className="truncate">{playlist.name}</span>
           <span className={cn("text-xs", muted)}>{playlist.trackCount}</span>

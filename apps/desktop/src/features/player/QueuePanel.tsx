@@ -19,10 +19,10 @@ export function QueuePanel() {
   useDialogFocus(open, panel, () => setQueueOpen(false));
   if (!open) return null;
   return createPortal(
-    <div className="fixed inset-0 z-50 flex justify-end bg-black/50" onMouseDown={() => setQueueOpen(false)}>
+    <div className="fixed inset-0 z-50 flex justify-end bg-black/50 p-2" onMouseDown={() => setQueueOpen(false)}>
       <aside
         ref={panel} role="dialog" aria-modal="true" aria-label="File d'attente"
-        className="flex h-full w-full max-w-md flex-col rounded-l-3xl border border-kalo-line bg-kalo-panel dark:border-kalo-dark-line dark:bg-kalo-dark-panel"
+        className="flex h-full w-full max-w-md flex-col rounded-lg border border-kalo-line bg-kalo-panel shadow-soft dark:border-kalo-dark-line dark:bg-kalo-dark-panel"
         onMouseDown={(event) => event.stopPropagation()}
       >
         <QueueHeader count={queue.length} source={queueSource} onClear={() => setConfirmClear(true)} onClose={() => setQueueOpen(false)} />

@@ -28,11 +28,11 @@ export function Modal({ open, title, onClose, children }: ModalProps) {
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="w-full max-w-md p-6 shadow-soft"
+        className="w-full max-w-md border border-kalo-line p-6 shadow-soft dark:border-kalo-dark-line"
         onMouseDown={(event) => event.stopPropagation()}
       >
         <div className="mb-4 flex items-center justify-between gap-4">
-          <h2 id={titleId} className="font-display text-lg">{title}</h2>
+          <h2 id={titleId} className="font-display text-xl font-bold tracking-tight">{title}</h2>
           <IconButton icon={X} label="Fermer" onClick={onClose} />
         </div>
         {children}

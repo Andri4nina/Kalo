@@ -2,11 +2,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/Button";
 import { EmptyState } from "@/components/EmptyState";
 import { Compass } from "lucide-react";
-import { page } from "@/design/tokens";
 
 export function NotFoundPage() {
   return (
-    <div className={page}>
+    <div className="py-16">
       <EmptyState
         icon={Compass}
         title="Page introuvable"

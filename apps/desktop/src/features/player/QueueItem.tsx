@@ -19,8 +19,8 @@ export function QueueItem({ track, index, current, total }: QueueItemProps) {
   return (
     <div
       className={cn(
-        "flex items-center gap-2 rounded-xl px-2 py-1.5",
-        current ? "bg-kalo-accent-soft dark:bg-kalo-dark-accent-soft" : "hover:bg-kalo-raised dark:hover:bg-kalo-dark-raised",
+        "flex items-center gap-2 rounded-md px-2 py-1.5",
+        current ? "bg-kalo-raised text-kalo-accent-strong dark:bg-kalo-dark-raised dark:text-kalo-dark-accent" : "hover:bg-kalo-raised dark:hover:bg-kalo-dark-raised",
       )}
     >
       <button

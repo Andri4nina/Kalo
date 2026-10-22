@@ -21,7 +21,7 @@ export function SearchField({ value, onChange, placeholder, label, className }: 
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
         aria-label={label}
-        className={`${input} pl-9`}
+        className={`${input} h-10 rounded-full pl-9`}
       />
     </div>
   );

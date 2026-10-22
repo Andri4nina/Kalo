@@ -1,26 +1,23 @@
-import { ListMusic, Trash2 } from "lucide-react";
-import { Link } from "react-router-dom";
-import { Card } from "@/components/Card";
+import { Trash2 } from "lucide-react";
 import { IconButton } from "@/components/IconButton";
-import { focus, muted } from "@/design/tokens";
-import { cn } from "@/lib/cn";
+import { MediaCard } from "@/components/MediaCard";
+import { playlistTracks } from "@/features/browse/collection.play";
+import { usePlayCollection } from "@/features/browse/usePlayCollection";
 import type { Playlist } from "@/types";
+import { PlaylistArtwork } from "./PlaylistArtwork";
 
 export function PlaylistCard({ playlist, onDelete }: { playlist: Playlist; onDelete: () => void }) {
+  const { busy, play } = usePlayCollection();
+  const count = `${playlist.trackCount} morceau${playlist.trackCount > 1 ? "x" : ""}`;
   return (
-    <Card className="flex items-center gap-3 p-3 transition-colors hover:bg-kalo-raised/40 dark:hover:bg-kalo-dark-raised/40">
-      <Link to={`/playlists/${playlist.id}`} className={`${focus} flex min-w-0 flex-1 items-center gap-3 rounded-xl`}>
-        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-kalo-accent-soft text-kalo-accent-strong dark:bg-kalo-dark-accent-soft dark:text-kalo-dark-accent">
-          <ListMusic size={22} strokeWidth={1.7} />
-        </span>
-        <span className="min-w-0">
-          <span className="block truncate text-sm font-semibold">{playlist.name}</span>
-          <span className={cn("block text-xs", muted)}>
-            {playlist.trackCount} morceau{playlist.trackCount > 1 ? "x" : ""}
-          </span>
-        </span>
-      </Link>
-      <IconButton icon={Trash2} label="Supprimer la playlist" size="sm" onClick={onDelete} />
-    </Card>
+    <MediaCard
+      to={`/playlists/${playlist.id}`}
+      title={playlist.name}
+      subtitle={`Playlist · ${count}`}
+      artwork={<PlaylistArtwork size="square" />}
+      playBusy={busy}
+      onPlay={playlist.trackCount > 0 ? () => void play(() => playlistTracks(playlist.id), playlist.name) : undefined}
+      action={<IconButton icon={Trash2} label={`Supprimer la playlist ${playlist.name}`} size="sm" onClick={onDelete} />}
+    />
   );
 }

@@ -1,37 +1,16 @@
-import { useState } from "react";
 import { ConfirmModal } from "@/components/ConfirmModal";
 import { ErrorNotice } from "@/components/ErrorNotice";
-import { useLibraryVersion } from "@/features/library/library.store";
-import { deletePlaylist } from "@/lib/api/playlists";
-import { errorMessage } from "@/lib/format";
+import { mediaGrid } from "@/design/tokens";
 import type { Playlist } from "@/types";
 import { PlaylistCard } from "./PlaylistCard";
+import { usePlaylistDelete } from "./usePlaylistDelete";
 
 export function PlaylistsGrid({ playlists }: { playlists: Playlist[] }) {
-  const [toDelete, setToDelete] = useState<Playlist | null>(null);
-  const [busy, setBusy] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const bump = useLibraryVersion((state) => state.bump);
-
-  const remove = async () => {
-    if (!toDelete) return;
-    setBusy(true);
-    setError(null);
-    try {
-      await deletePlaylist(toDelete.id);
-      setToDelete(null);
-      bump();
-    } catch (reason: unknown) {
-      setError(errorMessage(reason));
-    } finally {
-      setBusy(false);
-    }
-  };
-
+  const { toDelete, setToDelete, busy, error, remove } = usePlaylistDelete();
   return (
     <>
       {error ? <ErrorNotice message={error} /> : null}
-      <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+      <div className={mediaGrid}>
         {playlists.map((playlist) => (
           <PlaylistCard key={playlist.id} playlist={playlist} onDelete={() => setToDelete(playlist)} />
         ))}

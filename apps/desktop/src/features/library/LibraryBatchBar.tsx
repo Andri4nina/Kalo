@@ -18,7 +18,7 @@ export function LibraryBatchBar({ tracks, onClear }: Props) {
     onClear();
   };
   return (
-    <div className="mb-4 flex flex-wrap items-center gap-2 rounded-2xl border border-kalo-line bg-kalo-panel p-3 dark:border-kalo-dark-line dark:bg-kalo-dark-panel">
+    <div className="mb-4 flex flex-wrap items-center gap-2 rounded-lg bg-kalo-card p-3 dark:bg-kalo-dark-card">
       <span className="mr-2 text-xs font-medium">{tracks.length} sélectionné(s)</span>
       <Button size="sm" variant="subtle" onClick={enqueueAll}>
         <ListPlus size={14} aria-hidden />

@@ -10,7 +10,7 @@ export function AppearanceCard() {
 
   return (
     <Card className="p-5">
-      <h2 className="font-display text-lg">Apparence</h2>
+      <h2 className="font-display font-bold tracking-tight text-lg">Apparence</h2>
       <p className={cn("mt-1 text-xs", muted)}>Choisissez le thème de l'interface. Le réglage est conservé sur cet appareil.</p>
       <div className="mt-4 grid grid-cols-2 gap-2">
         <button
@@ -18,7 +18,7 @@ export function AppearanceCard() {
           aria-pressed={theme === "dark"}
           onClick={() => theme === "light" && toggle()}
           className={cn(
-            "flex flex-col items-start gap-2 rounded-xl border p-3 text-left transition-colors",
+            "flex flex-col items-start gap-2 rounded-md border p-3 text-left transition-colors",
             focus,
             theme === "dark"
               ? "border-kalo-accent bg-kalo-accent-soft text-kalo-accent-strong dark:border-kalo-dark-accent dark:bg-kalo-dark-accent-soft dark:text-kalo-dark-accent"
@@ -33,7 +33,7 @@ export function AppearanceCard() {
           aria-pressed={theme === "light"}
           onClick={() => theme === "dark" && toggle()}
           className={cn(
-            "flex flex-col items-start gap-2 rounded-xl border p-3 text-left transition-colors",
+            "flex flex-col items-start gap-2 rounded-md border p-3 text-left transition-colors",
             focus,
             theme === "light"
               ? "border-kalo-accent bg-kalo-accent-soft text-kalo-accent-strong"

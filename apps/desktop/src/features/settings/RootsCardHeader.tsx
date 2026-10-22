@@ -16,7 +16,7 @@ export function RootsCardHeader({ roots, scanning, onAdded, onScanAll }: Props) 
       <div className="flex items-start gap-2">
         <FolderOpen size={18} className="mt-0.5 text-kalo-accent dark:text-kalo-dark-accent" />
         <div>
-          <h2 className="font-display text-lg">Bibliothèque locale</h2>
+          <h2 className="font-display font-bold tracking-tight text-lg">Bibliothèque locale</h2>
           <p className="mt-1 max-w-md text-xs text-kalo-muted dark:text-kalo-dark-muted">
             Kalo indexe les fichiers sur place. Aucun fichier n'est déplacé, renommé ou supprimé.
           </p>

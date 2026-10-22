@@ -1,5 +1,5 @@
 import { SlidersHorizontal } from "lucide-react";
-import { input } from "@/design/tokens";
+import { chipSelect } from "@/design/tokens";
 import type { TrackSort } from "@/types";
 
 const options: Array<{ value: TrackSort; label: string }> = [
@@ -19,7 +19,7 @@ export function SortSelect({ value, onChange }: { value: TrackSort; onChange: (v
         value={value}
         onChange={(event) => onChange(event.target.value as TrackSort)}
         aria-label="Trier la bibliothèque"
-        className={`${input} w-auto`}
+        className={chipSelect}
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>{option.label}</option>

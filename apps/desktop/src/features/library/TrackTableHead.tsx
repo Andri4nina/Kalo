@@ -1,8 +1,11 @@
+import { divider } from "@/design/tokens";
 import type { Track } from "@/types";
 import { SelectAllCell } from "./SelectAllCell";
+import { trackHead } from "./track.row.styles";
 import type { TrackSelection } from "./useTrackSelection";
 
-const columns = ["#", "Titre", "Artiste", "Album", "Format", "Durée", ""];
+const columns = ["#", "Titre", "Album", "Format", "Durée", ""];
+const visibility = ["text-right", "", "hidden lg:table-cell", "hidden sm:table-cell", "text-right", ""];
 
 interface Props {
   tracks: Track[];
@@ -12,18 +15,19 @@ interface Props {
 export function TrackTableHead({ tracks, selection }: Props) {
   const allSelected = tracks.length > 0 && tracks.every((track) => selection?.selected.has(track.id));
   return (
-    <thead className="bg-kalo-raised/50 dark:bg-kalo-dark-raised/50">
+    <thead>
       <tr>
         {selection ? <SelectAllCell checked={allSelected} onToggle={() => selection.toggleAll(tracks.map((track) => track.id))} /> : null}
         {columns.map((label, index) => (
-          <th
-            key={`${label}-${index}`}
-            scope="col"
-            className={`px-3 py-2.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-kalo-muted dark:text-kalo-dark-muted ${index === 3 ? "hidden lg:table-cell" : ""} ${index === 4 ? "hidden sm:table-cell" : ""} ${index === 5 ? "text-right" : ""}`}
-          >
-            {label}
+          <th key={`${label}-${index}`} scope="col" className={`${trackHead} ${visibility[index]}`}>
+            {label || <span className="sr-only">Actions</span>}
           </th>
         ))}
+      </tr>
+      <tr aria-hidden="true">
+        <td colSpan={columns.length + (selection ? 1 : 0)} className="pb-2">
+          <div className={divider} />
+        </td>
       </tr>
     </thead>
   );

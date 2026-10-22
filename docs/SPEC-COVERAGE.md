@@ -1,8 +1,8 @@
 # Couverture de la spécification Kalo
 
-État vérifié au 21 octobre 2026, après les commits `8764e49` à `e3584e2`. Les
-tranches provenance de la file, paramètres avancés, actions groupées et Studio
-audio (effets, presets personnalisés, comparaison A/B) sont couvertes.
+État vérifié au 21 octobre 2026, après les commits `8764e49` à `1504049`. Les
+tranches provenance de la file, paramètres avancés, actions groupées, Studio
+audio (effets, presets, A/B, export WAV) sont couvertes.
 Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais incomplet ;
 **Absent** = non implémenté ; **Bloqué** = dépend d'une décision ou d'une ressource externe.
 
@@ -140,7 +140,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Chargement / erreur / vide | Livré | Composants partagés sur les écrans principaux |
 | Hors ligne | Partiel | L'application est locale ; pas de bandeau ou d'état réseau explicite |
 | Permission refusée | Absent | Pas de flux de permission mobile |
-| Design system | Livré | Tokens, composants, Lucide, pas de dégradé ni d'emoji |
+| Design system | Livré | Tokens, composants, Lucide, pas de dégradé ni d'emoji ; structure inspirée de Spotify, accent ambre (sans vert) |
 | Responsive | Partiel | Mise en page adaptative desktop ; pas d'application mobile |
 | Thèmes clair / sombre | Livré | Variables Tailwind dédiées |
 

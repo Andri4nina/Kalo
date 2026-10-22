@@ -34,7 +34,7 @@ export function KaraokeFullscreen({ open, track, lines, active, playing, offsetM
     <div role="dialog" aria-modal="true" aria-label="Karaoké plein écran" className="fixed inset-0 z-[60] flex flex-col bg-kalo-canvas p-4 text-kalo-ink dark:bg-kalo-dark-canvas dark:text-kalo-dark-ink md:p-8">
       <header className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div className="min-w-0">
-          <h2 className="truncate font-display text-xl">{track.title}</h2>
+          <h2 className="truncate font-display font-bold tracking-tight text-xl">{track.title}</h2>
           <p className={cn("truncate text-xs", muted)}>{track.artist ?? "Artiste inconnu"}</p>
         </div>
         <div className="flex items-center gap-2">

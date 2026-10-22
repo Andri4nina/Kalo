@@ -17,7 +17,7 @@ export function QueueOverviewCard() {
       <div className="mb-3 flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <ListMusic size={17} className="text-kalo-accent dark:text-kalo-dark-accent" />
-          <h2 className="font-display text-lg">File d'attente</h2>
+          <h2 className="font-display font-bold tracking-tight text-lg">File d'attente</h2>
         </div>
         <button type="button" onClick={() => setOpen(true)} className={cn("rounded text-xs hover:underline", muted, focus)}>
           Ouvrir
@@ -28,7 +28,7 @@ export function QueueOverviewCard() {
       ) : (
         <div className="flex flex-1 flex-col justify-center gap-2">
           {current ? (
-            <div className="rounded-xl bg-kalo-accent-soft/60 px-3 py-2 dark:bg-kalo-dark-accent-soft/60">
+            <div className="rounded-md bg-kalo-accent-soft/60 px-3 py-2 dark:bg-kalo-dark-accent-soft/60">
               <p className={cn("text-[10px] uppercase tracking-[0.14em]", muted)}>En lecture</p>
               <p className="truncate text-sm font-medium">{current.title}</p>
             </div>

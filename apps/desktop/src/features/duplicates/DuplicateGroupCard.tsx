@@ -9,7 +9,7 @@ import type { DuplicateGroup } from "@/types";
 export function DuplicateGroupCard({ group }: { group: DuplicateGroup }) {
   const playQueue = usePlayer((state) => state.playQueue);
   return (
-    <section className="rounded-2xl border border-kalo-line bg-kalo-panel p-4 dark:border-kalo-dark-line dark:bg-kalo-dark-panel">
+    <section className="rounded-lg bg-kalo-card p-4 dark:bg-kalo-dark-card">
       <header className="mb-3 flex items-center justify-between gap-3">
         <div className="min-w-0">
           <h2 className="truncate text-sm font-semibold">{group.title}</h2>

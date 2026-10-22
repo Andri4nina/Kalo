@@ -7,7 +7,7 @@ export function PlayerMixerPopover() {
   const { setVolume, setBalance } = usePlayer.getState();
 
   return (
-    <div className="absolute bottom-full right-0 z-50 mb-3 w-64 rounded-2xl border border-kalo-line bg-kalo-panel p-4 shadow-soft dark:border-kalo-dark-line dark:bg-kalo-dark-panel">
+    <div className="absolute bottom-full right-0 z-50 mb-3 w-64 rounded-lg border border-kalo-line bg-kalo-panel p-4 shadow-soft dark:border-kalo-dark-line dark:bg-kalo-dark-card">
       <MixerSlider id="player-volume" label="Volume" value={volume} min={0} max={1} step={0.01} onChange={setVolume} />
       <MixerSlider
         id="player-balance"

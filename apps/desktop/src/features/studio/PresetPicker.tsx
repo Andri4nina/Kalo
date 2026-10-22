@@ -13,7 +13,7 @@ export function PresetPicker() {
     <Card className="p-5">
       <div className="flex items-center gap-2">
         <Sparkles size={17} className="text-kalo-accent dark:text-kalo-dark-accent" />
-        <h2 className="font-display text-lg">Presets</h2>
+        <h2 className="font-display font-bold tracking-tight text-lg">Presets</h2>
       </div>
       <p className={cn("mt-1 text-xs", muted)}>
         Choisissez une courbe, puis ajustez chaque bande. Un preset active l'égaliseur.

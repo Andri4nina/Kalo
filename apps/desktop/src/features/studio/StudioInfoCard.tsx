@@ -15,7 +15,7 @@ export function StudioInfoCard() {
     <Card className="p-5">
       <div className="flex items-center gap-2">
         <ShieldCheck size={17} className="text-kalo-accent dark:text-kalo-dark-accent" />
-        <h2 className="font-display text-lg">Traitement local</h2>
+        <h2 className="font-display font-bold tracking-tight text-lg">Traitement local</h2>
       </div>
       <ul className={cn("mt-3 space-y-2 text-xs", muted)}>
         {points.map((point) => (

@@ -13,7 +13,7 @@ const rows = [
 export function AboutCard() {
   return (
     <Card className="p-5">
-      <h2 className="font-display text-lg">À propos de Kalo</h2>
+      <h2 className="font-display font-bold tracking-tight text-lg">À propos de Kalo</h2>
       <p className={cn("mt-1 text-xs leading-relaxed", muted)}>
         Un lecteur musical open source, pensé pour rester léger et respectueux de vos fichiers.
       </p>

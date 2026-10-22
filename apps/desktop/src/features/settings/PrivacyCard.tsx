@@ -14,7 +14,7 @@ const commitments = [
 export function PrivacyCard() {
   return (
     <Card className="p-5">
-      <h2 className="flex items-center gap-2 font-display text-lg">
+      <h2 className="flex items-center gap-2 font-display font-bold tracking-tight text-lg">
         <ShieldCheck size={18} className="text-kalo-accent dark:text-kalo-dark-accent" aria-hidden />
         Confidentialité
       </h2>

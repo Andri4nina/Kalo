@@ -22,11 +22,15 @@ utilisent des fonds ou des bordures complètes.
 ## 4. Pas de bleu Tailwind par défaut
 
 Interdits : `blue-*`, `sky-*`, `indigo-*`, `cyan-*`, `teal-*`, `emerald-*`,
-`violet-*`, `fuchsia-*`, `rose-*`. La palette est centralisée dans
+`green-*`, `lime-*`, `violet-*`, `fuchsia-*`, `rose-*`, ainsi que le vert de
+Spotify (`#1DB954`, `#1ED760`). La palette est centralisée dans
 `apps/desktop/src/design/palette.ts` et `tailwind.config.ts`.
 
-Accent principal : ambre/cuivre. Les couleurs sémantiques `success`, `warning`
-et `danger` sont définies dans la palette.
+Direction visuelle : structure inspirée de Spotify (cadre noir, panneaux gris
+arrondis, texte blanc, titres très gras, boutons pilule), sans reprendre son
+vert. Accent principal : ambre Kalo (`#F5A524` en sombre, `#C97A12` en clair).
+Les couleurs sémantiques `success`, `warning` et `danger` sont définies dans la
+palette. Détail dans `docs/elements/design-system.md`.
 
 ## 5. Tailwind uniquement pour la présentation
 

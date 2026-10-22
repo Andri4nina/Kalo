@@ -1,4 +1,4 @@
-import { muted } from "@/design/tokens";
+import { heading, muted } from "@/design/tokens";
 import { cn } from "@/lib/cn";
 
 interface PageHeaderProps {
@@ -11,16 +11,14 @@ interface PageHeaderProps {
 export function PageHeader({ eyebrow, title, description, actions }: PageHeaderProps) {
   return (
     <header className="mb-6 flex flex-wrap items-end justify-between gap-4">
-      <div>
+      <div className="min-w-0">
         {eyebrow ? (
-          <p className="mb-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-kalo-accent dark:text-kalo-dark-accent">
-            {eyebrow}
-          </p>
+          <p className={cn("mb-1 text-xs font-semibold", muted)}>{eyebrow}</p>
         ) : null}
-        <h1 className="font-display text-3xl leading-tight">{title}</h1>
-        {description ? <p className={cn("mt-1 text-sm", muted)}>{description}</p> : null}
+        <h1 className={cn(heading, "text-3xl leading-tight md:text-4xl")}>{title}</h1>
+        {description ? <p className={cn("mt-2 text-sm", muted)}>{description}</p> : null}
       </div>
-      {actions ? <div className="flex items-center gap-2">{actions}</div> : null}
+      {actions ? <div className="flex flex-wrap items-center gap-2">{actions}</div> : null}
     </header>
   );
 }

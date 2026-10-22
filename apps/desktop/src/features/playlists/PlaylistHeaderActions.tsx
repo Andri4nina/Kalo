@@ -1,6 +1,7 @@
-import { Pencil, Play } from "lucide-react";
+import { Pencil } from "lucide-react";
 import { Button } from "@/components/Button";
-import { usePlayer } from "@/features/player/player.store";
+import { PlayCircleButton } from "@/components/PlayCircleButton";
+import { startCollection } from "@/features/browse/collection.play";
 import type { Playlist, Track } from "@/types";
 import { M3uActions } from "./M3uActions";
 
@@ -11,13 +12,15 @@ interface Props {
 }
 
 export function PlaylistHeaderActions({ playlist, tracks, onRename }: Props) {
-  const playQueue = usePlayer((state) => state.playQueue);
   return (
     <>
-      <Button size="sm" disabled={tracks.length === 0} onClick={() => playQueue(tracks, 0, playlist.name)}>
-        <Play size={15} fill="currentColor" /> Lire
-      </Button>
-      <Button variant="subtle" size="sm" onClick={onRename}>
+      <PlayCircleButton
+        size="lg"
+        label={`Lire la playlist ${playlist.name}`}
+        disabled={tracks.length === 0}
+        onClick={() => startCollection(tracks, playlist.name)}
+      />
+      <Button variant="outline" size="sm" onClick={onRename}>
         <Pencil size={15} /> Renommer
       </Button>
       <M3uActions playlist={playlist} />

@@ -27,7 +27,7 @@ export function DiagnosticsCard() {
 
   return (
     <Card className="p-5">
-      <h2 className="font-display text-lg">Diagnostics</h2>
+      <h2 className="font-display font-bold tracking-tight text-lg">Diagnostics</h2>
       <p className="mt-1 text-xs text-kalo-muted dark:text-kalo-dark-muted">État de l'index local, sans collecte réseau.</p>
       {error ? <ErrorNotice message={error} /> : null}
       {loading && !data ? <Spinner label="Lecture des diagnostics" /> : null}

@@ -14,7 +14,7 @@ export function QueueHeader({ count, source, onClear, onClose }: Props) {
       <div className="min-w-0">
         <div className="flex items-center gap-2">
           <ListMusic size={18} className="text-kalo-accent dark:text-kalo-dark-accent" />
-          <h2 className="font-display text-lg">File d'attente</h2>
+          <h2 className="font-display font-bold tracking-tight text-lg">File d'attente</h2>
           <span className="text-xs text-kalo-muted dark:text-kalo-dark-muted">{count}</span>
         </div>
         {source ? (

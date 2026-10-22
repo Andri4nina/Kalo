@@ -20,7 +20,7 @@ export function EqCard() {
     <Card className="p-5 xl:col-span-2">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h2 className="font-display text-lg">Égaliseur graphique</h2>
+          <h2 className="font-display font-bold tracking-tight text-lg">Égaliseur graphique</h2>
           <p className={cn("mt-1 text-xs", muted)}>10 bandes, de 31 Hz à 16 kHz, ±12 dB.</p>
         </div>
         <Button size="sm" variant={enabled ? "primary" : "subtle"} aria-pressed={enabled} onClick={() => setEnabled(!enabled)}>

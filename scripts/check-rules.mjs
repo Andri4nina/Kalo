@@ -29,7 +29,8 @@ function inspect(file) {
     if (/bg-gradient-to-|bg-linear-to-|linear-gradient\s*\(/.test(line)) violations.push(`${at} dégradé interdit`);
     if (/\p{Extended_Pictographic}/u.test(line)) violations.push(`${at} emoji interdit`);
     if (/\bborder-(t|b|l|r)-/.test(line)) violations.push(`${at} bordure unilatérale`);
-    if (/\b(bg|text|border|ring|from|to|via)-(blue|sky|indigo|cyan|teal|emerald|violet|fuchsia|rose)-/.test(line)) violations.push(`${at} couleur Tailwind par défaut`);
+    if (/\b(bg|text|border|ring|from|to|via)-(blue|sky|indigo|cyan|teal|emerald|green|lime|violet|fuchsia|rose)-/.test(line)) violations.push(`${at} couleur Tailwind par défaut`);
+    if (/#1(DB954|ED760)\b/i.test(line)) violations.push(`${at} vert Spotify interdit`);
     if (/style=\{\{/.test(line)) violations.push(`${at} style inline interdit`);
     if (/<style[\s>]/.test(line)) violations.push(`${at} bloc style interdit`);
     if (path.startsWith("apps/desktop/src/") && /\.(tsx|ts)$/.test(path) && /\.(unwrap|expect)\(/.test(line)) violations.push(`${at} unwrap/expect interdit`);

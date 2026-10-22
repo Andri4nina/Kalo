@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { PageHeader } from "@/components/PageHeader";
+import { DetailHero } from "@/components/DetailHero";
 import { Spinner } from "@/components/Spinner";
+import { PlaylistArtwork } from "./PlaylistArtwork";
 import { PlaylistEmpty } from "./PlaylistEmpty";
 import { PlaylistHeaderActions } from "./PlaylistHeaderActions";
 import { PlaylistMissing } from "./PlaylistMissing";
@@ -20,12 +21,14 @@ export function PlaylistDetailPage() {
 
   return (
     <div>
-      <PageHeader
-        eyebrow="Playlist"
+      <DetailHero
+        kind="Playlist"
         title={data.playlist.name}
-        description={`${data.tracks.length} morceau${data.tracks.length > 1 ? "x" : ""}`}
-        actions={<PlaylistHeaderActions playlist={data.playlist} tracks={data.tracks} onRename={() => setRenaming(true)} />}
-      />
+        artwork={<PlaylistArtwork size="hero" />}
+        meta={`${data.tracks.length} morceau${data.tracks.length > 1 ? "x" : ""}`}
+      >
+        <PlaylistHeaderActions playlist={data.playlist} tracks={data.tracks} onRename={() => setRenaming(true)} />
+      </DetailHero>
       {data.tracks.length === 0 ? (
         <PlaylistEmpty />
       ) : (

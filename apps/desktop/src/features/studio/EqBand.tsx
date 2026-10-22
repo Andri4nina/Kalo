@@ -12,7 +12,7 @@ interface Props {
 export function EqBand({ hz, label, gain, disabled, onChange }: Props) {
   const id = `eq-${hz}`;
   return (
-    <div className={cn("rounded-xl border border-kalo-line px-3 py-2 dark:border-kalo-dark-line", disabled && "opacity-60")}>
+    <div className={cn("rounded-md border border-kalo-line px-3 py-2 dark:border-kalo-dark-line", disabled && "opacity-60")}>
       <div className="flex items-center justify-between gap-2 text-xs">
         <label htmlFor={id} className="font-medium">{label} Hz</label>
         <span className={cn("tabular-nums", muted)}>

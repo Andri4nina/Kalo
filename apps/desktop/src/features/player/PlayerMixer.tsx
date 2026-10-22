@@ -1,8 +1,10 @@
-import { SlidersHorizontal, Volume1, Volume2, VolumeX } from "lucide-react";
+import { SlidersVertical, Volume1, Volume2, VolumeX } from "lucide-react";
 import { useState } from "react";
-import { focus } from "@/design/tokens";
+import { cn } from "@/lib/cn";
+import { modeButton, modeOff, modeOn } from "./player.control.styles";
 import { usePlayer } from "./player.store";
 import { PlayerMixerPopover } from "./PlayerMixerPopover";
+import { PlayerVolumeSlider } from "./PlayerVolumeSlider";
 
 export function PlayerMixer() {
   const [open, setOpen] = useState(false);
@@ -15,21 +17,22 @@ export function PlayerMixer() {
     <div className="relative flex items-center gap-1">
       <button
         type="button"
-        aria-label={muted ? "Réactiver le son" : "Couper le son"}
-        onClick={toggleMute}
-        className={`${focus} rounded-full p-2 text-kalo-muted hover:text-kalo-ink dark:text-kalo-dark-muted dark:hover:text-kalo-dark-ink`}
-      >
-        <VolumeIcon size={18} strokeWidth={1.9} />
-      </button>
-      <button
-        type="button"
         aria-label="Volume et balance"
         aria-expanded={open}
         onClick={() => setOpen((value) => !value)}
-        className={`${focus} rounded-full p-2 transition-colors ${open ? "bg-kalo-raised text-kalo-ink dark:bg-kalo-dark-raised dark:text-kalo-dark-ink" : "text-kalo-muted hover:text-kalo-ink dark:text-kalo-dark-muted dark:hover:text-kalo-dark-ink"}`}
+        className={cn(modeButton, open ? modeOn : modeOff)}
       >
-        <SlidersHorizontal size={18} strokeWidth={1.9} />
+        <SlidersVertical size={18} strokeWidth={1.9} />
       </button>
+      <button
+        type="button"
+        aria-label={muted ? "Réactiver le son" : "Couper le son"}
+        onClick={toggleMute}
+        className={cn(modeButton, modeOff)}
+      >
+        <VolumeIcon size={18} strokeWidth={1.9} />
+      </button>
+      <PlayerVolumeSlider />
       {open ? (
         <>
           <button

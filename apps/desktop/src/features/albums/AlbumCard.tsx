@@ -1,22 +1,20 @@
-import { Link } from "react-router-dom";
-import { Card } from "@/components/Card";
 import { Cover } from "@/components/Cover";
-import { focus, muted } from "@/design/tokens";
-import { cn } from "@/lib/cn";
+import { MediaCard } from "@/components/MediaCard";
+import { albumTracks } from "@/features/browse/collection.play";
+import { usePlayCollection } from "@/features/browse/usePlayCollection";
 import type { AlbumSummary } from "@/types";
 
 export function AlbumCard({ album }: { album: AlbumSummary }) {
-  const year = album.year ? ` · ${album.year}` : "";
+  const { busy, play } = usePlayCollection();
+  const year = album.year ? `${album.year} · ` : "";
   return (
-    <Card className="p-3 transition-colors hover:bg-kalo-raised/40 dark:hover:bg-kalo-dark-raised/40">
-      <Link to={`/albums/${album.id}`} className={`${focus} block rounded-xl`}>
-        <Cover src={album.coverPath} size="xl" className="mb-3" />
-        <span className="block truncate text-sm font-semibold">{album.title}</span>
-        <span className={cn("mt-0.5 block truncate text-xs", muted)}>
-          {album.artist ?? "Artiste inconnu"}
-          {year}
-        </span>
-      </Link>
-    </Card>
+    <MediaCard
+      to={`/albums/${album.id}`}
+      title={album.title}
+      subtitle={`${year}${album.artist ?? "Artiste inconnu"}`}
+      artwork={<Cover src={album.coverPath} size="square" />}
+      playBusy={busy}
+      onPlay={() => void play(() => albumTracks(album.id), album.title)}
+    />
   );
 }

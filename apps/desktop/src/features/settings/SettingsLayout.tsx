@@ -20,11 +20,11 @@ export function SettingsLayout() {
             end={end}
             className={({ isActive }) =>
               cn(
-                "rounded-full border px-3 py-1.5 text-xs transition-colors",
+                "rounded-full px-3 py-1.5 text-sm font-semibold transition-colors",
                 focus,
                 isActive
-                  ? "border-kalo-accent bg-kalo-accent-soft font-medium text-kalo-accent-strong dark:border-kalo-dark-accent dark:bg-kalo-dark-accent-soft dark:text-kalo-dark-accent"
-                  : "border-kalo-line text-kalo-muted hover:bg-kalo-raised dark:border-kalo-dark-line dark:text-kalo-dark-muted dark:hover:bg-kalo-dark-raised",
+                  ? "bg-kalo-ink text-kalo-panel dark:bg-kalo-dark-ink dark:text-kalo-dark-canvas"
+                  : "bg-kalo-raised text-kalo-ink hover:bg-kalo-line dark:bg-kalo-dark-raised dark:text-kalo-dark-ink dark:hover:bg-kalo-dark-line",
               )
             }
           >

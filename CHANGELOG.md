@@ -78,6 +78,13 @@ le versionnage sémantique à partir de la première version publiée.
 
 ### Modifié
 
+- Refonte visuelle inspirée de Spotify, sans son vert : cadre noir et panneaux
+  arrondis, barre latérale en deux panneaux avec la liste des playlists, lecteur
+  intégré en bas de fenêtre avec volume en ligne, cartes avec lecture au survol,
+  en-têtes de détail en grand format, lignes de morceaux avec pochette, accueil
+  avec salutation, raccourcis et étagère des écoutes récentes. Accent ambre Kalo
+  conservé ; `green-*`, `lime-*` et le vert Spotify ajoutés aux couleurs interdites.
+
 - Les morceaux introuvables sont signalés et ne peuvent pas être lancés depuis
   la bibliothèque ou une playlist.
 - Le retrait d'un dossier est bloqué pendant une analyse.

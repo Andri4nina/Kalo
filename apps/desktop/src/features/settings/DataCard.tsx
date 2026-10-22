@@ -15,7 +15,7 @@ export function DataCard() {
 
   return (
     <Card className="p-5">
-      <h2 className="font-display text-lg">Données</h2>
+      <h2 className="font-display font-bold tracking-tight text-lg">Données</h2>
       <p className={cn("mt-1 text-xs", muted)}>
         Sauvegardez l'index, les playlists et les favoris dans un seul fichier. Les fichiers audio et les
         pochettes ne sont pas copiés.

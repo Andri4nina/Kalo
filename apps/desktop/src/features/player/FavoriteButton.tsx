@@ -32,7 +32,7 @@ export function FavoriteButton({ track, size = "sm" }: { track: Track; size?: "s
       size={size}
       disabled={busy}
       onClick={() => void onClick()}
-      className={track.favorite ? "fill-current" : undefined}
+      className={track.favorite ? "[&_svg]:fill-current" : undefined}
     />
   );
 }

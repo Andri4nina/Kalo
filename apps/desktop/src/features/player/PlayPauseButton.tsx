@@ -13,14 +13,14 @@ export function PlayPauseButton() {
       aria-label={playing ? "Mettre en pause" : "Lire"}
       disabled={!hasQueue}
       onClick={toggle}
-      className={`${focus} flex h-11 w-11 items-center justify-center rounded-full bg-kalo-accent text-kalo-accent-ink transition-transform hover:scale-105 disabled:opacity-40 motion-reduce:transition-none motion-reduce:hover:scale-100 dark:bg-kalo-dark-accent`}
+      className={`${focus} mx-2 flex h-10 w-10 items-center justify-center rounded-full bg-kalo-ink text-kalo-panel transition-transform hover:scale-105 disabled:opacity-40 motion-reduce:transition-none motion-reduce:hover:scale-100 dark:bg-kalo-dark-ink dark:text-kalo-dark-canvas`}
     >
       {buffering && playing ? (
-        <LoaderCircle size={20} className="animate-spin" />
+        <LoaderCircle size={18} className="animate-spin" />
       ) : playing ? (
-        <Pause size={20} fill="currentColor" />
+        <Pause size={18} fill="currentColor" />
       ) : (
-        <Play size={20} fill="currentColor" className="ml-0.5" />
+        <Play size={18} fill="currentColor" className="ml-0.5" />
       )}
     </button>
   );

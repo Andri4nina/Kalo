@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import { Card } from "@/components/Card";
 import { ErrorNotice } from "@/components/ErrorNotice";
 import { usePlayer } from "@/features/player/player.store";
 import { useTrackSelection } from "@/features/library/useTrackSelection";
+import { trackTable } from "@/features/library/track.row.styles";
 import type { Track } from "@/types";
 import { PlaylistBatchBar } from "./PlaylistBatchBar";
 import { PlaylistTableHead } from "./PlaylistTableHead";
@@ -30,14 +30,12 @@ export function PlaylistTrackTable({ playlistId, tracks, source }: Props) {
       {selectedTracks.length > 0 ? (
         <PlaylistBatchBar tracks={selectedTracks} error={error} onRemove={removeSelected} onClear={selection.clear} />
       ) : null}
-      <Card className="overflow-hidden p-0">
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse text-left">
-            <PlaylistTableHead tracks={tracks} selection={selection} />
-            <PlaylistTrackTableBody tracks={tracks} currentId={currentId} source={source} selection={selection} onMove={move} onRemove={remove} />
-          </table>
-        </div>
-      </Card>
+      <div className="overflow-x-auto">
+        <table className={trackTable}>
+          <PlaylistTableHead tracks={tracks} selection={selection} />
+          <PlaylistTrackTableBody tracks={tracks} currentId={currentId} source={source} selection={selection} onMove={move} onRemove={remove} />
+        </table>
+      </div>
     </>
   );
 }

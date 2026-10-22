@@ -24,10 +24,10 @@ export function IconButton({
       title={label}
       aria-pressed={active}
       className={cn(
-        "inline-flex shrink-0 items-center justify-center rounded-full transition-colors",
+        "inline-flex shrink-0 items-center justify-center rounded-full transition-colors disabled:opacity-40",
         size === "sm" ? "h-7 w-7" : "h-9 w-9",
         active
-          ? "bg-kalo-accent-soft text-kalo-accent-strong dark:bg-kalo-dark-accent-soft dark:text-kalo-dark-accent"
+          ? "text-kalo-accent hover:text-kalo-accent-strong dark:text-kalo-dark-accent dark:hover:text-kalo-dark-accent-strong"
           : "text-kalo-muted hover:bg-kalo-raised hover:text-kalo-ink dark:text-kalo-dark-muted dark:hover:bg-kalo-dark-raised dark:hover:text-kalo-dark-ink",
         focus,
         className,
