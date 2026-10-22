@@ -86,6 +86,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Fonction | État | Détail |
 | --- | --- | --- |
 | Égaliseur 10 bandes | Livré | 31 Hz à 16 kHz, ±12 dB, graphe Web Audio |
+| Mode paramétrique | Livré | Fréquence (20 Hz à 20 kHz) et largeur Q (0,3 à 8) par bande, appliquées à la lecture et à l'export |
 | Presets intégrés | Livré | Plat, graves, voix, rock, podcast |
 | Bypass, réinitialisation | Livré | Persistés |
 | Préampli | Livré | ±12 dB, appliqué avant l'égaliseur |
@@ -93,7 +94,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Chaîne d'effets | Livré | Saturation, compression, réverbération et écho après l'égaliseur, bypass global |
 | Comparaison A/B | Livré | Écoute sans traitement puis retour au réglage conservé |
 | Export du rendu | Partiel | Rendu hors ligne vers un nouveau WAV, sans écraser l'original ; validation audio native non réalisée |
-| Visualisation spectrale | Absent | Pas d'analyseur temps réel |
+| Visualisation spectrale | Livré | Analyseur en fin de chaîne, 48 barres sur échelle logarithmique |
 
 ## 7. Stem Studio et IA
 
@@ -159,7 +160,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 
 ## Prochaines tranches prioritaires
 
-1. Validation native de l'export WAV et mode paramétrique par bande.
+1. Validation native de l'export WAV.
 2. Téléchargement direct depuis une source autorisée, avec file et annulation.
 3. Lecture vidéo locale.
 4. Stem Studio après décision sur le modèle et sa licence.

@@ -21,6 +21,9 @@ export function buildChain(ctx: BaseAudioContext, source: AudioNode): AudioChain
   delay.delayTime.value = 0.28;
   const feedback = ctx.createGain();
   feedback.gain.value = 0.25;
+  const analyser = ctx.createAnalyser();
+  analyser.fftSize = 2048;
+  analyser.smoothingTimeConstant = 0.8;
   source.connect(preamp);
   preamp.connect(gain);
   gain.connect(panner);
@@ -40,5 +43,7 @@ export function buildChain(ctx: BaseAudioContext, source: AudioNode): AudioChain
   delay.connect(echoWet);
   echoDry.connect(ctx.destination);
   echoWet.connect(ctx.destination);
-  return { preamp, gain, panner, filters, saturator, compressor, reverbDry, reverbWet, convolver, echoDry, echoWet, delay, feedback };
+  echoDry.connect(analyser);
+  echoWet.connect(analyser);
+  return { preamp, gain, panner, filters, saturator, compressor, reverbDry, reverbWet, convolver, echoDry, echoWet, delay, feedback, analyser };
 }

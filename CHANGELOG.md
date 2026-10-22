@@ -33,6 +33,8 @@ le versionnage sémantique à partir de la première version publiée.
   dans Kalo (prioritaire sur les fichiers, qui ne sont jamais modifiés) et
   export vers un fichier `.lrc` choisi.
 - Préampli du Studio (±12 dB), appliqué avant l'égaliseur et persisté.
+- Studio : mode paramétrique (fréquence et largeur Q de chaque bande, aussi
+  appliqués à l'export WAV) et analyseur de spectre du son traité.
 - Studio audio : chaîne d'effets après l'égaliseur (saturation, compression,
   réverbération, écho), comparaison A/B et presets personnalisés nommés,
   supprimables et limités à 20, le tout persistant localement.

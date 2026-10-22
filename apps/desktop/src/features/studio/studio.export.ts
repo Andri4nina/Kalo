@@ -2,6 +2,8 @@ import { buildChain } from "@/features/player/audio.chain";
 import { assetUrl } from "@/lib/assets";
 import { applyEffects } from "./effects.apply";
 import { preampGain } from "./eq";
+import { applyShape } from "./eq.shape";
+import { useEqShape } from "./eq.shape.store";
 import type { StudioSnapshot } from "./studio.types";
 import { encodeWav, toBase64 } from "./wav";
 
@@ -19,6 +21,7 @@ export async function renderTrackWav(path: string, snapshot: StudioSnapshot): Pr
   chain.filters.forEach((filter, index) => {
     filter.gain.value = snapshot.enabled ? (snapshot.gains[index] ?? 0) : 0;
   });
+  applyShape(chain.filters, useEqShape.getState().bands);
   applyEffects(chain, snapshot.effects, snapshot.enabled);
   source.start(0);
   return toBase64(encodeWav(await offline.startRendering()));

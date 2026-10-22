@@ -12,6 +12,8 @@ export interface AudioChain {
   echoWet: GainNode;
   delay: DelayNode;
   feedback: GainNode;
+  /** Mesure le signal traité (spectre) ; ne modifie pas le son. */
+  analyser: AnalyserNode;
 }
 
 export type AudioGraph = AudioChain & { ctx: AudioContext };

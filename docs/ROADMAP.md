@@ -42,7 +42,8 @@ vérification sur les plateformes concernées.
 - Presets personnalisés nommés et supprimables (livré).
 - Chaîne d'effets saturation, compression, réverbération et écho avec comparaison
   A/B et réinitialisation (livré).
-- Mode paramétrique par bande (fréquence et largeur réglables).
+- Mode paramétrique par bande (fréquence et largeur réglables) (livré).
+- Analyseur de spectre du son traité (livré).
 - Export explicite uniquement, vers un nouveau fichier (implémenté, validation
   native à faire).
 - Aucune modification destructive du fichier d'origine.

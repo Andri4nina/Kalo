@@ -6,6 +6,8 @@ import { EqCard } from "./EqCard";
 import { PreampCard } from "./PreampCard";
 import { PresetPicker } from "./PresetPicker";
 import { ExportCard } from "./ExportCard";
+import { ParametricCard } from "./ParametricCard";
+import { SpectrumCard } from "./SpectrumCard";
 import { StudioInfoCard } from "./StudioInfoCard";
 
 export function StudioPage() {
@@ -17,12 +19,14 @@ export function StudioPage() {
         description="Façonnez le son à la lecture, sans jamais modifier vos fichiers."
       />
       <div className="grid gap-4 xl:grid-cols-3">
+        <SpectrumCard />
         <EqCard />
         <div className="flex flex-col gap-4">
           <PreampCard />
           <EffectsCard />
           <CompareCard />
         </div>
+        <ParametricCard />
         <PresetPicker />
         <CustomPresetsCard />
         <ExportCard />
