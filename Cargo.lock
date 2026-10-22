@@ -1832,6 +1832,7 @@ dependencies = [
  "dunce",
  "kalo-core",
  "kalo-database",
+ "kalo-downloads",
  "kalo-library",
  "kalo-stems",
  "notify",
@@ -1841,6 +1842,17 @@ dependencies = [
  "tauri-build",
  "tauri-plugin-dialog",
  "thiserror 2.0.21",
+]
+
+[[package]]
+name = "kalo-downloads"
+version = "0.1.0"
+dependencies = [
+ "kalo-core",
+ "md-5",
+ "serde_json",
+ "thiserror 2.0.21",
+ "ureq",
 ]
 
 [[package]]
@@ -2051,6 +2063,16 @@ checksum = "3f607c237553f086e7043417a51df26b2eb899d3caff94e6a67592ff992fedc7"
 dependencies = [
  "autocfg",
  "rawpointer",
+]
+
+[[package]]
+name = "md-5"
+version = "0.10.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d89e7ee0cfbedfc4da3340218492196241d89eefb6dab27de5df917a6d2e78cf"
+dependencies = [
+ "cfg-if",
+ "digest",
 ]
 
 [[package]]

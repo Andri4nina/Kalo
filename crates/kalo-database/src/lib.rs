@@ -6,6 +6,7 @@ mod search;
 pub mod albums;
 pub mod artists;
 pub mod backup;
+pub mod downloads;
 pub mod lyrics;
 pub mod playlists;
 pub mod restore;

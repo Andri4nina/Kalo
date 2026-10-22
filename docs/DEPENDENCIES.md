@@ -48,6 +48,7 @@ revérifiées avant chaque publication avec les outils de l'écosystème.
 | `symphonia` | 0.6.1 | MPL-2.0 |
 | `ureq` | 3.5.0 | MIT OR Apache-2.0 |
 | `sha2` | 0.10.9 | MIT OR Apache-2.0 |
+| `md-5` | 0.10.6 | MIT OR Apache-2.0 |
 
 Le modèle de séparation n'est pas une dépendance de compilation : il est
 téléchargé sur demande. Voir [models/README.md](../models/README.md).

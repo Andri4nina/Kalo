@@ -1,4 +1,5 @@
 pub mod browse;
+pub mod downloads;
 pub mod duplicate;
 pub mod library;
 pub mod lyrics;
@@ -11,6 +12,7 @@ pub mod track;
 pub mod video;
 
 pub use browse::{AlbumSummary, ArtistSummary};
+pub use downloads::{DownloadEntry, DownloadProgress, RemoteFile, RemoteItem};
 pub use duplicate::DuplicateGroup;
 pub use library::{ImportSummary, LibraryRoot, LibraryStats, ScanProgress, ScanSummary};
 pub use lyrics::{LyricsOrigin, LyricsSource};

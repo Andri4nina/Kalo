@@ -45,6 +45,9 @@ le versionnage sémantique à partir de la première version publiée.
   instrumental (Spleeter 4 pistes, ONNX Runtime), modèle téléchargé sur demande
   avec empreintes vérifiées, tâches annulables, mixeur multipiste (volume,
   panoramique, karaoké, a cappella, comparaison à l'original) et exports.
+- Téléchargements autorisés : lien direct ou œuvre libre de l'Internet Archive,
+  confirmation des droits, file de 3 transferts avec pause, reprise, annulation
+  et progression, vérification MD5 et audio, rangement dans la bibliothèque.
 - Clips vidéo locaux (MP4, M4V, WebM) : indexation séparée de la musique,
   page Clips avec recherche et lecteur intégré, import classé dans
   `<Artiste>/video/`.
@@ -129,10 +132,10 @@ le versionnage sémantique à partir de la première version publiée.
 - L'import M3U est limité à 2 Mo, en UTF-8, et ne résout que des chemins locaux
   déjà indexés.
 - L'export WAV refuse d'écrire sur le fichier audio d'origine.
+- Les téléchargements n'acceptent que `http(s)` sans identifiants dans l'adresse,
+  sont plafonnés à 2 Go et ne sont rangés qu'une fois reconnus comme audio.
 
 ### Prévu
 
 - Télécommandes média natives et lecture mobile en arrière-plan.
-- Stem Studio local.
-- Téléchargements depuis des sources autorisées et lecture vidéo locale.
 - Publication et signature des paquets.

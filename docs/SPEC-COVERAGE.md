@@ -110,9 +110,9 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 
 | Fonction | État | Détail |
 | --- | --- | --- |
-| Téléchargement direct autorisé | Absent | Aucun client réseau ni file de téléchargement |
-| Sources autorisées et politiques | Bloqué | Aucune source validée, aucun contournement DRM/ToS |
-| Gestionnaire (progression, annulation) | Absent | Dépend de la décision précédente |
+| Téléchargement direct autorisé | Livré | Lien `http(s)` confirmé par l'utilisateur, fichier vérifié comme audio lisible puis importé dans la bibliothèque |
+| Sources autorisées et politiques | Livré | Internet Archive limité aux œuvres sous licence libre (Creative Commons, domaine public), MD5 publié vérifié ; YouTube et services de streaming exclus, aucun contournement DRM/ToS |
+| Gestionnaire (progression, annulation) | Livré | 3 transferts simultanés, progression et débit, pause et reprise HTTP `Range`, annulation, reprise après fermeture |
 
 ## 9. Vidéo
 
@@ -163,8 +163,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 ## Prochaines tranches prioritaires
 
 1. Validation native de l'export WAV.
-2. Téléchargement direct depuis une source autorisée, avec file et annulation.
-3. Lecture vidéo locale.
-4. Stem Studio après décision sur le modèle et sa licence.
+2. Essais natifs des téléchargements sur un réseau réel.
+3. Signature des paquets.
 
 Tout élément marqué **Absent** ou **Bloqué** ne doit pas être présenté comme disponible dans l'interface ou la documentation commerciale.

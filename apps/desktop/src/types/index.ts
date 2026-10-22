@@ -19,3 +19,4 @@ export type {
 export type { LyricsOrigin, LyricsSource } from "./lyrics";
 export type { Video } from "./video";
 export type { StemJob, StemModelStatus, StemProgress, StemStatus } from "./stems";
+export type { DownloadEntry, DownloadProgress, DownloadRequest, DownloadStatus, RemoteFile, RemoteItem } from "./downloads";

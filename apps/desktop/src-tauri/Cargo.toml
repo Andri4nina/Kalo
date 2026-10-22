@@ -23,5 +23,6 @@ thiserror.workspace = true
 dunce.workspace = true
 kalo-core = { path = "../../../crates/kalo-core" }
 kalo-database = { path = "../../../crates/kalo-database" }
+kalo-downloads = { path = "../../../crates/kalo-downloads" }
 kalo-library = { path = "../../../crates/kalo-library" }
 kalo-stems = { path = "../../../crates/kalo-stems" }

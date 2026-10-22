@@ -4,6 +4,7 @@ members = [
   "apps/desktop/src-tauri",
   "crates/kalo-core",
   "crates/kalo-database",
+  "crates/kalo-downloads",
   "crates/kalo-library",
   "crates/kalo-stems",
 ]

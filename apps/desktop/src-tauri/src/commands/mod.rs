@@ -1,6 +1,7 @@
 pub(crate) mod browse;
 pub(crate) mod cover_image;
 pub(crate) mod data;
+pub(crate) mod downloads;
 pub(crate) mod library;
 pub(crate) mod listening;
 pub(crate) mod lyrics;

@@ -19,6 +19,11 @@ fn each_registry_matches_the_dispatch_prefix() {
     let playlists = commands("playlists.rs");
     let media = commands("media.rs");
     let stems = commands("stems.rs");
+    let downloads = commands("downloads.rs");
+    assert!(
+        downloads.iter().all(|name| name.starts_with("download_")),
+        "{downloads:?}"
+    );
     assert!(stems.iter().all(|name| name.starts_with("stem_")), "{stems:?}");
     assert!(!library.is_empty() && !playlists.is_empty() && !media.is_empty());
     assert!(library.iter().all(|name| name.starts_with("library_")), "{library:?}");

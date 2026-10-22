@@ -6,6 +6,7 @@ import { AlbumDetailPage } from "@/features/albums/AlbumDetailPage";
 import { AlbumsPage } from "@/features/albums/AlbumsPage";
 import { ArtistDetailPage } from "@/features/artists/ArtistDetailPage";
 import { ArtistsPage } from "@/features/artists/ArtistsPage";
+import { DownloadsPage } from "@/features/downloads/DownloadsPage";
 import { DuplicatesPage } from "@/features/duplicates/DuplicatesPage";
 import { FavoritesPage } from "@/features/favorites/FavoritesPage";
 import { HomePage } from "@/features/home/HomePage";
@@ -25,6 +26,7 @@ export function App() {
           <Route index element={<HomePage />} />
           <Route path="library" element={<LibraryPage />} />
           <Route path="duplicates" element={<DuplicatesPage />} />
+          <Route path="downloads" element={<DownloadsPage />} />
           <Route path="artists" element={<ArtistsPage />} />
           <Route path="artists/:artistId" element={<ArtistDetailPage />} />
           <Route path="albums" element={<AlbumsPage />} />

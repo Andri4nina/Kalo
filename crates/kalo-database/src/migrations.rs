@@ -14,6 +14,7 @@ const MIGRATIONS: &[(i64, &str)] = &[
     (9, include_str!("../migrations/009_lyrics.sql")),
     (10, include_str!("../migrations/010_videos.sql")),
     (11, include_str!("../migrations/011_stem_jobs.sql")),
+    (12, include_str!("../migrations/012_downloads.sql")),
 ];
 
 pub fn run(conn: &mut Connection) -> DbResult<()> {
