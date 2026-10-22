@@ -1,8 +1,12 @@
+mod duplicate;
+mod edit;
 mod entries;
 mod mutate;
 mod reorder;
 mod tracks;
 
+pub use duplicate::{copy_name, duplicate};
+pub use edit::{set_cover, update_details};
 pub use entries::{get as get_playlist, list as list_playlists};
 pub use mutate::{create as create_playlist, delete as delete_playlist, rename as rename_playlist};
 pub use reorder::reorder_playlist;

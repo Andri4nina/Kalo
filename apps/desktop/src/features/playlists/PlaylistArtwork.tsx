@@ -1,15 +1,23 @@
 import { ListMusic } from "lucide-react";
+import { Cover } from "@/components/Cover";
 import { cn } from "@/lib/cn";
 
 const sizes = {
-  tile: "h-11 w-11 rounded",
+  tile: "h-10 w-10 rounded",
   square: "aspect-square w-full rounded-md shadow-cover",
   hero: "h-36 w-36 rounded-md shadow-cover md:h-48 md:w-48",
 };
+const coverSizes = { tile: "sm", square: "square", hero: "hero" } as const;
 const icons = { tile: 20, square: 44, hero: 64 };
 
-/** Visuel d'une playlist : aplat d'accent et icône, faute de pochette dédiée. */
-export function PlaylistArtwork({ size }: { size: keyof typeof sizes }) {
+interface Props {
+  size: keyof typeof sizes;
+  src?: string | null;
+}
+
+/** Visuel d'une playlist : sa pochette si elle en a une, sinon un aplat d'accent. */
+export function PlaylistArtwork({ size, src }: Props) {
+  if (src) return <Cover src={src} size={coverSizes[size]} />;
   return (
     <span
       className={cn(

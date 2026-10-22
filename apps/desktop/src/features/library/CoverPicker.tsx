@@ -1,4 +1,3 @@
-import { open } from "@tauri-apps/plugin-dialog";
 import { ImagePlus } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/Button";
@@ -6,6 +5,7 @@ import { Cover } from "@/components/Cover";
 import { ErrorNotice } from "@/components/ErrorNotice";
 import { setTrackCover } from "@/lib/api/library";
 import { errorMessage } from "@/lib/format";
+import { pickImage } from "@/lib/pickImage";
 import type { Track } from "@/types";
 import { useLibraryVersion } from "./library.store";
 
@@ -14,12 +14,8 @@ export function CoverPicker({ track, onDone }: { track: Track; onDone: () => voi
   const [error, setError] = useState<string | null>(null);
   const bump = useLibraryVersion((state) => state.bump);
   const choose = async () => {
-    const source = await open({
-      multiple: false,
-      directory: false,
-      filters: [{ name: "Images", extensions: ["jpg", "jpeg", "png", "webp", "gif"] }],
-    });
-    if (typeof source !== "string") return;
+    const source = await pickImage();
+    if (!source) return;
     setBusy(true);
     setError(null);
     try {

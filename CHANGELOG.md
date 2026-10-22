@@ -60,6 +60,9 @@ le versionnage sémantique à partir de la première version publiée.
 - Recherche étendue au chemin du fichier, avec échappement des jokers SQL.
 - Import et export M3U UTF-8 des playlists, avec résumé des morceaux ajoutés et
   ignorés.
+- Playlists : description (500 caractères), pochette copiée dans le cache Kalo,
+  duplication transactionnelle, recherche dans la liste et dans une playlist
+  (insensible aux accents, réordonnancement suspendu pendant le filtre).
 - Reprise de la file et de la position configurable dans les paramètres.
 - Cartes Confidentialité et Diagnostics, avec rapport local copiable.
 - Historique d'écoute récent.

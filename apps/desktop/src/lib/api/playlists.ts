@@ -12,6 +12,15 @@ export const renamePlaylist = (playlistId: number, name: string) =>
 export const deletePlaylist = (playlistId: number) =>
   invoke<void>("playlist_delete", { playlistId });
 
+export const duplicatePlaylist = (playlistId: number) =>
+  invoke<Playlist>("playlist_duplicate", { playlistId });
+
+export const updatePlaylistDetails = (playlistId: number, description: string) =>
+  invoke<Playlist>("playlist_update_details", { playlistId, description });
+
+export const setPlaylistCover = (playlistId: number, source: string | null) =>
+  invoke<Playlist>("playlist_set_cover", { playlistId, source });
+
 export const getPlaylist = (playlistId: number) =>
   invoke<PlaylistDetail>("playlist_detail", { playlistId });
 

@@ -20,7 +20,7 @@ export function SidebarPlaylistItem({ playlist }: { playlist: Playlist }) {
     >
       {({ isActive }) => (
         <>
-          <PlaylistArtwork size="tile" />
+          <PlaylistArtwork size="tile" src={playlist.coverPath} />
           <span className="hidden min-w-0 lg:block">
             <span className={cn("block truncate text-sm font-semibold", isActive && "text-kalo-accent-strong dark:text-kalo-dark-accent")}>
               {playlist.name}

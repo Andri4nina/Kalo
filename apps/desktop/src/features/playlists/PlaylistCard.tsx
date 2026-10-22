@@ -13,8 +13,8 @@ export function PlaylistCard({ playlist, onDelete }: { playlist: Playlist; onDel
     <MediaCard
       to={`/playlists/${playlist.id}`}
       title={playlist.name}
-      subtitle={`Playlist · ${count}`}
-      artwork={<PlaylistArtwork size="square" />}
+      subtitle={playlist.description || `Playlist · ${count}`}
+      artwork={<PlaylistArtwork size="square" src={playlist.coverPath} />}
       playBusy={busy}
       onPlay={playlist.trackCount > 0 ? () => void play(() => playlistTracks(playlist.id), playlist.name) : undefined}
       action={<IconButton icon={Trash2} label={`Supprimer la playlist ${playlist.name}`} size="sm" onClick={onDelete} />}

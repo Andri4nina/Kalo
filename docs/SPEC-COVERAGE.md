@@ -1,8 +1,9 @@
 # Couverture de la spécification Kalo
 
-État vérifié au 21 octobre 2026, après les commits `8764e49` à `1504049`. Les
-tranches provenance de la file, paramètres avancés, actions groupées, Studio
-audio (effets, presets, A/B, export WAV) sont couvertes.
+État vérifié au 22 octobre 2026. Les tranches provenance de la file, paramètres
+avancés, actions groupées, Studio audio (effets, presets, A/B, export WAV),
+refonte visuelle et playlists complètes (description, pochette, duplication,
+recherche) sont couvertes.
 Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais incomplet ;
 **Absent** = non implémenté ; **Bloqué** = dépend d'une décision ou d'une ressource externe.
 
@@ -60,8 +61,9 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Ajout, retrait, réordonnancement | Livré | Positions persistées |
 | Favoris et manquants | Livré | Badges et page de favoris |
 | Import / export M3U | Livré | UTF-8, fichiers locaux, résolution des chemins, résumé ajoutés/ignorés |
-| Description et pochette | Absent | Modèle de playlist minimal |
-| Duplication de playlist | Absent | Pas d'action dédiée |
+| Description et pochette | Livré | Description de 500 caractères, pochette copiée dans le cache, retrait sans effacement |
+| Duplication de playlist | Livré | Copie transactionnelle du nom, de la description, de la pochette et de l'ordre |
+| Recherche | Livré | Par nom ou description dans la liste, par titre / artiste / album dans une playlist |
 | Actions groupées | Livré | Sélection multiple, retrait groupé transactionnel et ajout à la file |
 
 ## 5. Paroles et karaoké

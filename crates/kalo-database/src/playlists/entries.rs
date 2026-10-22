@@ -3,7 +3,7 @@ use rusqlite::{Connection, OptionalExtension, Row};
 
 use crate::{DbError, DbResult};
 
-const COLUMNS: &str = "p.id, p.name, \
+const COLUMNS: &str = "p.id, p.name, p.description, p.cover_path, \
     (SELECT COUNT(*) FROM playlist_tracks pt WHERE pt.playlist_id = p.id), \
     p.created_at, p.updated_at";
 
@@ -11,9 +11,11 @@ fn map(row: &Row<'_>) -> rusqlite::Result<Playlist> {
     Ok(Playlist {
         id: row.get(0)?,
         name: row.get(1)?,
-        track_count: row.get(2)?,
-        created_at: row.get(3)?,
-        updated_at: row.get(4)?,
+        description: row.get(2)?,
+        cover_path: row.get(3)?,
+        track_count: row.get(4)?,
+        created_at: row.get(5)?,
+        updated_at: row.get(6)?,
     })
 }
 

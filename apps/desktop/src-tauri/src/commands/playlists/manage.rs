@@ -24,6 +24,11 @@ pub fn playlist_rename(state: State<'_, AppState>, playlist_id: i64, name: Strin
 }
 
 #[tauri::command]
+pub fn playlist_duplicate(state: State<'_, AppState>, playlist_id: i64) -> Result<Playlist, CommandError> {
+    Ok(state.db.with(|conn| playlists::duplicate(conn, playlist_id))?)
+}
+
+#[tauri::command]
 pub fn playlist_delete(state: State<'_, AppState>, playlist_id: i64) -> Result<(), CommandError> {
     state.db.with(|conn| playlists::delete_playlist(conn, playlist_id))?;
     Ok(())
