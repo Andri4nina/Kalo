@@ -12,6 +12,7 @@
     "typecheck": "npm run typecheck -w @kalo/desktop",
     "test": "npm run test -w @kalo/desktop",
     "tauri": "npm run tauri -w @kalo/desktop",
+    "bundle:windows": "cargo build --release -p kalo-stems && node scripts/stage-windows-redist.mjs && npm run tauri -w @kalo/desktop -- build --config src-tauri/tauri.redist.conf.json",
     "check:rules": "node scripts/check-rules.mjs",
     "check:rust": "cargo fmt --all -- --check && cargo clippy --workspace --all-targets -- -D warnings && cargo test --workspace",
     "check": "npm run check:rules && npm run typecheck && npm run test && npm run build && npm run check:rust"

@@ -92,14 +92,29 @@ Les artefacts sont produits dans `target/release/bundle`. La signature, la
 notarisation macOS et la publication sur les stores ne sont pas encore
 configurées.
 
-Sous Windows, la configuration produit un MSI et un installateur NSIS en mode
-utilisateur courant. Les deux ont été vérifiés localement : installation,
-lancement de l'application installée et désinstallation. Ils ne sont pas signés,
-donc SmartScreen peut afficher un avertissement.
+Sous Windows, la configuration produit un MSI et un installateur NSIS. Le NSIS
+propose une installation par utilisateur ou pour tous, le dossier de
+destination au choix, le français ou l'anglais, et intègre l'amorce WebView2
+(installée seulement si elle manque).
 
-Le workflow `.github/workflows/release.yml` construit les paquets sur les trois
-systèmes et les publie comme artefacts de workflow. Il ne crée pas encore de
-release GitHub et ne signe rien. La signature Windows nécessitera un certificat
+L'exécutable importe `DirectML.dll` (ONNX Runtime) et le runtime Visual C++
+(`msvcp140*.dll`, `vcruntime140*.dll`), absents d'un Windows neuf. Construisez
+donc l'installateur avec :
+
+```bash
+npm run bundle:windows
+```
+
+La commande compile `kalo-stems` en release, copie ces DLL dans
+`src-tauri/redist/` (`scripts/stage-windows-redist.mjs`, ignoré par git) puis
+lance `tauri build` avec `tauri.redist.conf.json`, qui les place à côté de
+`Kalo.exe`. Les paquets ne sont pas signés, donc SmartScreen peut afficher un
+avertissement.
+
+Un tag `v*` déclenche `release.yml` : paquets des trois systèmes en artefacts
+et brouillon de release GitHub.
+
+La signature Windows nécessitera un certificat
 et les secrets correspondants ; macOS nécessitera une identité Developer ID et
 une notarisation.
 

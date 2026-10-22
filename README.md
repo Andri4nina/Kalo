@@ -55,8 +55,19 @@ La matrice détaillée, fonction par fonction, est dans
   fichier SQLite unique, avec vérification d'intégrité.
 - Paramètres structurés en sous-pages : dossiers et analyse, apparence, lecture,
   confidentialité et données, raccourcis personnalisables et accessibilité.
-- Installateurs Windows MSI et NSIS non signés, construits et testés localement
-  (installation, lancement, désinstallation).
+- Surveillance des dossiers en temps réel, filtre des sons non musicaux, import
+  classé de fichiers (`Artiste/Album`) et doublons exacts par empreinte BLAKE3.
+- Éditeur de synchronisation LRC, paroles texte et export des paroles.
+- Égaliseur paramétrique et analyseur de spectre dans le Studio.
+- Clips vidéo locaux (MP4, M4V, WebM) indexés à part, avec lecteur intégré.
+- Stem Studio : séparation locale voix, batterie, basse, autres et
+  instrumental (Spleeter 4 pistes sur ONNX Runtime, modèle téléchargé sur
+  demande et vérifié), mixeur multipiste et exports.
+- Téléchargements autorisés : lien direct ou œuvre sous licence libre de
+  l'Internet Archive, confirmation des droits, pause, reprise, vérification et
+  rangement dans la bibliothèque.
+- Installateur Windows NSIS (utilisateur courant ou tous les utilisateurs,
+  dossier au choix) et MSI, non signés.
 - Signalement des morceaux disparus : badge explicite et lecture désactivée.
 - Retrait d'un dossier bloqué pendant une analyse pour préserver l'index.
 - Touches média via l'API Media Session quand le WebView l'expose ; les
@@ -71,13 +82,27 @@ La matrice détaillée, fonction par fonction, est dans
 
 - Télécommandes média natives et lecture en arrière-plan sur mobile.
 - Validation sur poste réel de l'export WAV.
-- Séparation de stems par IA et Stem Studio.
-- Sources de paroles distantes et paroles intégrées aux métadonnées.
-- Téléchargements depuis des sources autorisées.
-- Lecture vidéo locale.
-- Publication App Store, Play Store et Microsoft Store.
+- Sources de paroles distantes (choix délibéré : paroles locales uniquement).
+- Guitare et piano dans le Stem Studio : le modèle 4 pistes ne les isole pas.
+- Choix de la sortie audio : WebView2 ne liste les sorties qu'avec la
+  permission du micro.
+- Paquets signés et publication App Store, Play Store et Microsoft Store.
 
 Les fonctionnalités listées ci-dessus ne sont pas revendiquées comme terminées.
+
+## Installer Kalo
+
+- **Windows 10 et 11** : lancez `Kalo_0.1.0_x64-setup.exe`. L'installateur
+  propose une installation pour vous seul (sans droits administrateur) ou pour
+  tous les utilisateurs, et le dossier de votre choix (disque externe compris).
+  WebView2 est installé automatiquement s'il manque (connexion requise dans ce
+  seul cas). Le paquet `Kalo_0.1.0_x64_fr-FR.msi` sert aux déploiements gérés.
+- **macOS et Linux** : le workflow `release.yml` produit `.dmg`, `.AppImage`,
+  `.deb` et `.rpm` ; ces paquets ne sont pas encore vérifiés sur machine réelle.
+- Les paquets ne sont pas signés : Windows SmartScreen peut demander
+  « Informations complémentaires », puis « Exécuter quand même ».
+- Désinstallation depuis « Applications installées » ; vos fichiers musicaux ne
+  sont jamais touchés.
 
 ## Démarrage
 
@@ -136,6 +161,8 @@ apps/desktop        React, TypeScript, Tailwind, Tauri
 crates/kalo-core    modèles de domaine partagés
 crates/kalo-database SQLite, migrations et requêtes
 crates/kalo-library scanner de fichiers et métadonnées
+crates/kalo-stems   séparation de stems (ONNX Runtime, DSP)
+crates/kalo-downloads téléchargements autorisés et sources libres
 docs/               architecture, build, dépendances, feuille de route
 scripts/            vérifications automatiques des règles du projet
 ```
@@ -161,6 +188,14 @@ Au 19 octobre 2026, sous Windows avec Visual Studio Build Tools :
 - le binaire de bureau est construit sans paquet d'installation ;
 - l'exécutable démarre, crée sa base SQLite en mode WAL et se ferme
   correctement, y compris au redémarrage avec des fichiers `-wal` existants.
+
+Au 23 octobre 2026, sous Windows 10 : `npm run bundle:windows` produit
+`Kalo_0.1.0_x64-setup.exe` (19 Mo) et `Kalo_0.1.0_x64_fr-FR.msi` (31 Mo).
+L'installateur NSIS installe Kalo avec `DirectML.dll` et le runtime Visual C++,
+l'application installée démarre et charge ces DLL depuis son propre dossier, et
+la désinstallation retire le dossier et l'entrée du registre. En mode
+silencieux (`/S`), l'installation va dans `Program Files` quand les droits
+administrateur sont disponibles ; le choix du dossier se fait en mode normal.
 
 Les autres plateformes sont couvertes par la CI mais n'ont pas encore été
 vérifiées manuellement.

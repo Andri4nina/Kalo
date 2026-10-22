@@ -1,0 +1,13 @@
+{
+  "bundle": {
+    "windows": {
+      "webviewInstallMode": { "type": "embedBootstrapper" },
+      "nsis": {
+        "installMode": "both",
+        "languages": ["French", "English"],
+        "displayLanguageSelector": true
+      },
+      "wix": { "language": "fr-FR" }
+    }
+  }
+}

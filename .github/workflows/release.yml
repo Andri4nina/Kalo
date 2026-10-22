@@ -37,9 +37,34 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - uses: Swatinem/rust-cache@v2
       - run: npm ci
-      - run: npm run tauri -w @kalo/desktop -- build
+      - name: Construire les paquets
+        if: runner.os != 'Windows'
+        run: npm run tauri -w @kalo/desktop -- build
+      - name: Construire l'installateur Windows (DirectML et runtime VC++ inclus)
+        if: runner.os == 'Windows'
+        run: npm run bundle:windows
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.artifact }}
           path: target/release/bundle/**
           if-no-files-found: error
+
+  publish:
+    name: Brouillon de release
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: bundle
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: paquets
+      - name: Créer le brouillon avec les installateurs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          find paquets -type f \( -name '*.exe' -o -name '*.msi' -o -name '*.dmg' \
+            -o -name '*.AppImage' -o -name '*.deb' -o -name '*.rpm' \) -print0 \
+            | xargs -0 gh release create "$GITHUB_REF_NAME" --draft --generate-notes \
+              --repo "$GITHUB_REPOSITORY"

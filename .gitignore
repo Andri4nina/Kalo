@@ -13,3 +13,6 @@ models/*
 
 # Artefacts de compilation C
 *.obj
+
+# DLL Windows rassemblées pour l installateur
+apps/desktop/src-tauri/redist/

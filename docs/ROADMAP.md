@@ -33,7 +33,7 @@ vérification sur les plateformes concernées.
 
 - Télécommandes média natives et reprise après interruption système.
 - Meilleure gestion des pochettes et des gros catalogues.
-- CI multiplateforme et paquets signés pour Windows, macOS et Linux.
+- Paquets signés pour Windows, macOS et Linux (la CI multiplateforme est en place).
 
 ## Studio audio
 
@@ -50,11 +50,14 @@ vérification sur les plateformes concernées.
 
 ## Stem Studio
 
-- Séparation locale avec un moteur interchangeable (Demucs ou équivalent).
-- Progression, annulation, erreurs lisibles et nettoyage des fichiers temporaires.
-- Mixage des stems et export explicite.
-- Téléchargement des modèles uniquement après consentement et vérification de
-  licence.
+- Séparation locale avec un moteur interchangeable, Spleeter 4 pistes sur ONNX
+  Runtime (livré).
+- Progression, annulation, erreurs lisibles et nettoyage des fichiers temporaires
+  (livré).
+- Mixage des stems et export explicite (livré).
+- Téléchargement des modèles uniquement après action explicite, empreintes
+  SHA-256 vérifiées (livré).
+- Modèle plus fin (guitare, piano) si une licence compatible existe.
 
 ## Karaoké et paroles
 
@@ -66,15 +69,15 @@ vérification sur les plateformes concernées.
 
 ## Téléchargements
 
-- Uniquement depuis des sources autorisées.
-- Aucun contournement de DRM ni de conditions d'utilisation.
-- Vérification de l'intégrité, de l'espace disque et des droits.
+- Lien direct et Internet Archive sous licence libre (livré).
+- Aucun contournement de DRM ni de conditions d'utilisation (livré).
+- Vérification de l'intégrité et confirmation des droits (livré).
+- Vérification de l'espace disque avant transfert.
 
 ## Vidéo
 
-- Lecture vidéo locale avec piste audio et commandes cohérentes.
+- Clips locaux MP4, M4V et WebM, indexés à part, lecteur intégré (livré).
 - Aucun téléchargement ni extraction non autorisée.
-- Formats et moteur à décider avant implémentation.
 
 ## Mobile
 
