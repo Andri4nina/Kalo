@@ -1,49 +1,38 @@
-import { useEffect, useMemo, useState } from "react";
+import { Timer } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/Button";
 import { Card } from "@/components/Card";
 import { PageHeader } from "@/components/PageHeader";
-import { readLyrics } from "@/lib/api/lyrics";
-import { useCurrentTrack, usePlayer } from "@/features/player/player.store";
-import { useAsync } from "@/lib/useAsync";
-import { KaraokeContent } from "./KaraokeContent";
-import { KaraokeFullscreen } from "./KaraokeFullscreen";
-import { loadKaraokeOffset, saveKaraokeOffset } from "./karaoke.prefs";
-import { activeLineIndex, parseLrc } from "./lrc";
+import { useCurrentTrack } from "@/features/player/player.store";
+import { KaraokeLive } from "./KaraokeLive";
+import { LyricsEditor } from "./LyricsEditor";
+import { useKaraokeLyrics } from "./useKaraokeLyrics";
 
 export function KaraokePage() {
   const track = useCurrentTrack();
-  const positionMs = usePlayer((state) => state.positionMs);
-  const playing = usePlayer((state) => state.playing);
-  const { data, loading, error } = useAsync(
-    () => (track ? readLyrics(track.id) : Promise.resolve(null)),
-    [track?.id],
-  );
-  const [offsetMs, setOffsetMs] = useState(0);
-  const [fullscreen, setFullscreen] = useState(false);
-  useEffect(() => setOffsetMs(track ? loadKaraokeOffset(track.id) : 0), [track?.id]);
-  const changeOffset = (value: number) => {
-    setOffsetMs(value);
-    if (track) saveKaraokeOffset(track.id, value);
-  };
-  const lines = useMemo(() => parseLrc(data ?? ""), [data]);
-  const active = activeLineIndex(lines, positionMs, offsetMs);
-
+  const lyrics = useKaraokeLyrics(track);
+  const [editing, setEditing] = useState(false);
+  useEffect(() => setEditing(false), [track?.id]);
+  const label = lyrics.lines.length > 0 ? "Modifier la synchronisation" : "Synchroniser";
   return (
     <div>
-      <PageHeader eyebrow="Paroles" title="Karaoké" description="Paroles synchronisées depuis un fichier .lrc local, sans envoi réseau." />
+      <PageHeader
+        eyebrow="Paroles"
+        title="Karaoké"
+        description="Paroles locales (.lrc, .txt ou synchronisées dans Kalo), sans envoi réseau."
+        actions={track && !editing && !lyrics.loading ? (
+          <Button variant="outline" size="sm" onClick={() => setEditing(true)}>
+            <Timer size={15} aria-hidden /> {label}
+          </Button>
+        ) : null}
+      />
       <Card className="p-5">
-        <KaraokeContent
-          track={track}
-          loading={loading}
-          error={error}
-          lines={lines}
-          active={active}
-          playing={playing}
-          offsetMs={offsetMs}
-          onOffset={changeOffset}
-          onFullscreen={() => setFullscreen(true)}
-        />
+        {editing && track ? (
+          <LyricsEditor track={track} source={lyrics.source} onDone={() => { setEditing(false); lyrics.reload(); }} />
+        ) : (
+          <KaraokeLive track={track} lyrics={lyrics} />
+        )}
       </Card>
-      <KaraokeFullscreen open={fullscreen} track={track} lines={lines} active={active} playing={playing} offsetMs={offsetMs} onOffset={changeOffset} onClose={() => setFullscreen(false)} />
     </div>
   );
 }

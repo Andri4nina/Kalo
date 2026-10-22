@@ -1,50 +1,24 @@
+use tauri::ipc::Invoke;
 use tauri::Wry;
 
-pub(crate) fn handler() -> impl Fn(tauri::ipc::Invoke<Wry>) -> bool + Send + Sync + 'static {
-    tauri::generate_handler![
-        crate::commands::library::roots::library_roots,
-        crate::commands::library::roots::library_add_root,
-        crate::commands::library::roots::library_remove_root,
-        crate::commands::library::scan::library_scan,
-        crate::commands::library::catalog::library_tracks,
-        crate::commands::library::catalog::library_stats,
-        crate::commands::library::catalog::library_formats,
-        crate::commands::library::update::library_update_track,
-        crate::commands::library::cover::library_set_cover,
-        crate::commands::library::remove::library_remove_track,
-        crate::commands::library::duplicates::library_duplicates,
-        crate::commands::library::fingerprint::library_fingerprint,
-        crate::commands::library::fingerprint::library_content_duplicates,
-        crate::commands::library::import_files::library_import_files,
-        crate::commands::library::watch::library_watch_set,
-        crate::commands::library::relocate::library_relocate_track,
-        crate::commands::library::export::library_export_wav,
-        crate::commands::browse::list::library_artists,
-        crate::commands::browse::list::library_albums,
-        crate::commands::browse::detail::artist_get,
-        crate::commands::browse::detail::album_get,
-        crate::commands::browse::detail::artist_tracks,
-        crate::commands::browse::detail::album_tracks,
-        crate::commands::lyrics::track_lyrics,
-        crate::commands::data::data_backup,
-        crate::commands::data::data_restore,
-        crate::commands::listening::history::history_recent,
-        crate::commands::listening::history::history_record,
-        crate::commands::listening::favorites::favorites_toggle,
-        crate::commands::listening::favorites::favorites_list,
-        crate::commands::playlists::manage::playlist_list,
-        crate::commands::playlists::manage::playlist_create,
-        crate::commands::playlists::manage::playlist_rename,
-        crate::commands::playlists::manage::playlist_duplicate,
-        crate::commands::playlists::manage::playlist_delete,
-        crate::commands::playlists::details::playlist_update_details,
-        crate::commands::playlists::details::playlist_set_cover,
-        crate::commands::playlists::tracks::detail::playlist_detail,
-        crate::commands::playlists::tracks::mutate::playlist_add_track,
-        crate::commands::playlists::tracks::mutate::playlist_remove_track,
-        crate::commands::playlists::tracks::mutate::playlist_remove_tracks,
-        crate::commands::playlists::tracks::mutate::playlist_reorder,
-        crate::commands::playlists::m3u_export::playlist_export_m3u,
-        crate::commands::playlists::m3u_import::playlist_import_m3u,
-    ]
+mod library;
+mod media;
+mod playlists;
+
+/// IPC registry split by domain: each command name starts with its domain
+/// prefix (`library_`, `playlist_`), the rest goes to the media registry.
+pub(crate) fn handler() -> impl Fn(Invoke<Wry>) -> bool + Send + Sync + 'static {
+    let library = library::handler();
+    let playlists = playlists::handler();
+    let media = media::handler();
+    move |invoke| {
+        let name = invoke.message.command();
+        if name.starts_with("library_") {
+            library(invoke)
+        } else if name.starts_with("playlist_") {
+            playlists(invoke)
+        } else {
+            media(invoke)
+        }
+    }
 }

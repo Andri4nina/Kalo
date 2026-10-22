@@ -28,6 +28,10 @@ le versionnage sémantique à partir de la première version publiée.
   synchronisées, décalage réglable et navigation par clic, sans réseau.
 - Karaoké plein écran, décalage mémorisé par morceau et commandes de lecture
   dans la superposition.
+- Paroles classiques depuis un fichier `.txt` voisin et éditeur de
+  synchronisation : marquage pendant la lecture, réglage fin, enregistrement
+  dans Kalo (prioritaire sur les fichiers, qui ne sont jamais modifiés) et
+  export vers un fichier `.lrc` choisi.
 - Préampli du Studio (±12 dB), appliqué avant l'égaliseur et persisté.
 - Studio audio : chaîne d'effets après l'égaliseur (saturation, compression,
   réverbération, écho), comparaison A/B et presets personnalisés nommés,

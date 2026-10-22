@@ -11,6 +11,7 @@ const MIGRATIONS: &[(i64, &str)] = &[
     (6, include_str!("../migrations/006_playlist_details.sql")),
     (7, include_str!("../migrations/007_content_hash.sql")),
     (8, include_str!("../migrations/008_non_music.sql")),
+    (9, include_str!("../migrations/009_lyrics.sql")),
 ];
 
 pub fn run(conn: &mut Connection) -> DbResult<()> {

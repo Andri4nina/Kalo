@@ -28,6 +28,7 @@ function inspect(file) {
     const at = `${path}:${index + 1}`;
     if (/bg-gradient-to-|bg-linear-to-|linear-gradient\s*\(/.test(line)) violations.push(`${at} dégradé interdit`);
     if (/\p{Extended_Pictographic}/u.test(line)) violations.push(`${at} emoji interdit`);
+    if (/﻿/.test(index === 0 ? line.slice(1) : line)) violations.push(`${at} caractère BOM invisible (utiliser \\uFEFF)`);
     if (/\bborder-(t|b|l|r)-/.test(line)) violations.push(`${at} bordure unilatérale`);
     if (/\b(bg|text|border|ring|from|to|via)-(blue|sky|indigo|cyan|teal|emerald|green|lime|violet|fuchsia|rose)-/.test(line)) violations.push(`${at} couleur Tailwind par défaut`);
     if (/#1(DB954|ED760)\b/i.test(line)) violations.push(`${at} vert Spotify interdit`);

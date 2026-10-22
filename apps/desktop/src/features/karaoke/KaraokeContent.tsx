@@ -6,6 +6,7 @@ import { audioTransport } from "@/features/player/audio.transport";
 import type { Track } from "@/types";
 import { KaraokeHeader } from "./KaraokeHeader";
 import { LyricsView } from "./LyricsView";
+import { PlainLyrics } from "./PlainLyrics";
 import type { LyricLine } from "./lrc";
 
 interface Props {
@@ -13,6 +14,7 @@ interface Props {
   loading: boolean;
   error: string | null;
   lines: LyricLine[];
+  plainText: string;
   active: number;
   playing: boolean;
   offsetMs: number;
@@ -26,8 +28,9 @@ export function KaraokeContent(props: Props) {
   }
   if (props.loading) return <Spinner label="Chargement des paroles" />;
   if (props.error) return <ErrorNotice message={props.error} />;
+  if (props.lines.length === 0 && props.plainText) return <PlainLyrics text={props.plainText} />;
   if (props.lines.length === 0) {
-    return <EmptyState icon={Captions} title="Aucune parole synchronisée" description="Placez un fichier .lrc UTF-8 à côté du fichier audio, avec le même nom." />;
+    return <EmptyState icon={Captions} title="Aucune parole" description="Placez un fichier .lrc ou .txt à côté du fichier audio, ou utilisez « Synchroniser » pour saisir les paroles." />;
   }
   return (
     <>

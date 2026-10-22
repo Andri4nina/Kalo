@@ -74,8 +74,10 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Synchronisation et surlignage | Livré | Ligne active, clic pour se positionner |
 | Décalage | Livré | ±5 s, mémorisé par morceau |
 | Plein écran | Livré | Superposition, Échap, commandes de lecture et décalage |
-| Recherche de paroles en ligne | Absent | Aucune source sous licence choisie |
-| Cache de paroles | Partiel | Le fichier local sert de cache ; pas de cache réseau |
+| Paroles classiques | Livré | Fichier `.txt` voisin affiché sans synchronisation |
+| Édition manuelle de la synchronisation | Livré | Marquage pendant la lecture, réglage au dixième de seconde, enregistrement en base, export `.lrc` |
+| Recherche de paroles en ligne | Écarté | Décision du 22 octobre 2026 : paroles locales uniquement, aucune source sous licence |
+| Cache de paroles | Livré | Paroles éditées dans SQLite (migration 009), prioritaires sur les fichiers voisins jamais modifiés |
 | Voix / instrumental | Bloqué | Dépend de la séparation de stems |
 | Contrôle de préparation | Partiel | Absence de `.lrc` signalée ; pas de diagnostic avancé |
 
