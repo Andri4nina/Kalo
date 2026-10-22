@@ -9,6 +9,7 @@ import { useAudioEngine } from "@/features/player/useAudioEngine";
 import { bindMediaSession } from "@/features/player/media.session";
 import { watchPlayerSession } from "@/features/player/player.session";
 import { applyAccessibility, useAccessibility } from "@/features/settings/accessibility";
+import { useFolderWatch } from "@/features/settings/useFolderWatch";
 import { useStudioEq } from "@/features/studio/useStudioEq";
 import { cn } from "@/lib/cn";
 import { Sidebar } from "./Sidebar";
@@ -22,6 +23,7 @@ export function AppShell() {
   useAudioEngine();
   useStudioEq();
   useKeyboardShortcuts();
+  useFolderWatch();
   useEffect(bindMediaSession, []);
   useEffect(watchPlayerSession, []);
 

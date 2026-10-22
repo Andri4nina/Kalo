@@ -39,5 +39,5 @@ pub fn data_restore(app: AppHandle, state: State<'_, AppState>, source: String) 
     }
     state.db.with(|conn| restore::from_file(conn, &path))?;
     setup::allow_library_roots(&app, &state.db)?;
-    Ok(())
+    crate::watch::refresh(&app)
 }

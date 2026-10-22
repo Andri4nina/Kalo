@@ -1,7 +1,5 @@
 use kalo_core::TrackQuery;
-use kalo_database::{roots, Database};
-
-use super::insert;
+use kalo_database::Database;
 
 pub fn query() -> TrackQuery {
     TrackQuery {
@@ -15,6 +13,7 @@ pub fn query() -> TrackQuery {
         availability: None,
         min_duration_ms: None,
         max_duration_ms: None,
+        kind: None,
     }
 }
 
@@ -35,16 +34,4 @@ pub fn metadata_row(db: &Database, id: i64) -> (String, i64, Option<i64>, Option
         )?)
     })
     .unwrap_or_else(|error| panic!("lecture : {error}"))
-}
-
-pub fn filtered_database() -> (Database, i64) {
-    let db = Database::in_memory().unwrap_or_else(|error| panic!("base : {error}"));
-    let root = db
-        .with(|conn| roots::add(conn, "C:/musique"))
-        .unwrap_or_else(|error| panic!("racine : {error}"));
-    insert(&db, root.id, "C:/musique/a.mp3");
-    insert(&db, root.id, "C:/musique/b.flac");
-    db.with(|conn| Ok(conn.execute("UPDATE tracks SET format = 'FLAC' WHERE path LIKE '%.flac'", [])?))
-        .unwrap_or_else(|error| panic!("format : {error}"));
-    (db, root.id)
 }

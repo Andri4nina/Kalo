@@ -50,8 +50,8 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Doublons par contenu | Livré | Empreinte BLAKE3 des seuls fichiers de même taille, mise en cache par date de modification |
 | Sélection et actions groupées | Livré | Sélection multiple, ajout groupé à la file ou à une playlist |
 | Import et classement de fichiers | Livré | Copie vérifiée vers `<racine>/<Artiste>/<Titre>.<ext>`, sans écrasement ; la source n'est jamais supprimée |
-| Filtrage des sons non musicaux | Absent | Pas de détection ringtones / jingles |
-| Surveillance des dossiers | Absent | Analyse manuelle ou à l'ajout d'un dossier |
+| Filtrage des sons non musicaux | Livré | Filtre « Type de son » : moins de 45 s ou dossiers système (sonneries, notifications, alarmes, enregistrements) ; réglable, rien n'est masqué par défaut sur ordinateur |
+| Surveillance des dossiers | Livré | Surveillance native (notify), changements appliqués après 1,5 s de calme, fichiers disparus marqués introuvables ; désactivable |
 
 ## 4. Playlists
 

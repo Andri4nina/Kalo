@@ -16,6 +16,7 @@ pub(crate) fn handler() -> impl Fn(tauri::ipc::Invoke<Wry>) -> bool + Send + Syn
         crate::commands::library::fingerprint::library_fingerprint,
         crate::commands::library::fingerprint::library_content_duplicates,
         crate::commands::library::import_files::library_import_files,
+        crate::commands::library::watch::library_watch_set,
         crate::commands::library::relocate::library_relocate_track,
         crate::commands::library::export::library_export_wav,
         crate::commands::browse::list::library_artists,

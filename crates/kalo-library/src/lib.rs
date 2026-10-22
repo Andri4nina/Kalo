@@ -1,6 +1,7 @@
 //! Read-only music library scanning. Original audio files are never modified.
 
 mod batch;
+mod changes;
 mod cover;
 mod error;
 mod extensions;
@@ -12,6 +13,7 @@ mod paths;
 mod scan;
 mod track;
 
+pub use changes::{apply_changes, audio_under, classify, owner, Change};
 pub use cover::store as store_cover;
 pub use error::LibraryError;
 pub use extensions::is_supported;

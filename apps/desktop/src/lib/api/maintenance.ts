@@ -5,5 +5,7 @@ export const fingerprintLibrary = () => invoke<FingerprintSummary>("library_fing
 
 export const listContentDuplicates = () => invoke<DuplicateGroup[]>("library_content_duplicates");
 
+export const setFolderWatch = (enabled: boolean) => invoke<boolean>("library_watch_set", { enabled });
+
 export const importFiles = (rootId: number, sources: string[]) =>
   invoke<FileImportReport>("library_import_files", { rootId, sources });

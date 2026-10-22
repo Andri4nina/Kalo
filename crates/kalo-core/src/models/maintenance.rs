@@ -31,3 +31,12 @@ pub struct FileImportReport {
     pub already_present: i64,
     pub failed: Vec<FileImportFailure>,
 }
+
+/// What the folder watcher changed in the index after a burst of events.
+#[derive(Debug, Clone, Copy, Default, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LibraryChanges {
+    pub indexed: i64,
+    pub missing: i64,
+    pub rescanned: bool,
+}

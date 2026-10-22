@@ -20,3 +20,12 @@ pub fn finish_scan(conn: &Connection, root_id: i64, mark: i64) -> DbResult<i64> 
     )?;
     Ok(changed as i64)
 }
+
+/// Flags one vanished file as missing; the row and its playlists are kept.
+pub fn flag_missing(conn: &Connection, path: &str) -> DbResult<bool> {
+    let changed = conn.execute(
+        "UPDATE tracks SET is_missing = 1, updated_at = unixepoch() WHERE path = ?1 AND is_missing = 0",
+        [path],
+    )?;
+    Ok(changed > 0)
+}

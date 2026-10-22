@@ -3,6 +3,7 @@ mod error;
 mod handlers;
 mod setup;
 mod state;
+mod watch;
 pub use error::CommandError;
 
 pub fn run() -> tauri::Result<()> {

@@ -2,15 +2,16 @@ import { useAsync } from "@/lib/useAsync";
 import { listFormats } from "@/lib/api/library";
 import { useLibraryVersion } from "./library.store";
 import { chipSelect } from "@/design/tokens";
-import type { TrackAvailability } from "@/types";
+import type { TrackAvailability, TrackKind } from "@/types";
 
 export interface FilterValue {
   format: string;
   availability: "all" | TrackAvailability;
   duration: "all" | "short" | "medium" | "long";
+  kind: "all" | TrackKind;
 }
 
-export const DEFAULT_FILTERS: FilterValue = { format: "all", availability: "all", duration: "all" };
+export const DEFAULT_FILTERS: FilterValue = { format: "all", availability: "all", duration: "all", kind: "all" };
 
 interface Props {
   value: FilterValue;
@@ -36,6 +37,11 @@ export function LibraryFilters({ value, onChange }: Props) {
         <option value="short">Moins de 2 min</option>
         <option value="medium">2 à 5 min</option>
         <option value="long">Plus de 5 min</option>
+      </select>
+      <select aria-label="Filtrer par type de son" className={chipSelect} value={value.kind} onChange={(event) => onChange({ ...value, kind: event.target.value as FilterValue["kind"] })}>
+        <option value="all">Tous les sons</option>
+        <option value="music">Musique</option>
+        <option value="other">Sons courts et sonneries</option>
       </select>
     </div>
   );

@@ -15,6 +15,9 @@ pub struct TrackQuery {
     pub availability: Option<String>,
     pub min_duration_ms: Option<i64>,
     pub max_duration_ms: Option<i64>,
+    /// `music`, `other` (short sounds, ringtones, recordings) or none.
+    #[serde(default)]
+    pub kind: Option<String>,
 }
 
 impl TrackQuery {

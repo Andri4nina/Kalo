@@ -7,5 +7,6 @@ export function toTrackFilters(value: FilterValue): TrackFilters {
     availability: value.availability === "all" ? null : value.availability,
     minDurationMs: value.duration === "medium" ? 120_000 : value.duration === "long" ? 300_001 : null,
     maxDurationMs: value.duration === "short" ? 119_999 : value.duration === "medium" ? 300_000 : null,
+    kind: value.kind === "all" ? null : value.kind,
   };
 }

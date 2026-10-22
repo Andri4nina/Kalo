@@ -28,7 +28,7 @@ pub use list::{count, list};
 pub use path::{find_id_by_path, find_path};
 pub use relocate::relocate;
 pub use remove::remove;
-pub use scan::{finish_scan, touch_seen};
+pub use scan::{finish_scan, flag_missing, touch_seen};
 pub use stats::stats;
 pub use update::update;
 pub use upsert::upsert;

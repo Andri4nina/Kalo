@@ -1,4 +1,4 @@
-import type { TrackAvailability, TrackQuery, TrackSort } from "@/types";
+import type { TrackAvailability, TrackKind, TrackQuery, TrackSort } from "@/types";
 import { listTracks } from "@/lib/api/library";
 import { useLibraryVersion } from "./library.store";
 import { useAsync } from "@/lib/useAsync";
@@ -8,6 +8,7 @@ export interface TrackFilters {
   availability: TrackAvailability | null;
   minDurationMs: number | null;
   maxDurationMs: number | null;
+  kind: TrackKind | null;
 }
 
 interface Params {
@@ -35,10 +36,11 @@ export function useTrackPage(params: Params) {
     availability: filters?.availability ?? null,
     minDurationMs: filters?.minDurationMs ?? null,
     maxDurationMs: filters?.maxDurationMs ?? null,
+    kind: filters?.kind ?? null,
   };
   return useAsync(
     () => listTracks(query),
-    [query.search, query.sort, query.favoritesOnly, query.playlistId, query.limit, query.offset, query.format, query.availability, query.minDurationMs, query.maxDurationMs, version],
+    [query.search, query.sort, query.favoritesOnly, query.playlistId, query.limit, query.offset, query.format, query.availability, query.minDurationMs, query.maxDurationMs, query.kind, version],
   );
 }
 

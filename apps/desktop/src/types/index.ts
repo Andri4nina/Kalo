@@ -1,4 +1,4 @@
-export type { Track, TrackAvailability, TrackPage, TrackQuery, TrackSort, TrackUpdate } from "./track";
+export type { Track, TrackAvailability, TrackKind, TrackPage, TrackQuery, TrackSort, TrackUpdate } from "./track";
 export type { DuplicateGroup } from "./duplicate";
 export type { AlbumSummary, ArtistSummary } from "./browse";
 export type {
@@ -14,4 +14,5 @@ export type {
   FileImportReport,
   FingerprintProgress,
   FingerprintSummary,
+  LibraryChanges,
 } from "./maintenance";

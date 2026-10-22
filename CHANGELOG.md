@@ -62,6 +62,10 @@ le versionnage sémantique à partir de la première version publiée.
 - Réduction des animations depuis les réglages d'accessibilité, appliquée à
   l'ensemble de l'interface.
 - Filtres de bibliothèque par format, disponibilité et durée.
+- Filtre « Type de son » séparant la musique des sons courts, sonneries,
+  notifications, alarmes et enregistrements (colonne calculée, migration 008).
+- Surveillance des dossiers (activée par défaut, désactivable) : ajouts,
+  modifications et suppressions appliqués automatiquement, en lecture seule.
 - Recherche étendue au chemin du fichier, avec échappement des jokers SQL.
 - Import et export M3U UTF-8 des playlists, avec résumé des morceaux ajoutés et
   ignorés.

@@ -9,7 +9,8 @@ const FILTERS: &str = "WHERE (?1 IS NULL OR t.title LIKE ?1 ESCAPE '\\' OR a.nam
     AND (?6 IS NULL OR t.format = ?6 COLLATE NOCASE)
     AND (?7 IS NULL OR (?7 = 'missing' AND t.is_missing = 1) OR (?7 = 'available' AND t.is_missing = 0))
     AND (?8 IS NULL OR t.duration_ms >= ?8)
-    AND (?9 IS NULL OR t.duration_ms <= ?9)";
+    AND (?9 IS NULL OR t.duration_ms <= ?9)
+    AND (?10 IS NULL OR (?10 = 'music' AND t.non_music = 0) OR (?10 = 'other' AND t.non_music = 1))";
 
 fn bind(query: &TrackQuery) -> impl rusqlite::Params {
     (
@@ -22,6 +23,7 @@ fn bind(query: &TrackQuery) -> impl rusqlite::Params {
         query.availability.clone(),
         query.min_duration_ms,
         query.max_duration_ms,
+        query.kind.clone(),
     )
 }
 

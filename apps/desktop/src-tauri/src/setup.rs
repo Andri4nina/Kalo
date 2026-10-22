@@ -6,6 +6,7 @@ use tauri::{App, AppHandle, Manager};
 use kalo_database::{Database, DbResult};
 
 use crate::state::AppState;
+use crate::watch::FolderWatch;
 
 pub fn init(app: &mut App) -> Result<(), Box<dyn std::error::Error>> {
     let data_dir = app.path().app_data_dir()?;
@@ -22,6 +23,7 @@ pub fn init(app: &mut App) -> Result<(), Box<dyn std::error::Error>> {
         cache_dir,
         scanning: Default::default(),
     });
+    app.manage(FolderWatch::default());
     Ok(())
 }
 

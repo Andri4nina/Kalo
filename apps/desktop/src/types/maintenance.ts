@@ -9,6 +9,12 @@ export interface FingerprintSummary {
   durationMs: number;
 }
 
+export interface LibraryChanges {
+  indexed: number;
+  missing: number;
+  rescanned: boolean;
+}
+
 export interface FileImportFailure {
   path: string;
   reason: string;

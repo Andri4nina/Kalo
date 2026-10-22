@@ -10,7 +10,7 @@ pub mod track;
 pub use browse::{AlbumSummary, ArtistSummary};
 pub use duplicate::DuplicateGroup;
 pub use library::{ImportSummary, LibraryRoot, LibraryStats, ScanProgress, ScanSummary};
-pub use maintenance::{FileImportFailure, FileImportReport, FingerprintProgress, FingerprintSummary};
+pub use maintenance::{FileImportFailure, FileImportReport, FingerprintProgress, FingerprintSummary, LibraryChanges};
 pub use new_track::NewTrack;
 pub use playlist::{Playlist, PlaylistDetail};
 pub use query::{TrackPage, TrackQuery};

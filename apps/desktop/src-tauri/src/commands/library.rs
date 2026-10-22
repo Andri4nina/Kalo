@@ -9,3 +9,4 @@ pub(crate) mod remove;
 pub(crate) mod roots;
 pub(crate) mod scan;
 pub(crate) mod update;
+pub(crate) mod watch;

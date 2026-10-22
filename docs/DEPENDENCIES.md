@@ -42,6 +42,7 @@ revérifiées avant chaque publication avec les outils de l'écosystème.
 | `walkdir` | 2.5.0 | Unlicense/MIT |
 | `blake3` | 1.8.7 | CC0-1.0 OR Apache-2.0 OR Apache-2.0 WITH LLVM-exception |
 | `dunce` | 1.0.5 | CC0-1.0 OR MIT-0 OR Apache-2.0 |
+| `notify` | 8.2.0 | CC0-1.0 |
 
 SQLite est compilé via `libsqlite3-sys` avec la fonctionnalité `bundled`.
 SQLite est dans le domaine public.

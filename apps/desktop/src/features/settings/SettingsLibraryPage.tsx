@@ -1,5 +1,6 @@
 import { PageHeader } from "@/components/PageHeader";
 import { LibraryRootsCard } from "./LibraryRootsCard";
+import { WatchFoldersCard } from "./WatchFoldersCard";
 
 export function SettingsLibraryPage() {
   return (
@@ -7,9 +8,10 @@ export function SettingsLibraryPage() {
       <PageHeader
         eyebrow="Préférences"
         title="Bibliothèque"
-        description="Dossiers surveillés et analyse locale."
+        description="Dossiers de musique, analyse locale et mise à jour automatique."
       />
       <LibraryRootsCard />
+      <WatchFoldersCard />
     </div>
   );
 }
