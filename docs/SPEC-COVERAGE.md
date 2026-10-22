@@ -18,7 +18,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Favori depuis le lecteur | Livré | Synchronisé avec la bibliothèque |
 | Accès file, karaoké et studio | Livré | Boutons dans la barre de lecture |
 | Reprise de la position | Livré | File, index et position enregistrés toutes les 5 s ; désactivable |
-| Erreurs audio avec actions | Partiel | Bandeau d'erreur et fermeture ; pas encore de « réessayer » ou « localiser » depuis le bandeau |
+| Erreurs audio avec actions | Livré | Message Kalo unique, actions Réessayer (reprise à la position), Localiser le fichier et Suivant |
 | Lecture en arrière-plan | Partiel | Desktop uniquement ; mobile absent |
 | Touches multimédias natives | Partiel | Media Session Web ; pas de gestionnaire global par plateforme |
 
@@ -29,7 +29,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Ajouter, retirer, vider | Livré | Vidage avec confirmation |
 | Lire maintenant / lire ensuite | Livré | `playTrack`, `playNext` |
 | Réordonner | Livré | Boutons monter / descendre |
-| Glisser-déposer | Absent | Les boutons assurent déjà le réordonnancement accessible |
+| Glisser-déposer | Livré | Glisser-déposer natif dans la file ; flèches conservées pour le clavier |
 | Provenance des morceaux | Livré | Source affichée dans la file : bibliothèque, favoris, playlist, album, artiste, doublons, récents |
 | Historique de lecture dans la file | Livré | 30 derniers morceaux quittés, liste cliquable dans la file |
 
@@ -131,7 +131,7 @@ Légende : **Livré** = fonctionnel et testé ; **Partiel** = présent mais inco
 | Accessibilité | Partiel | Navigation clavier, focus, réglage dédié de réduction des animations ; validation lecteur d'écran non réalisée |
 | Raccourcis | Livré | Neuf actions personnalisables, détection des conflits, réinitialisation et persistance locale |
 | Notifications | Absent | Pas de préférences de notifications |
-| Périphériques audio | Absent | Pas de sélection de sortie |
+| Périphériques audio | Bloqué | La sortie suit le périphérique par défaut du système ; WebView2 ne liste les sorties qu'avec l'accès au micro, refusé par principe de permission minimale |
 | Stockage | Partiel | Statistiques affichées ; pas de nettoyage ni d'emplacement configurable |
 
 ## 11. États, navigation et design

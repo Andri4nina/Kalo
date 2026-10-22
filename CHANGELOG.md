@@ -64,6 +64,9 @@ le versionnage sémantique à partir de la première version publiée.
   duplication transactionnelle, recherche dans la liste et dans une playlist
   (insensible aux accents, réordonnancement suspendu pendant le filtre).
 - Reprise de la file et de la position configurable dans les paramètres.
+- Bandeau d'erreur du lecteur avec actions Réessayer, Localiser le fichier et
+  Suivant ; un fichier relocalisé est rechargé sans relancer l'application.
+- Glisser-déposer dans la file d'attente, en plus des flèches au clavier.
 - Cartes Confidentialité et Diagnostics, avec rapport local copiable.
 - Historique d'écoute récent.
 - Thèmes clair et sombre, raccourcis clavier.
@@ -94,6 +97,8 @@ le versionnage sémantique à partir de la première version publiée.
 - La recherche traite désormais `%` et `_` comme des caractères littéraux.
 - L'édition des métadonnées ne touche qu'à la base ; le fichier audio reste
   strictement inchangé.
+- Un refus de lecture pour source illisible affiche le message Kalo au lieu du
+  message brut du moteur.
 
 ### Sécurité
 

@@ -1,8 +1,14 @@
+import { errorMessage } from "@/lib/format";
 import { usePlayer } from "./player.store";
 import { persistPlayerPosition } from "./player.session";
 
 export const READ_ERROR =
   "Lecture impossible. Vérifiez que le fichier existe et que son format est pris en charge.";
+
+/** Message lisible pour un refus de lecture ; une source illisible devient READ_ERROR. */
+export function playError(reason: unknown): string {
+  return (reason as DOMException | undefined)?.name === "NotSupportedError" ? READ_ERROR : errorMessage(reason);
+}
 
 export function bindAudioEvents(audio: HTMLAudioElement): void {
   audio.addEventListener("timeupdate", () => {
